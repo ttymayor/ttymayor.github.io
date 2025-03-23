@@ -1,0 +1,24 @@
+{{ define "main" }}
+<div class="w-full md:w-3/4 lg:w-1/2 mx-auto px-4 py-12">
+    <h1 class="text-5xl font-bold mb-12">{{ .Title }}</h1>
+    
+    <div class="space-y-12 max-w-3xl mx-auto">
+        {{ range .Site.Params.blogs }}
+        <div class="group">
+            <p class="text-gray-400 text-sm mb-2">{{ .date }}</p>
+            <a href="{{ .link }}" class="block" target="_blank">
+                <h3 class="text-xl font-medium text-blue-400 hover:text-blue-300 transition-colors duration-200 mb-3">{{ .title }}</h3>
+            </a>
+            <p class="text-gray-400 mb-4">{{ .summary }}</p>
+            <div class="flex flex-wrap gap-2">
+                {{ range .tags }}
+                {{ if ne . "" }}
+                <span class="px-2 py-1 text-xs bg-[#121212] text-gray-100 border border-gray-800 rounded-md transition-all duration-300">{{ . }}</span>
+                {{ end }}
+                {{ end }}
+            </div>
+        </div>
+        {{ end }}
+    </div>
+</div>
+{{ end }} 

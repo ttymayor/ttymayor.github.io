@@ -1,0 +1,123 @@
+{{ define "main" }}
+<div class="max-w-4xl mx-auto px-4 py-12">
+    <h1 class="text-5xl font-bold mb-6 text-gray-100">{{ .Title }}</h1>
+
+    <div class="flex flex-col gap-8">
+        <div class="flex-grow">
+            <div class="bg-[#121212] p-8 rounded-lg mb-8">
+                <div class="prose prose-invert prose-lg max-w-none">
+                    <div class="text-lg">
+                        {{ .Content }}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-[#121212] p-6 md:p-8 rounded-lg mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-gray-100">Honors & Awards</h2>
+                <div class="space-y-6">
+                    <div class="flex flex-col gap-2 p-4 rounded-lg bg-[#121212] border border-gray-800 transition-all duration-300">
+                        <div class="text-gray-400 text-sm">K K Wagh Arts Commerce Science and Computer Science College</div>
+                        <div class="flex items-center gap-2">
+                            <h3 class="text-xl md:text-2xl font-semibold text-gray-100">Academic Topper</h3>
+                        </div>
+                        <div class="text-gray-400 flex items-center gap-2 text-sm">
+                            <span>March 2023</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col gap-2 p-4 rounded-lg bg-[#121212] border border-gray-800 transition-all duration-300">
+                        <div class="text-gray-400 text-sm">Podar International School, Nashik</div>
+                        <div class="flex items-center gap-2">
+                            <h3 class="text-xl md:text-2xl font-semibold text-gray-100">Academic Excellence Award</h3>
+                        </div>
+                        <div class="text-gray-400 flex items-center gap-2 text-sm">
+                            <span>October 2017</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-[#121212] p-6 md:p-8 rounded-lg mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-gray-100">Certifications</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=E5845422D7DE89C09337652BAF48826F0C6C9CB6FAA7B0FE9F8B1AF447FACAB9" 
+                       target="_blank"
+                       class="flex flex-col h-full p-4 md:p-6 rounded-lg bg-[#121212] border border-gray-800 hover:shadow-md transition-all duration-300">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-lg md:text-xl font-semibold text-gray-100">Oracle Vector AI Professional</h3>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-1">Issued: Feb 2025</p>
+                    </a>
+                    
+                    <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=5C2C44615B73F678DF85E44418348C3535ABCE032C9F7E82F196472434C80BCB" 
+                       target="_blank"
+                       class="flex flex-col h-full p-4 md:p-6 rounded-lg bg-[#121212] border border-gray-800 hover:shadow-md transition-all duration-300">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-lg md:text-xl font-semibold text-gray-100">Oracle Generative AI Professional</h3>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-1">Issued: July 2024</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-[#121212] p-6 md:p-8 rounded-lg mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-gray-100">Voluntary Work</h2>
+                <div class="space-y-6">
+                    {{ range .Site.Params.voluntary }}
+                    <div class="flex flex-col gap-2 p-4 rounded-lg bg-[#121212] border border-gray-800 transition-all duration-300">
+                        <div class="text-gray-400 hover:text-gray-200 text-base">
+                            <a href="https://www.buntssanghamumbai.com/" target="_blank" class="animated-link flex items-center gap-2">
+                                {{ .organization }}
+                            </a>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <h3 class="text-xl md:text-2xl font-semibold text-gray-100">{{ .role }}</h3>
+                        </div>
+                        <div class="text-gray-400 flex items-center gap-2 text-base">
+                            <span>{{ .period }}</span>
+                        </div>
+                        <p class="text-gray-300 text-base">{{ .description }}</p>
+                    </div>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .prose {
+        @apply text-gray-300;
+        font-size: 1.125rem;
+    }
+    .prose p {
+        @apply text-gray-300 mb-6;
+        line-height: 1.9;
+        font-size: 1.00rem;
+    }
+    .prose p + p {
+        margin-top: 2rem;
+    }
+
+    .animated-link {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+    }
+    
+    .animated-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 1px;
+        bottom: -1px;
+        left: 0;
+        background-color: #ffffff;
+        transition: width 0.3s ease-in-out;
+    }
+    
+    .animated-link:hover::after {
+        width: 100%;
+    }
+</style>
+{{ end }} 

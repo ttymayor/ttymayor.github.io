@@ -1,0 +1,17 @@
+name = "Dark Noir"
+license = "MIT"
+licenselink = "https://github.com/prxshetty/hugo-noir/blob/main/LICENSE"
+description = "A clean, minimalistic theme for Hugo with a focus on readability and simplicity"
+
+# The home page of the theme, where the source can be found
+homepage = "https://github.com/prxshetty/hugo-noir"
+
+# If you have a running demo of the theme
+demosite = "https://pranamshetty.dev"
+
+tags = ["blog", "minimalist", "responsive", "tailwind", "clean", "light", "personal", "dark"]
+features = ["responsive", "tailwind css", "minimalist", "blog", "clean design", "fast", "seo-friendly"]
+
+[author]
+    name = "Pranam Shetty"
+    homepage = "https://github.com/prxshetty" 

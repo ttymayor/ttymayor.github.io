@@ -1,0 +1,21 @@
+{{ define "main" }}
+<div class="w-1/2 mx-auto py-12">
+    <div class="max-w-3xl mx-auto p-8 border border-gray-800 rounded-2xl bg-[#121212]">
+        <h1 class="text-4xl font-bold mb-4">{{ .Title }}</h1>
+        {{ if eq .Section "blogs" }}
+            <div class="flex items-center gap-4 mb-8 text-gray-400">
+                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+                <div class="flex gap-2">
+                    {{ range .Params.tags }}
+                    <span class="px-2 py-1 bg-gray-800 rounded-md text-xs font-medium text-gray-300">{{ . }}</span>
+                    {{ end }}
+                </div>
+            </div>
+        {{ end }}
+        
+        <div class="prose prose-invert max-w-none">
+            {{ .Content }}
+        </div>
+    </div>
+</div>
+{{ end }} 

@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.tech-icon {
+    filter: grayscale(100%) brightness(200%);
+    transition: all 0.3s ease;
+}
+
+.tech-icon:hover {
+    filter: none;
+}
+
+.experience-timeline {
+    position: relative;
+}
+
+.experience-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #333;
+} 

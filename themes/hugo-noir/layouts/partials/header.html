@@ -1,0 +1,161 @@
+{{ $currentPage := . }}
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C0RTF18BT4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-C0RTF18BT4');
+    </script>
+    
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+    </style>
+</head>
+<header class="py-6 relative">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div class="flex justify-between items-center">
+                <a href="{{ .Site.BaseURL }}" class="text-xl font-bold text-white hover:text-gray-300 transition-colors duration-300">
+                    {{ site.Params.name }}
+                </a>
+                <!-- Hamburger menu button for mobile -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex flex-wrap justify-center items-center gap-4 md:gap-6">
+                <!-- <a href="{{ .Site.BaseURL }}" class="inline-block text-lg text-gray-300 hover:text-white transition-colors duration-300 {{ if .IsHome }}text-white font-semibold{{ end }}">Home</a> -->
+                {{ range .Site.Menus.main }}
+                <a href="{{ .URL }}" class="inline-block text-lg text-gray-300 hover:text-white transition-colors duration-300 {{ if eq $.RelPermalink .URL }}text-white font-semibold{{ end }}">{{ .Name }}</a>
+                {{ end }}
+            </nav>
+            <div class="hidden md:flex justify-end">
+                <div class="flex items-center">
+                    <span class="text-lg text-gray-300 mr-2">Local Time:</span>
+                    <div id="local-time" class="text-lg text-gray-300"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Navigation Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden transition-all duration-300">
+        <div class="flex flex-col h-full">
+            <div class="flex justify-between items-center p-6 border-b border-gray-800">
+                <span class="text-xl font-bold text-white">Menu</span>
+                <button id="mobile-menu-close" class="text-gray-300 hover:text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <nav class="flex flex-col p-6 space-y-4">
+                {{ range .Site.Menus.main }}
+                <a href="{{ .URL }}" class="text-xl text-gray-300 hover:text-white transition-colors duration-300 {{ if eq $.RelPermalink .URL }}text-white font-semibold{{ end }}">{{ .Name }}</a>
+                {{ end }}
+            </nav>
+            <div class="mt-auto p-6 border-t border-gray-800">
+                <div class="flex items-center justify-center">
+                    <span class="text-lg text-gray-300 mr-2">Local Time:</span>
+                    <div id="mobile-local-time" class="text-lg text-gray-300"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<script>
+    // Time display function
+    function updateLocalTime() {
+        const timeElements = document.querySelectorAll('#local-time, #mobile-local-time');
+        timeElements.forEach(element => {
+            if (element) {
+                const now = new Date();
+                const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                element.textContent = timeString;
+                const hours = now.getHours();
+                const period = hours >= 12 ? 'p.m.' : 'a.m.';
+                const formattedHours = hours % 12 || 12;
+                const formattedTimeString = `${period} ${formattedHours}:${now.getMinutes().toString().padStart(2, '0')}`;
+                element.textContent = formattedTimeString;
+            }
+        });
+    }
+    updateLocalTime();
+    setInterval(updateLocalTime, 1000);
+
+    // Mobile menu functionality
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    function toggleMobileMenu() {
+        const isHidden = mobileMenu.classList.contains('hidden');
+        if (isHidden) {
+            mobileMenu.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+        } else {
+            mobileMenu.classList.add('hidden');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+    }
+
+    mobileMenuButton.addEventListener('click', toggleMobileMenu);
+    mobileMenuClose.addEventListener('click', toggleMobileMenu);
+
+    // Close menu when clicking on a link
+    const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+    mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            toggleMobileMenu();
+        });
+    });
+
+    // Only try to access theme toggle elements if they exist
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    if (themeToggleBtn) {
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+            themeToggleDarkIcon.classList.add('hidden');
+        } else {
+            themeToggleLightIcon.classList.add('hidden');
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+    }
+</script> 
