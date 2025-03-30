@@ -15,6 +15,10 @@
         
         
         <style>
+            ::selection {
+                background-color: #6366f1;
+                color: #f3f4f6;
+            }
             html, body {
                 background-color: #121212;
                 color: #f3f4f6;
@@ -103,6 +107,10 @@
             .tech-slide {
                 float: left;
             }
+
+            footer {
+                background: linear-gradient(to bottom, transparent, rgba(17, 24, 39, 0.5));
+            }
         </style>
     </head>
     <body class="min-h-screen bg-[#121212] text-gray-100">
@@ -139,16 +147,16 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
-            </div>            
+            </div>
             
             <nav class="hidden md:flex flex-wrap justify-center items-center gap-4 md:gap-6">
                 
                 
-                <a href="../about/" class="inline-block text-lg text-gray-300 hover:text-white transition-colors duration-300 ">About</a>
+                <a href="https://ttymayor.com/about/" class="inline-block text-lg text-gray-300 hover:text-white transition-colors duration-300 ">關於</a>
                 
-                <a href="../blogs/" class="inline-block text-lg text-gray-300 hover:text-white transition-colors duration-300 ">Blogs</a>
+                <a href="https://ttymayor.com/blogs/" class="inline-block text-lg text-gray-300 hover:text-white transition-colors duration-300 ">文章</a>
                 
-                <a href="../contact/" class="inline-block text-lg text-gray-300 hover:text-white transition-colors duration-300 text-white font-semibold">Contact</a>
+                <a href="https://ttymayor.com/contact/" class="inline-block text-lg text-gray-300 hover:text-white transition-colors duration-300 text-white font-semibold">聯絡我</a>
                 
             </nav>
             <div class="hidden md:flex justify-end">
@@ -173,11 +181,11 @@
             </div>
             <nav class="flex flex-col p-6 space-y-4">
                 
-                <a href="../about/" class="text-xl text-gray-300 hover:text-white transition-colors duration-300 ">About</a>
+                <a href="https://ttymayor.com/about/" class="text-xl text-gray-300 hover:text-white transition-colors duration-300 ">關於</a>
                 
-                <a href="../blogs/" class="text-xl text-gray-300 hover:text-white transition-colors duration-300 ">Blogs</a>
+                <a href="https://ttymayor.com/blogs/" class="text-xl text-gray-300 hover:text-white transition-colors duration-300 ">文章</a>
                 
-                <a href="../contact/" class="text-xl text-gray-300 hover:text-white transition-colors duration-300 text-white font-semibold">Contact</a>
+                <a href="https://ttymayor.com/contact/" class="text-xl text-gray-300 hover:text-white transition-colors duration-300 text-white font-semibold">聯絡我</a>
                 
             </nav>
             <div class="mt-auto p-6 border-t border-gray-800">
@@ -199,11 +207,6 @@
                 const now = new Date();
                 const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
                 element.textContent = timeString;
-                const hours = now.getHours();
-                const period = hours >= 12 ? 'p.m.' : 'a.m.';
-                const formattedHours = hours % 12 || 12;
-                const formattedTimeString = `${period} ${formattedHours}:${now.getMinutes().toString().padStart(2, '0')}`;
-                element.textContent = formattedTimeString;
             }
         });
     }
@@ -277,16 +280,79 @@
 </script> 
         <main>
             
-<div class="w-1/2 mx-auto py-12">
-    <div class="max-w-3xl mx-auto p-8 border border-gray-800 rounded-2xl bg-[#121212]">
-        <h1 class="text-4xl font-bold mb-4">Contact</h1>
-        
-        
-        <div class="prose prose-invert max-w-none">
+<div class="max-w-4xl mx-auto px-4 py-12">
+    <h1 class="text-5xl font-bold mb-6 text-gray-100">Contact</h1>
+    <div class="bg-[#121212] p-8 rounded-lg">
+        <div class="prose prose-invert prose-lg max-w-none">
+            <div class="text-gray-300 text-lg mb-8">
+                
+            </div>
             
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                
+                <a href="mailto:me@ttymayor.com" class="contact-link flex items-center gap-4 p-4 rounded-lg bg-[#121212] border border-gray-700 hover:border-indigo-300 transition-all duration-300 group">
+                    <svg class="w-7 h-7 text-gray-400 shrink-0 group-hover:text-gray-200 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.75">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                    <div class="min-w-0">
+                        <div class="text-gray-400 group-hover:text-gray-200 transition-colors duration-300 truncate">Email</div>
+                        <div class="text-sm text-gray-500 group-hover:text-gray-400 transition-colors duration-300 truncate">me@ttymayor.com</div>
+                    </div>
+                </a>
+
+                
+                <div class="contact-link flex items-center gap-4 p-4 rounded-lg bg-[#121212] border border-gray-700 hover:border-indigo-300 transition-all duration-300 group">
+                    <svg class="w-7 h-7 text-gray-400 shrink-0 group-hover:text-gray-200 transition-colors duration-300" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
+                    </svg>
+                    <div class="min-w-0">
+                        <div class="text-gray-400 group-hover:text-gray-200 transition-colors duration-300 truncate">Discord</div>
+                        <div class="text-sm text-gray-500 group-hover:text-gray-400 transition-colors duration-300 truncate">tantuyutty</div>
+                    </div>
+                </div>
+
+                
+                <a href="https://instagram.com/ttymayor.dev" class="contact-link flex items-center gap-4 p-4 rounded-lg bg-[#121212] border border-gray-700 hover:border-indigo-300 transition-all duration-300 group">
+                    <svg class="w-7 h-7 text-gray-400 shrink-0 group-hover:text-gray-200 transition-colors duration-300" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M7.465 1.066C8.638 1.012 9.012 1 12 1s3.362.013 4.534.066s1.972.24 2.672.511c.733.277 1.398.71 1.948 1.27c.56.549.992 1.213 1.268 1.947c.272.7.458 1.5.512 2.67C22.988 8.639 23 9.013 23 12s-.013 3.362-.066 4.535c-.053 1.17-.24 1.97-.512 2.67a5.4 5.4 0 0 1-1.268 1.949c-.55.56-1.215.992-1.948 1.268c-.7.272-1.5.458-2.67.512c-1.174.054-1.548.066-4.536.066s-3.362-.013-4.535-.066c-1.17-.053-1.97-.24-2.67-.512a5.4 5.4 0 0 1-1.949-1.268a5.4 5.4 0 0 1-1.269-1.948c-.271-.7-.457-1.5-.511-2.67C1.012 15.361 1 14.987 1 12s.013-3.362.066-4.534s.24-1.972.511-2.672a5.4 5.4 0 0 1 1.27-1.948a5.4 5.4 0 0 1 1.947-1.269c.7-.271 1.5-.457 2.67-.511m8.98 1.98c-1.16-.053-1.508-.064-4.445-.064s-3.285.011-4.445.064c-1.073.049-1.655.228-2.043.379c-.513.2-.88.437-1.265.822a3.4 3.4 0 0 0-.822 1.265c-.151.388-.33.97-.379 2.043c-.053 1.16-.064 1.508-.064 4.445s.011 3.285.064 4.445c.049 1.073.228 1.655.379 2.043c.176.477.457.91.822 1.265c.355.365.788.646 1.265.822c.388.151.97.33 2.043.379c1.16.053 1.507.064 4.445.064s3.285-.011 4.445-.064c1.073-.049 1.655-.228 2.043-.379c.513-.2.88-.437 1.265-.822c.365-.355.646-.788.822-1.265c.151-.388.33-.97.379-2.043c.053-1.16.064-1.508.064-4.445s-.011-3.285-.064-4.445c-.049-1.073-.228-1.655-.379-2.043c-.2-.513-.437-.88-.822-1.265a3.4 3.4 0 0 0-1.265-.822c-.388-.151-.97-.33-2.043-.379m-5.85 12.345a3.669 3.669 0 0 0 4-5.986a3.67 3.67 0 1 0-4 5.986M8.002 8.002a5.654 5.654 0 1 1 7.996 7.996a5.654 5.654 0 0 1-7.996-7.996m10.906-.814a1.337 1.337 0 1 0-1.89-1.89a1.337 1.337 0 0 0 1.89 1.89" clip-rule="evenodd"/></svg>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                    <div class="min-w-0">
+                        <div class="text-gray-400 group-hover:text-gray-200 transition-colors duration-300 truncate">instagram</div>
+                        <div class="text-sm text-gray-500 group-hover:text-gray-400 transition-colors duration-300 truncate">ttymayor.dev</div>
+                    </div>
+                </a>
+
+                
+                
+
+                
+                
+            </div>
         </div>
     </div>
 </div>
+
+<style>
+    .prose {
+        color: #d1d5db;  
+    }
+    .prose p {
+        color: #d1d5db;  
+        margin-bottom: 1.5rem;  
+        line-height: 1.9;
+    }
+    
+    .contact-link {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    @media (max-width: 768px) {
+        .contact-link {
+            width: 100%;
+        }
+    }
+</style>
 
         </main>
         
@@ -295,7 +361,7 @@
         <div class="border-t border-gray-800 pt-5">
             <div class="flex flex-col items-center justify-center gap-2">                
                 <p class="text-gray-500 text-xm ">© 2025 市長 / tantuyu</p>
-                <p class="text-gray-500 text-xm pb-12">Built using <a href="https://gohugo.io/" target="_blank" class="animated-link text-gray-400 hover:text-gray-200">Hugo</a>. Take a look at author <a href="https://github.com/prxshetty/" target="_blank" class="animated-link text-gray-400 hover:text-gray-200">GitHub</a></p>
+                <p class="text-gray-500 text-xm pb-12">Built using <a href="https://gohugo.io/" target="_blank" class="animated-link text-gray-400 hover:text-gray-200">Hugo</a>. Take a look at my <a href="https://github.com/prxshetty/" target="_blank" class="animated-link text-gray-400 hover:text-gray-200">GitHub</a></p>
             </div>
         </div>
     </div>

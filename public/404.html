@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Experience - 市長 / tantuyu</title>
+        <title>404 Page not found - 市長 / tantuyu</title>
         
         
         <link rel="apple-touch-icon" sizes="180x180" href="https://ttymayor.com/favicon_io/apple-touch-icon.png">
@@ -15,6 +15,10 @@
         
         
         <style>
+            ::selection {
+                background-color: #6366f1;
+                color: #f3f4f6;
+            }
             html, body {
                 background-color: #121212;
                 color: #f3f4f6;
@@ -103,6 +107,10 @@
             .tech-slide {
                 float: left;
             }
+
+            footer {
+                background: linear-gradient(to bottom, transparent, rgba(17, 24, 39, 0.5));
+            }
         </style>
     </head>
     <body class="min-h-screen bg-[#121212] text-gray-100">
@@ -139,16 +147,16 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
-            </div>            
+            </div>
             
             <nav class="hidden md:flex flex-wrap justify-center items-center gap-4 md:gap-6">
                 
                 
-                <a href="../about/" class="inline-block text-lg text-gray-300 hover:text-white transition-colors duration-300 ">About</a>
+                <a href="https://ttymayor.com/about/" class="inline-block text-lg text-gray-300 hover:text-white transition-colors duration-300 ">關於</a>
                 
-                <a href="../blogs/" class="inline-block text-lg text-gray-300 hover:text-white transition-colors duration-300 ">Blogs</a>
+                <a href="https://ttymayor.com/blogs/" class="inline-block text-lg text-gray-300 hover:text-white transition-colors duration-300 ">文章</a>
                 
-                <a href="../contact/" class="inline-block text-lg text-gray-300 hover:text-white transition-colors duration-300 ">Contact</a>
+                <a href="https://ttymayor.com/contact/" class="inline-block text-lg text-gray-300 hover:text-white transition-colors duration-300 ">聯絡我</a>
                 
             </nav>
             <div class="hidden md:flex justify-end">
@@ -173,11 +181,11 @@
             </div>
             <nav class="flex flex-col p-6 space-y-4">
                 
-                <a href="../about/" class="text-xl text-gray-300 hover:text-white transition-colors duration-300 ">About</a>
+                <a href="https://ttymayor.com/about/" class="text-xl text-gray-300 hover:text-white transition-colors duration-300 ">關於</a>
                 
-                <a href="../blogs/" class="text-xl text-gray-300 hover:text-white transition-colors duration-300 ">Blogs</a>
+                <a href="https://ttymayor.com/blogs/" class="text-xl text-gray-300 hover:text-white transition-colors duration-300 ">文章</a>
                 
-                <a href="../contact/" class="text-xl text-gray-300 hover:text-white transition-colors duration-300 ">Contact</a>
+                <a href="https://ttymayor.com/contact/" class="text-xl text-gray-300 hover:text-white transition-colors duration-300 ">聯絡我</a>
                 
             </nav>
             <div class="mt-auto p-6 border-t border-gray-800">
@@ -199,11 +207,6 @@
                 const now = new Date();
                 const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
                 element.textContent = timeString;
-                const hours = now.getHours();
-                const period = hours >= 12 ? 'p.m.' : 'a.m.';
-                const formattedHours = hours % 12 || 12;
-                const formattedTimeString = `${period} ${formattedHours}:${now.getMinutes().toString().padStart(2, '0')}`;
-                element.textContent = formattedTimeString;
             }
         });
     }
@@ -277,16 +280,58 @@
 </script> 
         <main>
             
-<div class="w-1/2 mx-auto py-12">
-    <div class="max-w-3xl mx-auto p-8 border border-gray-800 rounded-2xl bg-[#121212]">
-        <h1 class="text-4xl font-bold mb-4">Experience</h1>
-        
-        
-        <div class="prose prose-invert max-w-none">
-            
+<div class="max-w-4xl mx-auto px-4 py-12">
+    <h1 class="p-8 text-5xl font-bold mb-6 text-gray-100">404 Not Found</h1>
+
+    <div class="flex flex-col gap-8">
+        <div class="flex-grow">
+            <div class="bg-[#121212] p-12 rounded-lg mb-8">
+                <div class="prose prose-invert prose-lg max-w-none">
+                    <div class="text-lg">
+                        <p class="text-gray-100 text-lg mb-6">找不到您要找的頁面。</p>
+                        <p class="text-gray-400 mb-6">將在 <span id="countdown">5</span> 秒後，回到上一頁...</p>
+                        <div class="flex gap-4 mt-8">
+                            <button onclick="goBack()" class="px-6 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-md transition duration-300">
+                                回上一頁
+                            </button>
+                            <a href="https://ttymayor.com/" class="px-6 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-md transition duration-300">
+                                回到首頁
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
+<script>
+    
+    let timeLeft = 5;
+    const countdownElement = document.getElementById('countdown');
+    
+    
+    const countdownTimer = setInterval(function() {
+        timeLeft--;
+        countdownElement.textContent = timeLeft;
+        
+        if (timeLeft <= 0) {
+            clearInterval(countdownTimer);
+            goBack();
+        }
+    }, 1000);
+    
+    function goBack() {
+        
+        if (window.history.length > 1) {
+            window.history.back();
+        } else {
+            
+            window.location.href = 'https:\/\/ttymayor.com\/';
+        }
+    }
+</script>
+
 
         </main>
         
@@ -295,7 +340,7 @@
         <div class="border-t border-gray-800 pt-5">
             <div class="flex flex-col items-center justify-center gap-2">                
                 <p class="text-gray-500 text-xm ">© 2025 市長 / tantuyu</p>
-                <p class="text-gray-500 text-xm pb-12">Built using <a href="https://gohugo.io/" target="_blank" class="animated-link text-gray-400 hover:text-gray-200">Hugo</a>. Take a look at author <a href="https://github.com/prxshetty/" target="_blank" class="animated-link text-gray-400 hover:text-gray-200">GitHub</a></p>
+                <p class="text-gray-500 text-xm pb-12">Built using <a href="https://gohugo.io/" target="_blank" class="animated-link text-gray-400 hover:text-gray-200">Hugo</a>. Take a look at my <a href="https://github.com/prxshetty/" target="_blank" class="animated-link text-gray-400 hover:text-gray-200">GitHub</a></p>
             </div>
         </div>
     </div>

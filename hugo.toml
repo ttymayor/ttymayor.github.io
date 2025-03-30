@@ -1,4 +1,5 @@
 baseURL = "https://ttymayor.com/"
+defaultContentLanguage = "zh-tw"
 languageCode = 'zh-tw'
 title = '市長 / tantuyu'
 theme = 'hugo-noir'
@@ -15,15 +16,19 @@ canonifyURLs = true
 [params]
 name = "市長 / tantuyu"
 location = "New Taipei City, Taiwan"
-description = "我好愛資訊"
+description = "熱愛資訊的學生，正在學習後端開發中。"
 profile_image = "/images/headshot.jpg"
 discord = "tantuyutty"
 github = "https://github.com/ttymayor"
+github_username = "ttymayor"
 twitter = "https://twitter.com/ttymayor"
 instagram = "https://instagram.com/ttymayor.dev"
-# email = "your.email@example.com"
+instagram_username = "ttymayor.dev"
+email = "me@ttymayor.com"
 # medium = "https://medium.com/@yourusername"
 # linkedin = "https://linkedin.com/in/yourusername"
+leetcode = "https://leetcode.com/xvwsb2p/"
+leetcode_username = "ttymayor"
 
 # 技術欄
 [[params.techsRow1]]
@@ -95,33 +100,46 @@ instagram = "https://instagram.com/ttymayor.dev"
 #     """
 #     link = "https://yourblog.com/post1"
 
-# # 活動經驗模板
-# [[params.voluntary]]
-# role = "Volunteer"
-# organization = "Organization Name"
-# period = "2020 - Present"
-# description = "Brief description of your volunteer work and responsibilities."
+# 活動經驗模板
+[[params.voluntary]]
+organization = "SITCON 學生計算機年會"
+role = "Attendee"
+period = "2022, 2024, 2025"
+[[params.voluntary]]
+organization = "THU Hacker Club"
+role = "Member"
+period = "2024-09 - Present"
+
+# 證書檢定模板
+[[params.certifications]]
+title = "APCS"
+score = "觀念 4, 實作 3"
+date = "2023-06"
+[[params.certifications]]
+title = "CPE"
+score = "3 題"
+date = "2025-03"
 
 
 [menu]
   [[menu.main]]
-    name = "About"
+    name = "about"
     url = "/about/"
     weight = 1
   # [[menu.main]]
-  #   name = "Experience"
+  #   name = "experience"
   #   url = "/experience/"
   #   weight = 2
   # [[menu.main]]
-  #   name = "Projects"
+  #   name = "projects"
   #   url = "/projects/"
   #   weight = 3
   [[menu.main]]
-    name = "Blogs"
+    name = "blogs"
     url = "/blogs/"
     weight = 4
   [[menu.main]]
-    name = "Contact"
+    name = "contact"
     url = "/contact/"
     weight = 5
 

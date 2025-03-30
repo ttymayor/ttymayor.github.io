@@ -1,5 +1,5 @@
 [what_i_work_with]
-other = "我擅長的技術"
+other = "我使用的技術"
 
 [about]
 other = "關於"
@@ -26,7 +26,7 @@ other = "志工"
 other = "了解更多"
 
 [voluntary_work]
-other = "活動參與"
+other = "志工經驗"
 
 [certifications]
 other = "證書檢定"

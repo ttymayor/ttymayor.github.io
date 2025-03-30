@@ -15,6 +15,10 @@
         
         
         <style>
+            ::selection {
+                background-color: #6366f1;
+                color: #f3f4f6;
+            }
             html, body {
                 background-color: #121212;
                 color: #f3f4f6;
@@ -103,6 +107,10 @@
             .tech-slide {
                 float: left;
             }
+
+            footer {
+                background: linear-gradient(to bottom, transparent, rgba(17, 24, 39, 0.5));
+            }
         </style>
     </head>
     <body class="min-h-screen bg-[#121212] text-gray-100">
@@ -139,16 +147,16 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
-            </div>            
+            </div>
             
             <nav class="hidden md:flex flex-wrap justify-center items-center gap-4 md:gap-6">
                 
                 
-                <a href="../about/" class="inline-block text-lg text-gray-300 hover:text-white transition-colors duration-300 ">About</a>
+                <a href="https://ttymayor.com/about/" class="inline-block text-lg text-gray-300 hover:text-white transition-colors duration-300 ">關於</a>
                 
-                <a href="../blogs/" class="inline-block text-lg text-gray-300 hover:text-white transition-colors duration-300 ">Blogs</a>
+                <a href="https://ttymayor.com/blogs/" class="inline-block text-lg text-gray-300 hover:text-white transition-colors duration-300 ">文章</a>
                 
-                <a href="../contact/" class="inline-block text-lg text-gray-300 hover:text-white transition-colors duration-300 ">Contact</a>
+                <a href="https://ttymayor.com/contact/" class="inline-block text-lg text-gray-300 hover:text-white transition-colors duration-300 ">聯絡我</a>
                 
             </nav>
             <div class="hidden md:flex justify-end">
@@ -173,11 +181,11 @@
             </div>
             <nav class="flex flex-col p-6 space-y-4">
                 
-                <a href="../about/" class="text-xl text-gray-300 hover:text-white transition-colors duration-300 ">About</a>
+                <a href="https://ttymayor.com/about/" class="text-xl text-gray-300 hover:text-white transition-colors duration-300 ">關於</a>
                 
-                <a href="../blogs/" class="text-xl text-gray-300 hover:text-white transition-colors duration-300 ">Blogs</a>
+                <a href="https://ttymayor.com/blogs/" class="text-xl text-gray-300 hover:text-white transition-colors duration-300 ">文章</a>
                 
-                <a href="../contact/" class="text-xl text-gray-300 hover:text-white transition-colors duration-300 ">Contact</a>
+                <a href="https://ttymayor.com/contact/" class="text-xl text-gray-300 hover:text-white transition-colors duration-300 ">聯絡我</a>
                 
             </nav>
             <div class="mt-auto p-6 border-t border-gray-800">
@@ -199,11 +207,6 @@
                 const now = new Date();
                 const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
                 element.textContent = timeString;
-                const hours = now.getHours();
-                const period = hours >= 12 ? 'p.m.' : 'a.m.';
-                const formattedHours = hours % 12 || 12;
-                const formattedTimeString = `${period} ${formattedHours}:${now.getMinutes().toString().padStart(2, '0')}`;
-                element.textContent = formattedTimeString;
             }
         });
     }
@@ -301,7 +304,7 @@
         <div class="border-t border-gray-800 pt-5">
             <div class="flex flex-col items-center justify-center gap-2">                
                 <p class="text-gray-500 text-xm ">© 2025 市長 / tantuyu</p>
-                <p class="text-gray-500 text-xm pb-12">Built using <a href="https://gohugo.io/" target="_blank" class="animated-link text-gray-400 hover:text-gray-200">Hugo</a>. Take a look at author <a href="https://github.com/prxshetty/" target="_blank" class="animated-link text-gray-400 hover:text-gray-200">GitHub</a></p>
+                <p class="text-gray-500 text-xm pb-12">Built using <a href="https://gohugo.io/" target="_blank" class="animated-link text-gray-400 hover:text-gray-200">Hugo</a>. Take a look at my <a href="https://github.com/prxshetty/" target="_blank" class="animated-link text-gray-400 hover:text-gray-200">GitHub</a></p>
             </div>
         </div>
     </div>

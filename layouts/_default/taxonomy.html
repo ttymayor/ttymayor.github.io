@@ -1,0 +1,17 @@
+{{ define "main" }}
+<div class="container mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-8">{{ .Title }}</h1>
+    <div class="space-y-6">
+        {{ range .Pages }}
+        <article class="border border-gray-700 rounded-lg p-6 bg-[#1a1a1a]">
+            <h2 class="text-2xl font-semibold mb-2">
+                <a href="{{ .RelPermalink }}" class="hover:text-gray-300">{{ .Title }}</a>
+            </h2>
+            {{ if .Description }}
+            <p class="text-gray-400">{{ .Description }}</p>
+            {{ end }}
+        </article>
+        {{ end }}
+    </div>
+</div>
+{{ end }} 
