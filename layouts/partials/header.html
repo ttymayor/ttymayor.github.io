@@ -52,7 +52,7 @@
     <div id="mobile-menu" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden transition-all duration-300">
         <div class="flex flex-col h-full">
             <div class="flex justify-between items-center p-6 border-b border-gray-800">
-                <span class="text-xl font-bold text-white">Menu</span>
+                <span class="text-xl font-bold text-white">{{ T "menu" }}</span>
                 <button id="mobile-menu-close" class="text-gray-300 hover:text-white focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -75,13 +75,23 @@
 </header>
 
 <script>
-    // Time display function
+    // Time display function - Taiwan time (UTC+8)
     function updateLocalTime() {
         const timeElements = document.querySelectorAll('#local-time, #mobile-local-time');
         timeElements.forEach(element => {
             if (element) {
                 const now = new Date();
-                const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                
+                // 轉換為台灣時間 (UTC+8)
+                const taiwanTime = new Date(now.getTime() + (now.getTimezoneOffset() + 480) * 60000);
+                const timeString = taiwanTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+                
+                // 更新顯示標籤
+                const timeLabel = element.previousElementSibling;
+                if (timeLabel) {
+                    timeLabel.textContent = "Taiwan Time";
+                }
+
                 element.textContent = timeString;
             }
         });

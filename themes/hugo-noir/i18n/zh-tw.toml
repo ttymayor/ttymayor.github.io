@@ -57,3 +57,6 @@ other = "回到首頁"
 
 [back_to_prev]
 other = "回上一頁"
+
+[menu]
+other = "選單"

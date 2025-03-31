@@ -57,3 +57,6 @@ other = "Back to Home"
 
 [back_to_prev]
 other = "Back to Previous Page"
+
+[menu]
+other = "Menu"
