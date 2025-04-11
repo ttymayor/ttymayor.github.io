@@ -1,114 +1,112 @@
-<section class="mt-12 md:mt-20 mb-12 md:mb-20">
+<section class="rounded-lg mb-8" id="github-stars-section">
     <div class="flex justify-between items-center mb-6 md:mb-8">
-        <h2 class="text-2xl md:text-4xl font-bold">GitHub Stars</h2>
+        <h2 class="text-2xl md:text-4xl font-bold">
+            <span class="text-indigo-500 hover:text-indigo-300 transition-all duration-300 select-none">$ </span>GitHub Stars</h2>
     </div>
-    <div id="starred-repos" class="max-w-3xl mx-auto">
-        <!-- Will be filled when visible -->
+    <div id="github-starred-repos" class="max-w-3xl mx-auto">
+        <div class="stars-loader justify-self-center"></div>
     </div>
 
     <script>
         // GitHub username - replace with your username
-        const username = 'ttymayor';
-        const CACHE_KEY = 'github_stars_cache';
-        const CACHE_EXPIRY = 86400000; // 1 day in milliseconds
+        const starsUsername = 'ttymayor';
+        const STARS_CACHE_KEY = 'github_stars_cache';
+        const STARS_CACHE_EXPIRY = 3600000; // 1 hour in milliseconds
         
         // Load repos when section is visible
         document.addEventListener('DOMContentLoaded', function() {
-            const reposSection = document.getElementById('starred-repos');
+            const starsSection = document.getElementById('github-starred-repos');
             
             // Initial loading state
-            reposSection.innerHTML = `
+            starsSection.innerHTML = `
                 <div class="flex justify-center items-center col-span-2">
-                    <svg class="animate-spin h-8 w-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
+                    <div class="stars-loader justify-self-center"></div>
                     <span class="ml-2">Loading starred repositories...</span>
                 </div>
             `;
             
             // Try to load from cache immediately
-            const cachedData = checkCache();
-            if (cachedData) {
-                renderRepos(cachedData);
+            const cachedStarsData = checkStarsCache();
+            if (cachedStarsData) {
+                renderStarredRepos(cachedStarsData);
             } else {
                 // If no cache, use intersection observer to load when visible
-                const observer = new IntersectionObserver((entries) => {
+                const starsObserver = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
                             fetchAllStarredRepos();
-                            observer.disconnect();
+                            starsObserver.disconnect();
                         }
                     });
                 }, { threshold: 0.1 });
                 
-                observer.observe(reposSection.parentElement);
+                starsObserver.observe(document.getElementById('github-stars-section'));
             }
         });
         
         // Check for valid cached data
-        function checkCache() {
+        function checkStarsCache() {
             try {
-                const cached = localStorage.getItem(CACHE_KEY);
+                const cached = localStorage.getItem(STARS_CACHE_KEY);
                 if (!cached) return null;
                 
                 const { timestamp, repos } = JSON.parse(cached);
                 const now = new Date().getTime();
                 
                 // Return cached data if it's less than expiry time old
-                if (now - timestamp < CACHE_EXPIRY) {
+                if (now - timestamp < STARS_CACHE_EXPIRY) {
                     return repos;
                 }
                 return null;
             } catch (e) {
-                console.error("Cache error:", e);
+                console.error("Stars cache error:", e);
                 return null;
             }
         }
         
         // Save data to cache with timestamp
-        function saveToCache(repos) {
+        function saveToStarsCache(repos) {
             try {
                 const data = {
                     timestamp: new Date().getTime(),
                     repos: repos
                 };
-                localStorage.setItem(CACHE_KEY, JSON.stringify(data));
+                localStorage.setItem(STARS_CACHE_KEY, JSON.stringify(data));
             } catch (e) {
-                console.error("Error saving to cache:", e);
+                console.error("Error saving stars to cache:", e);
             }
         }
         
         // Function to fetch all pages of starred repos
         async function fetchAllStarredRepos() {
-            const reposContainer = document.getElementById('starred-repos');
+            const starsContainer = document.getElementById('github-starred-repos');
             
             try {
                 let page = 1;
                 let hasMorePages = true;
-                let allRepos = [];
+                let allStarredRepos = [];
                 
                 while (hasMorePages) {
-                    const response = await fetch(`https://api.github.com/users/${username}/starred?per_page=100&page=${page}`);
+                    const response = await fetch(`https://api.github.com/users/${starsUsername}/starred?per_page=100&page=${page}`);
                     const data = await response.json();
                     
                     if (data.length === 0) {
                         hasMorePages = false;
                     } else {
-                        allRepos = [...allRepos, ...data];
+                        allStarredRepos = [...allStarredRepos, ...data];
                         page++;
                     }
                 }
                 
                 // Save to cache
-                saveToCache(allRepos);
+                saveToStarsCache(allStarredRepos);
                 
                 // Render repositories
-                renderRepos(allRepos);
+                renderStarredRepos(allStarredRepos);
                 
             } catch (error) {
                 console.error("Error fetching starred repositories:", error);
-                reposContainer.innerHTML = `
+                starsContainer.innerHTML = `
                     <div class="col-span-1 md:col-span-2">
                         <p class="text-red-500">Error loading GitHub stars. Please try again later.</p>
                     </div>
@@ -117,14 +115,14 @@
         }
         
         // Render repositories to the page
-        function renderRepos(allRepos) {
-            const reposContainer = document.getElementById('starred-repos');
+        function renderStarredRepos(allRepos) {
+            const starsContainer = document.getElementById('github-starred-repos');
             
             // Clear loading indicator
-            reposContainer.innerHTML = '';
+            starsContainer.innerHTML = '';
             
             if (allRepos.length === 0) {
-                reposContainer.innerHTML = '<p>No starred repositories found.</p>';
+                starsContainer.innerHTML = '<p>No starred repositories found.</p>';
                 return;
             }
             
@@ -132,24 +130,24 @@
             const countElement = document.createElement('div');
             countElement.className = 'col-span-1 md:col-span-2 mb-4';
             countElement.innerHTML = `<p class="text-gray-400">Total starred repositories: ${allRepos.length}</p>`;
-            reposContainer.appendChild(countElement);
+            starsContainer.appendChild(countElement);
             
-            // Display the first 10 repos
-            const displayRepos = allRepos.slice(0, 5);
+            // Display the first 5 repos
+            const displayStarredRepos = allRepos.slice(0, 5);
             
-            displayRepos.forEach(repo => {
+            displayStarredRepos.forEach(repo => {
                 const repoCard = document.createElement('div');
                 repoCard.className = 'border border-gray-700 rounded-lg p-4 mb-4 hover:border-indigo-300 transition-all duration-300';
                 
                 const description = repo.description || 'No description provided';
                 
                 repoCard.innerHTML = `
-                    <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="block flex flex-col justify-between h-full">
-                        <div>
+                    <div>
+                        <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="block mb-3">
                             <h3 class="text-xl font-bold text-indigo-500 hover:text-indigo-300 transition-all duration-300">${repo.name}</h3>
                             <p class="text-gray-400 mt-2">${description}</p>
-                        </div>
-                        <div id="data" class="flex items-center mt-3">
+                        </a>
+                        <div class="flex items-center mt-3">
                             <span class="flex items-center text-sm text-gray-500">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
@@ -164,23 +162,42 @@
                             </span>
                             <span class="ml-auto text-xs bg-gray-800 text-gray-400 px-2 py-1 rounded">${repo.language || 'N/A'}</span>
                         </div>
-                    </a>
+                    </div>
                 `;
                 
-                reposContainer.appendChild(repoCard);
+                starsContainer.appendChild(repoCard);
             });
             
             // Add "View All" link if there are more repos
-            if (allRepos.length > 4) {
+            if (allRepos.length > 5) {
                 const viewAllContainer = document.createElement('div');
                 viewAllContainer.className = 'col-span-1 md:col-span-2 mt-4 text-center';
                 viewAllContainer.innerHTML = `
-                    <a href="https://github.com/${username}?tab=stars" class="text-blue-500 hover:text-blue-400 transition-colors duration-200 text-sm md:text-lg">
+                    <a href="https://github.com/${starsUsername}?tab=stars" class="text-indigo-500 hover:text-indigo-300 transition-colors duration-200 text-sm md:text-lg">
                         View all starred repositories (${allRepos.length})
                     </a>
                 `;
-                reposContainer.appendChild(viewAllContainer);
+                starsContainer.appendChild(viewAllContainer);
             }
         }
     </script>
+    
+    <style>
+        .stars-loader {
+            width: 50px;
+            padding: 8px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background: #585be2;
+            --_m: 
+                conic-gradient(#0000 10%,#000),
+                linear-gradient(#000 0 0) content-box;
+            -webkit-mask: var(--_m);
+                    mask: var(--_m);
+            -webkit-mask-composite: source-out;
+                    mask-composite: subtract;
+            animation: l3 2s infinite linear;
+        }
+        @keyframes l3 {to{transform: rotate(1turn)}}
+    </style>
 </section>
