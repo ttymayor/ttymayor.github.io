@@ -142,4 +142,6 @@ date = "2025-03"
     name = "contact"
     url = "/contact/"
     weight = 5
-
+  # [[menu.main]]
+  #   name = "posts"
+  #   url = "/posts/"

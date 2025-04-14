@@ -60,3 +60,6 @@ other = "回上一頁"
 
 [menu]
 other = "選單"
+
+[recent_posts]
+other = "最新文章"

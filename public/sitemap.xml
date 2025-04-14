@@ -3,9 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://ttymayor.com/posts/</loc>
-    <lastmod>2025-03-23T21:10:51+08:00</lastmod>
+    <lastmod>2025-03-30T21:10:51+08:00</lastmod>
   </url><url>
     <loc>https://ttymayor.com/</loc>
+    <lastmod>2025-03-30T21:10:51+08:00</lastmod>
+  </url><url>
+    <loc>https://ttymayor.com/tags/hexo/</loc>
+    <lastmod>2025-03-23T21:10:51+08:00</lastmod>
+  </url><url>
+    <loc>https://ttymayor.com/tags/hugo/</loc>
+    <lastmod>2025-03-23T21:10:51+08:00</lastmod>
+  </url><url>
+    <loc>https://ttymayor.com/tags/</loc>
+    <lastmod>2025-03-23T21:10:51+08:00</lastmod>
+  </url><url>
+    <loc>https://ttymayor.com/tags/test/</loc>
     <lastmod>2025-03-23T21:10:51+08:00</lastmod>
   </url><url>
     <loc>https://ttymayor.com/posts/test1/</loc>
@@ -21,7 +33,5 @@
     <lastmod>2025-03-23T20:36:46+08:00</lastmod>
   </url><url>
     <loc>https://ttymayor.com/categories/</loc>
-  </url><url>
-    <loc>https://ttymayor.com/tags/</loc>
   </url>
 </urlset>

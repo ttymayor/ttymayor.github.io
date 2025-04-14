@@ -5,7 +5,7 @@
 <div class="w-full md:w-4/5 lg:w-3/5 mx-auto px-14 py-12">
     <!-- Hero Section -->
     <section class="mb-16">
-        <div class="max-w-3xl ml-0 p-4 border border-gray-00 rounded-lg bg-[#121212] shadow-md hover:shadow-lg relative hover:border-indigo-300 transition-all duration-300">
+        <div class="max-w-3xl ml-0 p-4 md:p-6 border border-gray-00 rounded-lg bg-[#121212] shadow-md hover:shadow-lg relative hover:border-indigo-300 transition-all duration-300">
             
             <div class="text-left">
                 <h1 class="text-4xl font-bold mb-2">{{ .Site.Params.name }}</h1>
@@ -13,7 +13,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="-7 -2 24 24"><path fill="gray" d="M4 9.9A5.002 5.002 0 0 1 5 0a5 5 0 0 1 1 9.9V19a1 1 0 0 1-2 0V9.9zM5 8a3 3 0 1 0 0-6a3 3 0 0 0 0 6z"/></svg>
                     {{ .Site.Params.location }}
                 </p>
-                <p class="text-xl mb-2">{{ .Site.Params.description }}</p>
+                <p class="text-xl">{{ .Site.Params.description }}</p>
             </div>
             <!-- Social Icons - Moved to bottom for mobile -->
             <div class="mt-4 md:mt-0 flex flex-wrap justify-center gap-3 md:absolute md:top-4 md:right-4 md:flex-nowrap md:justify-end md:mt-0">
@@ -132,7 +132,7 @@
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-60 z-20"></div>
                     
                     <!-- Content that moves up on hover -->
-                    <div class="absolute inset-0 z-30 p-4 pb-3 md:p-6 md:pb-4 flex flex-col justify-end transform transition-transform duration-500 translate-y-0 group-hover:translate-y-[-20px]">
+                    <div class="absolute inset-0 z-30 p-4 md:p-6 pb-3 md:p-6 md:pb-4 flex flex-col justify-end transform transition-transform duration-500 translate-y-0 group-hover:translate-y-[-20px]">
                         <h3 class="text-xl md:text-2xl font-bold mb-1.5 md:mb-2 text-white line-clamp-2">{{ .title }}</h3>
                         <div class="hidden md:flex flex-wrap gap-1 md:gap-2 mb-1.5 md:mb-3">
                             {{ $techs := split .tech "," }}
@@ -192,7 +192,7 @@
         </div>
         <div class="space-y-8 max-w-3xl mx-auto">
             {{ range . }}
-            <div class="group rounded-lg p-4 border border-gray-700 hover:border-indigo-300 transition-all duration-300">
+            <div class="group rounded-lg p-4 md:p-6 border border-gray-700 hover:border-indigo-300 transition-all duration-300">
                 <!-- <a href="{{ .link }}" class="block group" target="_blank"> -->
                 <h3 class="text-xl font-medium text-indigo-500 hover:text-indigo-300 transition-colors duration-200 mb-2">{{ .organization }}</h3>
                 <!-- </a> -->
@@ -203,6 +203,38 @@
         </div>
         <div class="flex justify-center mt-8">
             <a href="/voluntary" class="text-indigo-500 hover:text-indigo-300 transition-colors duration-200 text-lg">View All</a>
+        </div>
+    </section>
+    {{ end }}
+
+    {{/*  recent posts  */}}
+    {{ $posts := where .Site.RegularPages "Section" "posts" }}
+    {{ if gt (len $posts) 0 }}
+    <section class="mt-20 mb-20">
+        <div class="flex justify-between items-center mb-8">
+            <h2 class="text-4xl font-bold">
+                <span class="text-indigo-500 hover:text-indigo-300 transition-all duration-300 select-none">$ </span>{{ T "recent_posts" }}</h2>
+        </div>
+        <div class="space-y-8 max-w-3xl mx-auto">
+            {{ range first 5 $posts }}
+            <div class="group rounded-lg p-4 md:p-6 border border-gray-700 hover:border-indigo-300 transition-all duration-300">
+                <p class="text-gray-400 text-sm mb-1">{{ .Date.Format "January 2, 2006" }}</p>
+                <a href="{{ .RelPermalink }}" class="block group">
+                    <h3 class="text-xl font-medium text-indigo-500 hover:text-indigo-300 transition-colors duration-200 mb-2">{{ .Title }}</h3>
+                </a>
+                <p class="text-gray-400">{{ .Summary }}</p>
+                <div class="flex flex-wrap gap-2 mt-2">
+                    {{ range .Params.tags }}
+                    {{ if ne . "" }}
+                    <span class="px-2 py-1 text-xs bg-[#121212] text-gray-100 border border-gray-800 rounded-md transition-all duration-300 hover:bg-indigo-500">{{ . }}</span>
+                    {{ end }}
+                    {{ end }}
+                </div>
+            </div>
+            {{ end }}
+        </div>
+        <div class="flex justify-center mt-8">
+            <a href="/posts" class="text-indigo-500 hover:text-indigo-300 transition-colors duration-200 text-lg">View All</a>
         </div>
     </section>
     {{ end }}
