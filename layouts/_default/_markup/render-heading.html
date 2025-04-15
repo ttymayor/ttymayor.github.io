@@ -1,0 +1,53 @@
+<h{{ .Level }} id="{{ .Anchor }}" class="custom-heading custom-heading-{{ .Level }} mt-4 {{ if lt .Level 4 }}border-b-2 border-gray-500{{ end }}"></h>
+    <a href="#{{ .Anchor }}" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
+    {{ .Text }}
+</h{{ .Level }}>
+
+<style>
+    .custom-heading {
+        position: relative;
+        font-weight: 600;
+        padding-bottom: 0.5rem;
+        margin-top: 1rem;
+    }
+
+    .custom-heading-1 {
+        font-size: 1.75rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+    }
+
+    .custom-heading-2 {
+        font-size: 1.7rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .custom-heading-3 {
+        font-size: 1.65rem;
+        margin-bottom: 1rem;
+    }
+
+    .custom-heading-4 {
+        font-size: 1.6rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .custom-heading-5 {
+        font-size: 1.55rem;
+    }
+
+    .custom-heading-6 {
+        font-size: 1.5rem;
+    }
+
+    /* Hide anchor by default */
+    .anchor {
+        opacity: 0;
+        transition: opacity 0.2s ease;
+    }
+
+    /* Show anchor on heading hover */
+    .custom-heading:hover .anchor {
+        opacity: 1;
+    }
+</style>

@@ -1,21 +1,40 @@
 {{ define "main" }}
-<div class="w-1/2 mx-auto py-12">
-    <div class="max-w-3xl mx-auto p-8 border border-gray-800 rounded-2xl bg-[#121212]">
-        <h1 class="text-4xl font-bold mb-4">{{ .Title }}</h1>
-        {{ if eq .Section "blogs" }}
-            <div class="flex items-center gap-4 mb-8 text-gray-400">
-                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
-                <div class="flex gap-2">
-                    {{ range .Params.tags }}
-                    <span class="px-2 py-1 bg-gray-800 rounded-md text-xs font-medium text-gray-300">{{ . }}</span>
-                    {{ end }}
-                </div>
-            </div>
-        {{ end }}
+<section class="max-w-3xl w-3/4 mx-auto py-6 md:py-12">
+    {{/*  <div class="max-w-3xl mx-auto rounded-2xl bg-[#121212]">  */}}
         
-        <div class="prose prose-invert max-w-none">
-            {{ .Content }}
+        <div class="mb-8">
+            <h1 class="text-4xl font-bold mb-4">{{ .Title }}</h1>
+
+            {{/*  time  */}}
+            {{ if or (eq .Section "blogs") (eq .Section "blog") (eq .Section "posts") (eq .Section "post") }}
+            <div class="flex items-center gap-4 text-gray-400">
+                {{ with .Date }}
+                {{ $dateMachine := . | time.Format "2006-01-02T15:04:05-07:00" }}
+                {{ $dateHuman := . | time.Format ":date_long" }}
+                <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+                {{ end }}
+            </div>
+            {{ end }}
         </div>
-    </div>
-</div>
+        
+        {{/*  article content  */}}
+        <article class="prose prose-invert max-w-none mb-8">
+            {{ .Content }}
+        </article>
+
+        {{/*  tags  */}}
+        <aside>
+            {{ with .GetTerms "tags" }}
+            <div class="mb-2">{{ (index . 0).Parent.LinkTitle }}</div>
+            <ul>
+                {{ range . }}
+                <li>
+                    <a href="{{ .RelPermalink }}" class="px-2 py-1 text-xs bg-[#121212] text-gray-100 border border-gray-800 rounded-md transition-all duration-300 hover:bg-indigo-500">{{ .LinkTitle }}</a>
+                </li>
+                {{ end }}
+            </ul>
+            {{ end }}
+        </aside>
+    {{/*  </div>  */}}
+</section>
 {{ end }} 

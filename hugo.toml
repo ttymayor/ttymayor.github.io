@@ -8,10 +8,11 @@ theme = 'hugo-noir'
 relativeURLs = true
 canonifyURLs = true
 
-# Taxonomy configuration
-[taxonomies]
-  category = "categories"
-  tag = "tags"
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.parser]
+      [markup.goldmark.parser.attribute]
+        title = true
 
 [params]
 name = "市長 / tantuyu"
