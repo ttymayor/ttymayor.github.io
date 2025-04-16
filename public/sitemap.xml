@@ -17,6 +17,9 @@
     <loc>https://ttymayor.com/tags/%E6%88%90%E9%95%B7/</loc>
     <lastmod>2025-04-15T18:50:46+08:00</lastmod>
   </url><url>
+    <loc>https://ttymayor.com/categories/</loc>
+    <lastmod>2025-03-23T21:10:51+08:00</lastmod>
+  </url><url>
     <loc>https://ttymayor.com/tags/hexo/</loc>
     <lastmod>2025-03-23T21:10:51+08:00</lastmod>
   </url><url>
@@ -24,6 +27,9 @@
     <lastmod>2025-03-23T21:10:51+08:00</lastmod>
   </url><url>
     <loc>https://ttymayor.com/tags/test/</loc>
+    <lastmod>2025-03-23T21:10:51+08:00</lastmod>
+  </url><url>
+    <loc>https://ttymayor.com/categories/test/</loc>
     <lastmod>2025-03-23T21:10:51+08:00</lastmod>
   </url><url>
     <loc>https://ttymayor.com/posts/test1/</loc>
@@ -37,7 +43,5 @@
   </url><url>
     <loc>https://ttymayor.com/about/</loc>
     <lastmod>2025-03-23T20:36:46+08:00</lastmod>
-  </url><url>
-    <loc>https://ttymayor.com/categories/</loc>
   </url>
 </urlset>

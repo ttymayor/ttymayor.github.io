@@ -6,15 +6,29 @@
         <div class="mb-8">
             <h1 class="text-4xl font-bold mb-4">
                 <span class="text-indigo-500 hover:text-indigo-300 transition-all duration-300 select-none">$ </span>{{ .Title }}</h1>
-
-            {{/*  time  */}}
+            
+            {{/*  time and categories  */}}
             {{ if or (eq .Section "blogs") (eq .Section "blog") (eq .Section "posts") (eq .Section "post") }}
-            <div class="flex items-center gap-4 text-gray-400">
+            <div class="flex items-center flex-wrap gap-4 text-gray-400">
                 {{ with .Date }}
                 {{ $dateMachine := . | time.Format "2006-01-02T15:04:05-07:00" }}
                 {{ $dateHuman := . | time.Format ":date_long" }}
                 <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
                 {{ end }}
+            </div>
+            {{ end }}
+
+            <!-- categories -->
+            {{ with .GetTerms "categories" }}
+            <div class="flex items-center gap-2 text-sm mt-2">
+                <span class="text-gray-400">{{ T "categories"}}:</span>
+                <ul class="flex flex-wrap gap-2">
+                    {{ range . }}
+                    <li>
+                        <a href="{{ .RelPermalink }}" class="text-indigo-400 hover:text-indigo-300 transition-colors">{{ .LinkTitle }}</a>
+                    </li>
+                    {{ end }}
+                </ul>
             </div>
             {{ end }}
         </div>
@@ -25,13 +39,14 @@
         </article>
 
         {{/*  tags  */}}
-        <aside>
+        <aside class="mt-8">
             {{ with .GetTerms "tags" }}
-            <div class="mb-2">{{ (index . 0).Parent.LinkTitle }}</div>
-            <ul>
+            <h3 class="text-lg font-semibold mb-3">{{ (index . 0).Parent.LinkTitle | default "Tags" }}</h3>
+            {{/* Use flex flex-row flex-wrap for row layout with wrapping and gap-2 for spacing */}}
+            <ul class="flex flex-row flex-wrap items-start gap-2">
                 {{ range . }}
                 <li>
-                    <a href="{{ .RelPermalink }}" class="px-2 py-1 text-xs bg-[#121212] text-gray-100 border border-gray-800 rounded-md transition-all duration-300 hover:bg-indigo-500">{{ .LinkTitle }}</a>
+                    <a href="{{ .RelPermalink }}" class="inline-block px-2 py-1 text-xs bg-[#121212] text-gray-100 border border-gray-800 rounded-md transition-all duration-300 hover:bg-indigo-500">{{ .LinkTitle }}</a>
                 </li>
                 {{ end }}
             </ul>
@@ -77,13 +92,71 @@
         color: #a5b4fc;
         transition: color 0.3s ease-in-out;
     }
+    article p {
+        margin: 1.5rem 0;
+        line-height: 1.6;
+    }
+    article blockquote {
+        margin: 1.5rem 0;
+        padding: 1rem 1.5rem;
+        border-left: 4px solid #6366f1;
+        border-radius: 8px;
+        background-color: #212121;
+        color: #e5e7eb;
+    }
+    article blockquote:hover {
+        background-color: #272727;
+        transition: 0.3s;
+    }
+    article table {
+        margin: 1.5rem 0;
+        width: 100%;
+        border-radius: 8px;
+        border-collapse: collapse;
+    }
+    article table th, article table td {
+        padding: 0.75rem;
+        border: 1px solid #919191;
+        text-align: left;
+    }
+    article table th {
+        background-color: #0e0e21;
+        color: #fff;
+    }
+    article table tr:nth-child(even) {
+        background-color: #1b1b36;
+    }
+    article table tr:nth-child(odd) {
+        background-color: rgb(26, 26, 53);
+    }
+    article table tr:hover {
+        background-color: #252661;
+        transition: 0.3s;
+    }
+    article p a {
+        color: #6366f1;
+        text-decoration: underline;
+    }
+    article p a:hover {
+        color: #a5b4fc;
+        transition: color 0.3s ease-in-out;
+    }
+    article div pre {
+        margin: 1.5rem 0;
+        padding: 1rem;
+        background-color: #212121;
+        border-radius: 8px;
+        overflow-x: auto;
+    }
+    article div pre code {
+        line-height: 1.6;
+    }
     
     /*  custom-heading  */
     .custom-heading {
         position: relative;
         font-weight: 600;
         padding-bottom: 0.5rem;
-        margin-top: 1rem;
     }
     .custom-heading-1 {
         font-size: 1.75rem;

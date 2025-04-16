@@ -9,8 +9,7 @@
         <!-- Then, include configured posts from hugo.toml -->
         {{ if or (gt (len $posts) 0) (isset .Site.Params "blogs") }}
             <!-- Display actual content posts -->
-            <h2 class="text-3xl font-bold mt-12 mb-6">
-                站內文章</h2>
+            <h2 class="text-3xl font-bold mt-12 mb-6">站內文章</h2>
             {{ range $posts }}
             <div class="group rounded-lg p-4 md:p-6 border border-gray-700 hover:border-indigo-300 transition-all duration-300">
                 <p class="text-gray-400 text-sm mb-2">{{ .Date.Format "January 2, 2006" }}</p>
@@ -27,7 +26,10 @@
                 <div class="flex flex-wrap gap-2">
                     {{ range .Params.tags }}
                     {{ if ne . "" }}
-                    <span class="px-2 py-1 text-xs bg-[#121212] text-gray-100 border border-gray-800 rounded-md transition-all duration-300 hover:bg-indigo-500">{{ . }}</span>
+                    {{ $tagURL := printf "/tags/%s" (. | urlize) }}
+                    <a href="{{ $tagURL }}" class="px-2 py-1 text-xs bg-[#121212] text-gray-100 border border-gray-800 rounded-md transition-all duration-300 hover:bg-indigo-500 hover:text-white">
+                        {{ . }}
+                    </a>
                     {{ end }}
                     {{ end }}
                 </div>
@@ -54,6 +56,22 @@
                 </div>
                 {{ end }}
             {{ end }}
+            <!-- Display all tags -->
+            <h2 class="text-3xl font-bold mt-12 mb-6">所有標籤</h2>
+            <div class="flex flex-wrap gap-2"></div>
+                {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+                    {{ $tagURL := printf "/tags/%s" ($name | urlize) }}
+                    <a href="{{ $tagURL }}" class="px-2 py-1 m-2 text-xs bg-[#121212] text-gray-100 border border-gray-800 rounded-md transition-all duration-300 hover:bg-indigo-500 hover:text-white">
+                        {{ $name }} ({{ len $taxonomy }})
+                    </a>
+                {{ end }}
+            </div>
+            
+            {{/*  <div class="text-center mt-8">
+                <a href="/tags" class="inline-block px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors duration-300">
+                    查看所有標籤
+                </a>
+            </div>  */}}
         {{ else }}
             <p class="text-gray-400 mb-[500px]">No posts found.</p>
         {{ end }}

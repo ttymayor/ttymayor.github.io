@@ -3,6 +3,7 @@ date: '2025-03-23T21:10:51+08:00'
 draft: false
 title: '從 Hexo 轉戰 Hugo'
 tags: ["test", "Hugo", "Hexo"]
+categories: ["test"]
 description: " "
 ---
 
@@ -38,6 +39,9 @@ description: " "
     - unordered list
     - unordered list
 
+## Quote
+
+> 子沒有曰：「我沒有說過這句話」
 
 ## Text Effect
 
@@ -45,12 +49,18 @@ description: " "
 
 ## Code Block
 
-```cpp
+```cpp test.cpp
 #include <iostream>
 using namespace std;
 
 int main() {
     // This is code block
+    int a = 0, b = 1;
+    if (a == b) {
+        cout << "a != b\n";
+    } else {
+        cout << "a == b\n";
+    }
 }
 ```
 
@@ -59,3 +69,7 @@ int main() {
 | Column 1 | Column 2 | Column 3 |
 | -------- | -------- | -------- |
 | Text     | Text     | Text     |
+| Text     | Text     | Text     |
+| Text     | Text     | Text     |
+
+fewfwea[like](#)

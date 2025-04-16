@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en" class="dark scroll-smooth">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -122,5 +122,44 @@
             {{ block "main" . }}{{ end }}
         </main>
         {{ partial "footer" . }}
+        <!-- Floating Go Top Button -->
+        <button onclick="topFunction()" id="goTopBtn" class="opacity-0 fixed bottom-8 right-8 z-50 bg-indigo-700 hover:bg-indigo-500 shadow-lg shadow-indigo-500/50 text-white p-3 rounded-full w-10 h-10 flex items-center justify-center text-lg transition-all duration-300 focus:outline-none pointer-events-none" title="Go to top">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+            </svg>
+        </button>
+        <!-- Footer Go Top Button -->
+        <button onclick="topFunction()" id="footerGoTopBtn" class="w-full bg-indigo-700 hover:bg-indigo-500 text-white py-3 text-center transition-all duration-300" title="Go to top">
+            回到頂部
+        </button>
+        <script>
+            let goTopBtn = document.getElementById("goTopBtn");
+            let footerGoTopBtn = document.getElementById("footerGoTopBtn");
+            let footer = document.querySelector("footer");
+
+            window.addEventListener("scroll", scrollFunction);
+
+            function scrollFunction() {
+            // Show floating button if scrolled down, hide if near bottom
+            const footerRect = footer.getBoundingClientRect();
+            const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+            const nearFooter = footerRect.top < viewportHeight - 80; // 80px from bottom
+
+            if ((document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) && !nearFooter) {
+                goTopBtn.classList.remove("opacity-0", "pointer-events-none");
+                goTopBtn.classList.add("opacity-100");
+            } else {
+                goTopBtn.classList.add("opacity-0", "pointer-events-none");
+                goTopBtn.classList.remove("opacity-100");
+            }
+
+            // Footer button is always visible now, so no need to toggle hidden class
+            }
+
+            function topFunction() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+        </script>
+        </script>
     </body>
 </html> 
