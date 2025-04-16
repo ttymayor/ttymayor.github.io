@@ -1,9 +1,11 @@
 {{ define "main" }}
+<link rel="stylesheet" href="/css/blog.css">
 <section class="max-w-3xl w-3/4 mx-auto py-6 md:py-12">
     {{/*  <div class="max-w-3xl mx-auto rounded-2xl bg-[#121212]">  */}}
         
         <div class="mb-8">
-            <h1 class="text-4xl font-bold mb-4">{{ .Title }}</h1>
+            <h1 class="text-4xl font-bold mb-4">
+                <span class="text-indigo-500 hover:text-indigo-300 transition-all duration-300 select-none">$ </span>{{ .Title }}</h1>
 
             {{/*  time  */}}
             {{ if or (eq .Section "blogs") (eq .Section "blog") (eq .Section "posts") (eq .Section "post") }}
@@ -37,4 +39,84 @@
         </aside>
     {{/*  </div>  */}}
 </section>
+
+<style>
+    article {
+        max-width: 100%;
+    }
+    article ol, article ul {
+        margin: 1.75rem 0 0.75rem 1.75rem;
+        padding-left: 0.5rem;
+    }
+    article li {
+        margin-bottom: 0.75rem;
+        list-style-position: outside;
+        padding-left: 0.5rem;
+        line-height: 1.6;
+    }
+    article li::marker {
+        color: #6366f1;
+        font-weight: bold;
+    }
+    article ol li {
+        list-style-type: decimal;
+    }
+    article ul li {
+        list-style-type: disc;
+    }
+    article ol li ol, article ul li ul, article ul li ol, article ol li ul {
+        margin-top: 1rem;
+    }
+    article ul li ul li {
+        list-style-type: circle;
+    }
+    article ol li ol li {
+        list-style-type: lower-alpha;
+    }
+    article li:hover::marker {
+        color: #a5b4fc;
+        transition: color 0.3s ease-in-out;
+    }
+    
+    /*  custom-heading  */
+    .custom-heading {
+        position: relative;
+        font-weight: 600;
+        padding-bottom: 0.5rem;
+        margin-top: 1rem;
+    }
+    .custom-heading-1 {
+        font-size: 1.75rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+    }
+    .custom-heading-2 {
+        font-size: 1.7rem;
+        margin-bottom: 1.25rem;
+    }
+    .custom-heading-3 {
+        font-size: 1.65rem;
+        margin-bottom: 1rem;
+    }
+    .custom-heading-4 {
+        font-size: 1.6rem;
+        margin-bottom: 0.5rem;
+    }
+    .custom-heading-5 {
+        font-size: 1.55rem;
+    }
+    .custom-heading-6 {
+        font-size: 1.5rem;
+    }
+    /* Hide anchor by default */
+    .anchor {
+        opacity: 0;
+        transition: opacity 0.2s ease;
+    }
+    /* Show anchor on heading hover */
+    .custom-heading:hover .anchor {
+        opacity: 1;
+    }
+</style>
+
 {{ end }} 

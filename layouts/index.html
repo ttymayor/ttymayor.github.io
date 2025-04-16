@@ -223,9 +223,9 @@
                     <h3 class="text-xl font-medium text-indigo-500 hover:text-indigo-300 transition-colors duration-200 mb-2">{{ .Title }}</h3>
                 </a>
                 {{ if .Description }}
-                <p class="text-gray-400">{{ .Description }}</p>
+                <p class="text-gray-400 mb-3">{{ .Description }}</p>
                 {{ else }}
-                <p class="text-gray-400">{{ .Summary | truncate 50 }}</p>
+                <p class="text-gray-400 mb-3">{{ .Plain | truncate 100 }}</p>
                 {{ end }}
                 <div class="flex flex-wrap gap-2 mt-2">
                     {{ range .Params.tags }}

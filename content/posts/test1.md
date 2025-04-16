@@ -31,6 +31,14 @@ description: " "
 - unordered list
 - unordered list
 
+1. ordered list
+2. ordered list
+    1. ordered list
+    2. ordered list
+    - unordered list
+    - unordered list
+
+
 ## Text Effect
 
 **粗體** *斜體* ~~刪除線~~
