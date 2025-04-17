@@ -366,9 +366,9 @@
             
             const footerRect = footer.getBoundingClientRect();
             const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-            const nearFooter = footerRect.top < viewportHeight - 80; 
+            const nearFooter = footerRect.top < viewportHeight - 50; 
 
-            if ((document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) && !nearFooter) {
+            if ((document.body.scrollTop > 750 || document.documentElement.scrollTop > 750) && !nearFooter) {
                 goTopBtn.classList.remove("opacity-0", "pointer-events-none");
                 goTopBtn.classList.add("opacity-100");
             } else {

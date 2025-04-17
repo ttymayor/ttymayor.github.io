@@ -1,0 +1,6 @@
+<img src="{{ .Destination | safeURL }}"
+  {{- with .PlainText }} alt="{{ . }}"{{ end -}}
+  {{- with .Title }} title="{{ . }}"{{ end -}}
+  class="rounded-lg shadow-lg place-self-center hover:ring-1 ring-indigo-500 transition-all duration-300 hover:scale-[1.01] "
+>
+{{- /* chomp trailing newline */ -}}

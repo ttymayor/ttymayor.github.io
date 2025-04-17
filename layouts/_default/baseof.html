@@ -143,9 +143,9 @@
             // Show floating button if scrolled down, hide if near bottom
             const footerRect = footer.getBoundingClientRect();
             const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-            const nearFooter = footerRect.top < viewportHeight - 80; // 80px from bottom
+            const nearFooter = footerRect.top < viewportHeight - 50; // 50px from bottom
 
-            if ((document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) && !nearFooter) {
+            if ((document.body.scrollTop > 750 || document.documentElement.scrollTop > 750) && !nearFooter) {
                 goTopBtn.classList.remove("opacity-0", "pointer-events-none");
                 goTopBtn.classList.add("opacity-100");
             } else {
