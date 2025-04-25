@@ -52,6 +52,13 @@
             .carousel-track {
                 white-space: nowrap;
             }
+
+            p > code {
+                background-color: #3b3b5d;
+                color: #f3f4f6;
+                padding: 0.2rem 0.4rem;
+                border-radius: 0.25rem;
+            }
         </style>
         
         <script src="https://cdn.tailwindcss.com"></script>
@@ -301,7 +308,7 @@
             <div class="bg-[#121212] p-8 rounded-lg mb-8">
                 <div class="prose prose-invert prose-lg max-w-none">
                     <div class="text-lg">
-                        <p>暫時想不到要怎麼介紹我自己</p>
+                        <p>暫時想不到要怎麼介紹我自己，跟大家分享最近在碰的東西：<code>Tailwind CSS</code> <code>Laravel 12</code> <code>Vue.js</code> <code>Go Gin</code></p>
 
                     </div>
                 </div>
@@ -435,6 +442,9 @@
                 const response = await fetch(`https://api.github.com/users/${username}/repos?per_page=100`);
                 const repos = await response.json();
                 console.log(repos);
+                
+                
+                repos.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
                 
                 
                 reposContainer.innerHTML = '';

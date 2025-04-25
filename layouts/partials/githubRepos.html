@@ -19,6 +19,9 @@
                 const repos = await response.json();
                 console.log(repos);
                 
+                // Sort repos by updated_at (descending)
+                repos.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+                
                 // Clear loading indicator
                 reposContainer.innerHTML = '';
                 
@@ -27,7 +30,7 @@
                     return;
                 }
                 
-                // Display the first 10 repos
+                // Display the first 5 repos
                 const displayRepos = repos.slice(0, 5);
                 
                 displayRepos.forEach(repo => {

@@ -13,11 +13,15 @@ canonifyURLs = true
     [markup.goldmark.parser]
       [markup.goldmark.parser.attribute]
         title = true
+  [markup.tableOfContents]
+    endLevel = 6
+    ordered = true
+    startLevel = 1
 
 [params]
 name = "市長 / tantuyu"
 location = "New Taipei City, Taiwan"
-description = "熱愛資訊的學生，正在學習後端開發中。"
+description = """熱愛資訊的學生，正在學習後端開發中。喔不，我現在學習全端開發中。"""
 profile_image = "/images/headshot.jpg"
 discord = "tantuyutty"
 github = "https://github.com/ttymayor"

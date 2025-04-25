@@ -1,0 +1,15 @@
+{{ if .TableOfContents }}
+<nav id="toc-nav" class="sticky top-24 text-sm rounded-xl p-4 opacity-50 transition-all duration-300 hover:opacity-100 bg-[#121212]">
+    <h2 class="font-bold text-lg mb-3 text-indigo-500">目錄 TOC</h2>
+    <div id="toc-content">
+        {{ .TableOfContents | safeHTML }}
+    </div>
+    <div class="mt-4">
+        <div class="w-full bg-gray-700 rounded-full h-2">
+            <div id="scroll-progress-bar" class="bg-indigo-400 h-2 rounded-full" style="width: 0%"></div>
+        </div>
+        <div class="text-right text-xs text-gray-400 mt-1" id="scroll-progress-text">0%</div>
+    </div>
+</nav>
+
+{{ end }}
