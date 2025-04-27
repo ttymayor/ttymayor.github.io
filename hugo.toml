@@ -10,6 +10,8 @@ canonifyURLs = true
 
 [markup]
   [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
     [markup.goldmark.parser]
       [markup.goldmark.parser.attribute]
         title = true
@@ -17,6 +19,8 @@ canonifyURLs = true
     endLevel = 6
     ordered = true
     startLevel = 1
+  [markup.highlight]
+    noClasses = false
 
 [params]
 name = "市長 / tantuyu"
