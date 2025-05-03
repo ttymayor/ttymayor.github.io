@@ -90,13 +90,13 @@ leetcode_username = "ttymayor"
 #     "Key responsibility with specific achievement"
 # ]
 
-# # 作品集模板
-# [[params.projects]]
-#     title = "Project One"
-#     description = "Brief description of the project and what it does."
-#     tech = "Technologies used (e.g., Python, React, TensorFlow)"
-#     image = "/images/projects/project1.png"
-#     link = "https://github.com/yourusername/project1"
+# 作品集模板
+[[params.projects]]
+    title = "留言板 API 開發（WIP）"
+    description = "就只是發現我的網站沒有留言系統，所以想自己寫個留言板 API，並順便拿 Golang 練練手。"
+    tech = "Golang, PostgreSQL"
+    image = "https://opengraph.githubassets.com/bfe65f3d06157fe7f5d9bd1a65e8f1934a543ca6eebe585c90b8e80195e54b4b/ttymayor/messageboard"
+    link = "https://github.com/ttymayor/messageboard"
 
 # # 部落格文章模板
 # [[params.blogs]]
