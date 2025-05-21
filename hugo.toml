@@ -122,11 +122,11 @@ period = "2024-09 - Present"
 # 證書檢定模板
 [[params.certifications]]
 title = "APCS"
-score = "觀念 4, 實作 3"
+score = "觀念 4, 實作 3（PR 75）"
 date = "2023-06"
 [[params.certifications]]
 title = "CPE"
-score = "3 題"
+score = "3 題（排名 187 / 2729, PR 93）"
 date = "2025-03"
 
 
