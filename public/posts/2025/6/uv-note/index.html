@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Categories - 市長 / tantuyu</title>
+        <title>超快速 Python 套件管理工具：uv 你用過嗎？-- uv 學習筆記 - 市長 / tantuyu</title>
         
         
         <link rel="apple-touch-icon" sizes="180x180" href="https://ttymayor.com/favicon_io/apple-touch-icon.png">
@@ -299,19 +299,273 @@
 </script> 
         <main>
             
-<div class="w-full md:w-4/5 lg:w-3/5 mx-auto px-14 py-12">
-    <h1 class="text-5xl font-bold mb-12">Categories</h1>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+
+
+
+<div class="w-full mx-auto p-12 md:py-12 flex justify-center">
+    
+    
+    <section class="max-w-3xl w-full">
+        <div class="mb-8">
+            <h1 class="text-4xl font-bold mb-6 leading-relaxed">
+                <span class="text-indigo-500 hover:text-indigo-300 transition-all duration-300 select-none">$ </span>超快速 Python 套件管理工具：uv 你用過嗎？-- uv 學習筆記
+            </h1>
+
+            
+            
+            <div class="flex items-center flex-wrap gap-4 text-gray-400">
+                
+                
+                
+                <time datetime="2025-06-09T20:00:51&#43;08:00">June 9, 2025</time>
+                
+            </div>
+            
+
+            
+            
+        </div>
+
         
-        <a href="../categories/test/" class="block border border-indigo-500 hover:shadow-lg transition-shadow rounded-lg p-4 bg-[#18181b] hover:text-indigo-400 transition-all duration-300">
-            <span class="text-xl font-semibold transition-colors">
-            Test
-            </span>
-            <span class="text-gray-400 ml-2">(1)</span>
-        </a>
+        <article class="prose prose-invert max-w-none mb-8">
+            
+
+
+
+
+<blockquote class="border-l-4 p-1 px-6 my-3 rounded-lg bg-green-200/25 text-green-100 border-green-500 hover:ring-1 ring-green-500 transition-all duration-300">
+    <p class="text-lg font-semibold flex items-center">
+        💡
         
-    </div>
+        Tip
+        
+    </p>
+    <p>後續會繼續更新，其他常用指令，如果我想寫的話（？</p>
+</blockquote>
+<h2 id="特色簡介" class="custom-heading custom-heading-2 mt-8 border-b-2 border-gray-500"></h>
+    <a href="#%e7%89%b9%e8%89%b2%e7%b0%a1%e4%bb%8b" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
+    特色簡介
+</h2>
+<ol>
+<li>你甚至可以取代 <code>pip</code>, <code>pip-tools</code>, <code>pipx</code>, <code>poetry</code>, <code>pyenv</code>, <code>twine</code>, <code>virtualenv</code></li>
+<li>快，超快，比 <code>pip</code> 快 10-100 倍</li>
+<li>使用 Rust 撰寫，但你不需要安裝它，就可以透過 <code>curl</code> 或者 <code>pip</code> 體驗</li>
+<li>內建虛擬環境建立，你無須自行在專案建立虛擬環境來執行專案</li>
+</ol>
+<p>還有很多值得探索，畢竟<strong>真的很快</strong>。</p>
+<h2 id="基礎使用" class="custom-heading custom-heading-2 mt-8 border-b-2 border-gray-500"></h>
+    <a href="#%e5%9f%ba%e7%a4%8e%e4%bd%bf%e7%94%a8" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
+    基礎使用
+</h2>
+<h3 id="安裝-uv" class="custom-heading custom-heading-3 mt-8 border-b-2 border-gray-500"></h>
+    <a href="#%e5%ae%89%e8%a3%9d-uv" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
+    安裝 uv
+</h3>
+<ol>
+<li>直接安裝在系統上
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># On macOS and Linux.</span>
+</span></span><span class="line"><span class="cl">curl -LsSf https://astral.sh/uv/install.sh <span class="p">|</span> sh
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># On Windows.</span>
+</span></span><span class="line"><span class="cl">powershell -ExecutionPolicy ByPass -c <span class="s2">&#34;irm https://astral.sh/uv/install.ps1 | iex&#34;</span>
+</span></span></code></pre></div></li>
+<li>使用 PyPI
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># With pip.</span>
+</span></span><span class="line"><span class="cl">pip install uv
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Or pipx.</span>
+</span></span><span class="line"><span class="cl">pipx install uv
+</span></span></code></pre></div></li>
+</ol>
+<h3 id="初始化專案使用-uv" class="custom-heading custom-heading-3 mt-8 border-b-2 border-gray-500"></h>
+    <a href="#%e5%88%9d%e5%a7%8b%e5%8c%96%e5%b0%88%e6%a1%88%e4%bd%bf%e7%94%a8-uv" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
+    初始化專案使用 uv
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">uv init example
+</span></span></code></pre></div><p>或是在專案目錄下</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">uv init --app
+</span></span></code></pre></div><h3 id="安裝套件" class="custom-heading custom-heading-3 mt-8 border-b-2 border-gray-500"></h>
+    <a href="#%e5%ae%89%e8%a3%9d%e5%a5%97%e4%bb%b6" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
+    安裝套件
+</h3>
+<p>有兩種方式：<code>uv add</code> 與 <code>uv pip install</code></p>
+<p>你可以完全平替 pip install 指令，也就是可以這樣安裝套件</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">uv add flask
+</span></span></code></pre></div><p>uv 就會幫你寫好 <code>pyproject.toml</code> 跟 <code>uv.lock</code>。</p>
+<h3 id="執行專案" class="custom-heading custom-heading-3 mt-8 border-b-2 border-gray-500"></h>
+    <a href="#%e5%9f%b7%e8%a1%8c%e5%b0%88%e6%a1%88" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
+    執行專案
+</h3>
+<p><code>uv run</code> 會自動生成 .venv，並使用其虛擬環境來執行你的專案。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">uv run &lt;欲執行檔案&gt;
+</span></span></code></pre></div><p>剛開始初始化的專案會幫你/妳寫一個 <code>main.py</code> 可以使用下面指令。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">uv run main.py
+</span></span></code></pre></div><h3 id="心得" class="custom-heading custom-heading-3 mt-8 border-b-2 border-gray-500"></h>
+    <a href="#%e5%bf%83%e5%be%97" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
+    心得
+</h3>
+<p>快，還有超快，你也無須再自己更新 <code>requirements.txt</code> 或是遇到版本問題而錯亂。</p>
+
+        </article>
+
+        
+        <aside class="mt-8">
+            
+        </aside>
+    </section>
 </div>
+
+
+
+
+<style>
+    article {
+        max-width: 100%;
+    }
+    article ol, article ul {
+        margin: 1.5rem 0 1.5rem 1.75rem;
+        padding-left: 0.5rem;
+    }
+    article li {
+        margin-bottom: 0.75rem;
+        list-style-position: outside;
+        padding-left: 0.5rem;
+        line-height: 1.6;
+    }
+    article li::marker {
+        color: #6366f1;
+        font-weight: bold;
+    }
+    article ol li {
+        list-style-type: decimal;
+    }
+    article ul li {
+        list-style-type: disc;
+    }
+    article ol li ol, article ul li ul, article ul li ol, article ol li ul {
+        margin-top: 1rem;
+    }
+    article ul li ul li {
+        list-style-type: circle;
+    }
+    article ol li ol li {
+        list-style-type: lower-alpha;
+    }
+    article li:hover::marker {
+        color: #a5b4fc;
+        transition: color 0.3s ease-in-out;
+    }
+    article p {
+        margin: 1.5rem 0;
+        line-height: 1.6;
+    }
+    article table {
+        margin: 1.5rem 0;
+        width: 100%;
+        border-radius: 8px;
+        border-collapse: collapse;
+    }
+    article table th, article table td {
+        padding: 0.75rem;
+        border: 1px solid #919191;
+        text-align: left;
+    }
+    article table th {
+        background-color: #0e0e21;
+        color: #fff;
+    }
+    article table tr:nth-child(even) {
+        background-color: #1b1b36;
+    }
+    article table tr:nth-child(odd) {
+        background-color: rgb(26, 26, 53);
+    }
+    article table tr:hover {
+        background-color: #252661;
+        transition: 0.3s;
+    }
+    article div pre {
+        margin: 1.5rem 0;
+        padding: 1rem;
+        background-color: #212121;
+        border-radius: 8px;
+        overflow-x: auto;
+    }
+    article div pre code {
+        line-height: 1.6;
+    }
+     
+    article input[type="checkbox"] {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 1.25em;
+        height: 1.25em;
+        border: 1px solid #6366f1;
+        border-radius: 4px;
+        vertical-align: middle;
+        margin-right: 0.5em;
+        position: relative;
+        background-color: #121212;
+    }
+
+    article input[type="checkbox"]:checked {
+        background-color: #6366f1;
+        border-color: #6366f1;
+    }
+
+    article input[type="checkbox"]:checked::after {
+        content: '✓';
+        position: absolute;
+        color: white;
+        font-size: 0.9em;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    article ul li:has(input[type="checkbox"]) {
+        list-style-type: none;
+        margin-left: -1.5rem;
+    }
+    
+     
+    .custom-heading {
+        position: relative;
+        font-weight: 600;
+        padding-bottom: 0.5rem;
+    }
+    .custom-heading-1 {
+        font-size: 1.75rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+    }
+    .custom-heading-2 {
+        font-size: 1.65rem;
+        margin-bottom: 1.25rem;
+    }
+    .custom-heading-3 {
+        font-size: 1.55rem;
+        margin-bottom: 1rem;
+    }
+    .custom-heading-4 {
+        font-size: 1.45rem;
+        margin-bottom: 0.5rem;
+    }
+    .custom-heading-5 {
+        font-size: 1.4rem;
+    }
+    .custom-heading-6 {
+        font-size: 1.35rem;
+    }
+     
+    .anchor {
+        opacity: 0;
+        transition: opacity 0.2s ease;
+    }
+     
+    .custom-heading:hover .anchor {
+        opacity: 1;
+    }
+</style>
+
 
         </main>
         

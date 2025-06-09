@@ -8,8 +8,7 @@
         
         
         <link rel="apple-touch-icon" sizes="180x180" href="https://ttymayor.com/favicon_io/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="https://ttymayor.com/favicon_io/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="https://ttymayor.com/favicon_io/favicon-16x16.png">
+        <link rel="icon" type="image/x-icon" href="https://ttymayor.com/favicon_io/favicon.ico">
         <link rel="manifest" href="https://ttymayor.com/favicon_io/site.webmanifest">        
         <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
         <link rel="preload" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" as="style">
@@ -54,10 +53,10 @@
                 white-space: nowrap;
             }
 
-            p > code {
-                background-color: #3b3b5d;
+            code:not(pre > code) {
+                background-color: #6666e181;
                 color: #f3f4f6;
-                padding: 0.2rem 0.4rem;
+                padding: 0.1rem 0.3rem;
                 border-radius: 0.25rem;
             }
         </style>
@@ -713,6 +712,20 @@
                 <span class="text-indigo-500 hover:text-indigo-300 transition-all duration-300 select-none">$ </span>最新文章</h2>
         </div>
         <div class="space-y-8 max-w-3xl mx-auto">
+            
+            <div class="group rounded-lg p-4 md:p-6 border border-gray-700 hover:border-indigo-300 transition-all duration-300">
+                <p class="text-gray-400 text-sm mb-1">June 9, 2025</p>
+                <a href="./posts/2025/6/uv-note/" class="block group">
+                    <h3 class="text-xl font-medium text-indigo-500 hover:text-indigo-300 transition-colors duration-200 mb-2">超快速 Python 套件管理工具：uv 你用過嗎？-- uv 學習筆記</h3>
+                </a>
+                
+                <p class="text-gray-400 mb-3">💡Tip後續會繼續更新，其他常用指令，如果我想寫的話（？
+#特色簡介你甚至可以取代 pip, pip-tools, pipx, poetry, pyenv, twine, …</p>
+                
+                <div class="flex flex-wrap gap-2 mt-2">
+                    
+                </div>
+            </div>
             
             <div class="group rounded-lg p-4 md:p-6 border border-gray-700 hover:border-indigo-300 transition-all duration-300">
                 <p class="text-gray-400 text-sm mb-1">April 15, 2025</p>

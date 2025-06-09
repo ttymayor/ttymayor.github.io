@@ -7,8 +7,7 @@
         
         <!-- Favicon here-->
         <link rel="apple-touch-icon" sizes="180x180" href="{{ .Site.BaseURL }}favicon_io/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="{{ .Site.BaseURL }}favicon_io/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="{{ .Site.BaseURL }}favicon_io/favicon-16x16.png">
+        <link rel="icon" type="image/x-icon" href="{{ .Site.BaseURL }}favicon_io/favicon.ico">
         <link rel="manifest" href="{{ .Site.BaseURL }}favicon_io/site.webmanifest">        
         <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
         <link rel="preload" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" as="style">
@@ -53,10 +52,10 @@
                 white-space: nowrap;
             }
 
-            p > code {
-                background-color: #3b3b5d;
+            code:not(pre > code) {
+                background-color: #6666e181;
                 color: #f3f4f6;
-                padding: 0.2rem 0.4rem;
+                padding: 0.1rem 0.3rem;
                 border-radius: 0.25rem;
             }
         </style>
