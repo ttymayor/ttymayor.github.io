@@ -112,7 +112,7 @@ leetcode_username = "ttymayor"
 # 講課經驗
 [[params.slides]]
 slides_url = "http://mc.ttymayor.com/dockerslide"
-pdf_url = "https://ttymayor.com/slide/docker-slide.pdf"
+pdf_url = "https://ttymayor.com/slides/docker-slide.pdf"
 title = "入門 Docker 開發技能 +1"
 date = "2025-05-15"
 location = "東海大學 - 駭客社"
