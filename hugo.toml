@@ -1,7 +1,7 @@
 baseURL = "https://ttymayor.com/"
 defaultContentLanguage = "zh-tw"
 languageCode = 'zh-tw'
-title = '市長 / tantuyu'
+title = '市長 / tantuyu 的技術網誌'
 theme = 'hugo-noir'
 
 # URL handling
@@ -108,6 +108,14 @@ leetcode_username = "ttymayor"
 #     Short excerpt or introduction to the blog post...
 #     """
 #     link = "https://yourblog.com/post1"
+
+# 講課經驗
+[[params.slides]]
+slides_url = "http://mc.ttymayor.com/dockerslide"
+pdf_url = "https://ttymayor.com/slide/docker-slide.pdf"
+title = "入門 Docker 開發技能 +1"
+date = "2025-05-15"
+location = "東海大學 - 駭客社"
 
 # 活動經驗模板
 [[params.voluntary]]

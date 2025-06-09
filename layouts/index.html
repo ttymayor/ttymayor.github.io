@@ -272,6 +272,50 @@
     </section>
     {{ end }}
 
+    <!-- 講課經驗 -->
+    {{ with .Site.Params.slides }}
+    <section class="mt-20 mb-20">
+        <h2 class="text-4xl font-bold mb-5">
+            <span class="text-indigo-500 hover:text-indigo-300 transition-all duration-300 select-none">$ </span>講課經驗
+        </h2>
+        <div class="space-y-6 max-w-3xl mx-auto">
+            {{ range . }}
+            <div class="group rounded-lg p-4 md:p-6 border border-gray-700 hover:border-indigo-300 transition-all duration-300">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+                    <div>
+                        <h3 class="text-xl font-medium text-indigo-500 hover:text-indigo-300 transition-colors duration-200 mb-1">{{ .title }}</h3>
+                        <p class="text-gray-400 text-sm">{{ .date }} ｜ {{ .location }}</p>
+                    </div>
+                    <div class="flex gap-3 mt-2 md:mt-0">
+                        {{ with .slides_url }}
+                        <a href="{{ . }}" class="inline-flex items-center gap-1 underline text-blue-600 hover:text-blue-300 text-base font-bold transition-all duration-300" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+                                <path d="M3 8h18" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="7.5" cy="7" r="1" fill="currentColor"/>
+                            </svg>
+                            線上投影片
+                        </a>
+                        {{ end }}
+                        {{ with .pdf_url }}
+                        <a href="{{ . }}" class="inline-flex items-center gap-1 underline text-red-600 hover:text-red-300 text-base font-bold transition-all duration-300" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <rect x="4" y="2" width="16" height="20" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+                                <path d="M8 6h8M8 10h8M8 14h4" stroke="currentColor" stroke-width="2"/>
+                                <path d="M16 18h.01" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            PDF
+                        </a>
+                        {{ end }}
+                    </div>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+    </section>
+    {{ end }}
+
+
     <!-- Blog Section -->
     {{ with .Site.Params.blogs }}
     <section class="mt-20 mb-20">
@@ -308,7 +352,7 @@
                 <!-- <a href="{{ .link }}" class="block group" target="_blank"> -->
                 <h3 class="text-xl font-medium text-indigo-500 hover:text-indigo-300 transition-colors duration-200 mb-2">{{ .organization }}</h3>
                 <!-- </a> -->
-                <p class="text-gray-400">{{ .role }}</p>
+                <p class="text-white text-lg">{{ .role }}</p>
                 <p class="text-gray-400 text-sm mb-1">{{ .period }}</p>
             </div>
             {{ end }}
