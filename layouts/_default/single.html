@@ -56,6 +56,12 @@
             </ul>
             {{ end }}
         </aside>
+        
+        <!-- 添加留言板 -->
+        <div class="mt-12">
+            <h2 class="text-3xl font-bold mb-6">{{ T "comments" }}</h2>
+            {{ partial "comments.html" . }}
+        </div>
     </section>
 </div>
 
@@ -216,7 +222,7 @@
         padding-bottom: 0.5rem;
     }
     .custom-heading-1 {
-        font-size: 1.75rem;
+        font-size: 1.8rem;
         font-weight: 700;
         margin-bottom: 1.5rem;
     }
@@ -225,18 +231,18 @@
         margin-bottom: 1.25rem;
     }
     .custom-heading-3 {
-        font-size: 1.55rem;
+        font-size: 1.45rem;
         margin-bottom: 1rem;
     }
     .custom-heading-4 {
-        font-size: 1.45rem;
+        font-size: 1.35rem;
         margin-bottom: 0.5rem;
     }
     .custom-heading-5 {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
     }
     .custom-heading-6 {
-        font-size: 1.35rem;
+        font-size: 1.25rem;
     }
     /* Hide anchor by default */
     .anchor {

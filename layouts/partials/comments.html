@@ -1,0 +1,285 @@
+<div class="comments-section p-6 bg-indigo-700/10 shadow-md rounded-lg max-w-3xl mx-auto mt-12 border border-indigo-500/50 hover:border-indigo-500 transition-all duration-300">
+    <h3 class="mb-8 text-2xl font-bold">留言板（尚在測試階段）</h3>
+
+    <!-- Moved existing-comments here to be visible to all users -->
+    <div id="existing-comments" class="mt-6">
+        <!-- 已有的留言將在這裡顯示 -->
+    </div>
+
+    <div id="auth-section" class="mt-6"> <!-- Added mt-6 for spacing -->
+        <div id="login-form" class="auth-form">
+            <h4 class="mb-4 text-xl font-semibold">登入</h4>
+            <form id="login-form-element"> <!-- Changed id to avoid conflict with parent div -->
+                <div class="form-group">
+                    <label for="login-email">電子郵件：</label>
+                    <input type="email" id="login-email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="login-password">密碼：</label>
+                    <input type="password" id="login-password" name="password" required>
+                </div>
+                
+                <button type="submit" class="p-2 bg-indigo-700 hover:bg-indigo-500 rounded transition-all duration-300">登入</button>
+            </form>
+            <p class="mt-2">還沒有帳號？ <a id="show-register" class="text-indigo-600 cursor-pointer">註冊</a></p>
+        </div>
+
+        <div id="register-form" class="auth-form" style="display: none;">
+            <h4 class="mb-4 text-xl font-semibold">註冊</h4>
+            <form id="register-form-element"> <!-- Changed id to avoid conflict with parent div -->
+                <div class="form-group">
+                    <label for="register-username">使用者名稱：</label>
+                    <input type="text" id="register-username" name="username" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="register-email">電子郵件：</label>
+                    <input type="email" id="register-email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="register-password">密碼：</label>
+                    <input type="password" id="register-password" name="password" required>
+                </div>
+                
+                <button type="submit" class="p-2 bg-indigo-700 hover:bg-indigo-500 rounded transition-all duration-300">註冊</button>
+            </form>
+            <p class="mt-2">已有帳號？ <a id="show-login" class="text-indigo-600 cursor-pointer">登入</a></p>
+        </div>
+    </div>
+
+    <div id="user-section" style="display: none;" class="mt-6"> <!-- Added mt-6 for spacing -->
+        <p>歡迎，<span id="current-user"></span>！ <a id="logout" class="text-indigo-600 cursor-pointer">登出</a></p>
+        
+        <!-- existing-comments div was moved from here -->
+        
+        <form id="comment-form" class="mt-6">
+            <div class="form-group">
+                <label for="comment">留言：</label>
+                <textarea id="comment" name="comment" rows="4" required></textarea>
+            </div>
+            
+            <button type="submit" class="p-2 bg-indigo-700 hover:bg-indigo-500 rounded transition-all duration-300">提交留言</button>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        // const API_BASE = 'http://127.0.0.1:8080/api/v1'; // 替換為您的 API 基礎 URL
+        const API_BASE = 'http://ttymayor.zeabur.app/api/v1';
+        let currentUser = null;
+        let authToken = null;
+
+        // 顯示訊息
+        function showMessage(message, type = 'success') {
+            if (type === 'error') {
+                alert('錯誤: ' + message);
+            } else {
+                alert(message);
+            }
+        }
+        
+        // 載入評論
+        async function loadComments() {
+            const fullUrl = window.location.href;
+            const url = fullUrl.split('?')[0].split('#')[0];
+
+            try {
+                const response = await axios.get(`${API_BASE}/comments/by-url?url=${encodeURIComponent(url)}`);
+                
+                const comments = response.data.comments;
+                const commentsContainer = document.getElementById('existing-comments');
+                commentsContainer.innerHTML = '';
+                
+                if (comments && comments.length > 0) {
+                    comments.forEach(comment => {
+                        const commentElement = document.createElement('div');
+                        commentElement.className = 'comment p-3 mb-3 border-b border-gray-700';
+                        commentElement.innerHTML = `
+                            <p class="font-bold text-indigo-400">${comment.user?.username || '匿名'}</p>
+                            <p class="text-gray-300 my-2">${comment.content}</p>
+                            <p class="text-sm text-gray-500">${new Date(comment.created_at).toLocaleString()}</p>
+                        `;
+                        commentsContainer.appendChild(commentElement);
+                    });
+                } else {
+                    commentsContainer.innerHTML = '<p class="text-gray-500">目前沒有留言</p>';
+                }
+            } catch (error) {
+                console.error('載入評論錯誤:', error);
+                if (error.response?.status !== 404) {
+                    console.log('無法載入留言，可能是該頁面還沒有留言');
+                }
+                const commentsContainer = document.getElementById('existing-comments');
+                commentsContainer.innerHTML = '<p class="text-gray-500">目前沒有留言</p>';
+            }
+        }
+        
+        // 更新登入狀態
+        function updateAuthStatus() {
+            loadComments(); // Load comments regardless of auth state
+            const token = localStorage.getItem('authToken');
+            const username = localStorage.getItem('username');
+            
+            if (token && username) {
+                authToken = token;
+                currentUser = { username: username };
+                document.getElementById('auth-section').style.display = 'none';
+                document.getElementById('user-section').style.display = 'block';
+                document.getElementById('current-user').textContent = username;
+            } else {
+                authToken = null;
+                currentUser = null;
+                document.getElementById('auth-section').style.display = 'block';
+                document.getElementById('user-section').style.display = 'none';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginFormContainer = document.getElementById('login-form');
+            const registerFormContainer = document.getElementById('register-form');
+            const showRegisterLink = document.getElementById('show-register');
+            const showLoginLink = document.getElementById('show-login');
+            // Note: I updated the form IDs in HTML to avoid conflicts with their container divs.
+            // Using querySelector for forms is more robust if IDs are `login-form` and `register-form` for the <form> tags themselves.
+            // The original code had <div id="login-form"> and <form id="login-form"> which is invalid HTML (duplicate IDs).
+            // I've changed form IDs to login-form-element and register-form-element in the HTML.
+            const loginFormElement = document.getElementById('login-form-element'); 
+            const registerFormElement = document.getElementById('register-form-element');
+            const logoutLink = document.getElementById('logout');
+            const commentForm = document.getElementById('comment-form');
+
+            showRegisterLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                loginFormContainer.style.display = 'none';
+                registerFormContainer.style.display = 'block';
+            });
+
+            showLoginLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                registerFormContainer.style.display = 'none';
+                loginFormContainer.style.display = 'block';
+            });
+
+            loginFormElement.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const email = document.getElementById('login-email').value;
+                const password = document.getElementById('login-password').value;
+                
+                try {
+                    const response = await axios.post(`${API_BASE}/login`, {
+                        email: email,
+                        password: password
+                    });
+                    
+                    const token = response.data.token;
+                    const userData = response.data.user;
+                    
+                    localStorage.setItem('authToken', token);
+                    localStorage.setItem('username', userData?.username || email);
+                    
+                    showMessage('登入成功！');
+                    loginFormElement.reset();
+                    updateAuthStatus();
+                } catch (error) {
+                    const errorMsg = error.response?.data?.error || '登入失敗，請檢查您的憑證';
+                    showMessage(errorMsg, 'error');
+                }
+            });
+
+            registerFormElement.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const username = document.getElementById('register-username').value;
+                const email = document.getElementById('register-email').value;
+                const password = document.getElementById('register-password').value;
+                
+                try {
+                    await axios.post(`${API_BASE}/register`, {
+                        username: username,
+                        email: email,
+                        password: password
+                    });
+                    
+                    showMessage('註冊成功，請登入');
+                    registerFormContainer.style.display = 'none';
+                    loginFormContainer.style.display = 'block';
+                    registerFormElement.reset();
+                } catch (error) {
+                    const errorMsg = error.response?.data?.error || '註冊失敗';
+                    showMessage(errorMsg, 'error');
+                }
+            });
+
+            logoutLink.addEventListener('click', function() {
+                localStorage.removeItem('authToken');
+                localStorage.removeItem('username');
+                updateAuthStatus(); // This will call loadComments()
+                showMessage('已登出');
+                // Removed: document.getElementById('existing-comments').innerHTML = '';
+            });
+
+            commentForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                if (!authToken) {
+                    showMessage('請先登入', 'error');
+                    return;
+                }
+
+                const fullUrl = window.location.href; // Use full URL for comment association
+                const url = fullUrl.split('?')[0].split('#')[0]; // Clean URL
+                const content = document.getElementById('comment').value;
+
+                try {
+                    await axios.post(`${API_BASE}/comments`, {
+                        url: url, // Send cleaned URL
+                        content: content
+                    }, {
+                        headers: {
+                            'Authorization': `Bearer ${authToken}`
+                        }
+                    });
+
+                    showMessage('留言成功！');
+                    commentForm.reset();
+                    loadComments(); // Reload comments after successful submission
+                } catch (error) {
+                    const errorMsg = error.response?.data?.error || '送出留言失敗';
+                    showMessage(errorMsg, 'error');
+                }
+            });
+
+            window.loadComments = loadComments;
+
+            // 初始化
+            // Removed standalone loadComments(); as updateAuthStatus() calls it.
+            updateAuthStatus();
+        });
+    </script>
+
+<style>
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+</style>
+
+<!-- 
+注意：這只是前端部分。要實際存儲和顯示留言，
+您需要後端服務或第三方留言系統（如Disqus）。
+-->
+</div>

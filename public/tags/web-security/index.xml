@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Web Security on 市長 / tantuyu 的技術網誌</title>
+    <link>https://ttymayor.com/tags/web-security/</link>
+    <description>Recent content in Web Security on 市長 / tantuyu 的技術網誌</description>
+    <generator>Hugo</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Fri, 13 Jun 2025 15:37:54 +0800</lastBuildDate>
+    <atom:link href="https://ttymayor.com/tags/web-security/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何防範 CSRF</title>
+      <link>https://ttymayor.com/posts/2025/6/defend-against-csrf/</link>
+      <pubDate>Fri, 13 Jun 2025 15:37:54 +0800</pubDate>
+      <guid>https://ttymayor.com/posts/2025/6/defend-against-csrf/</guid>
+      <description>&lt;h1 id=&#34;什麼是-csrf&#34; class=&#34;custom-heading custom-heading-1 mt-8 border-b-2 border-gray-500&#34;&gt;&#xD;&#xA;    &lt;a href=&#34;#%e4%bb%80%e9%ba%bc%e6%98%af-csrf&#34; class=&#34;anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100&#34;&gt;#&lt;/a&gt;&#xD;&#xA;    什麼是 CSRF？&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;p&gt;CSRF（Cross Site Request Forgery），翻成中文叫做&lt;strong&gt;跨站請求偽造&lt;/strong&gt;。&lt;/p&gt;&#xA;&lt;p&gt;我們可以拆成兩個名詞來理解，分別是 &lt;code&gt;跨站&lt;/code&gt; 以及 &lt;code&gt;請求偽造&lt;/code&gt;。&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;跨站&lt;/strong&gt;：是發生漏洞的地點，並不在目標網站上。通常是由有心人士開發了一個網站，並利用了你瀏覽器上的 Cookie 進行濫用。&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;請求偽造&lt;/strong&gt;：有心人士利用你在惡意網站填的資料，進行修改，並成功請求。&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;簡單來說，CSRF 攻擊就是利用使用者已登入的身分，在使用者不知情的情況下執行惡意操作。&lt;/p&gt;&#xA;&lt;h1 id=&#34;csrf-攻擊流程&#34; class=&#34;custom-heading custom-heading-1 mt-8 border-b-2 border-gray-500&#34;&gt;&#xD;&#xA;    &lt;a href=&#34;#csrf-%e6%94%bb%e6%93%8a%e6%b5%81%e7%a8%8b&#34; class=&#34;anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100&#34;&gt;#&lt;/a&gt;&#xD;&#xA;    CSRF 攻擊流程&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;使用者登入信任的網站 A，並獲得認證 Cookie&lt;/li&gt;&#xA;&lt;li&gt;攻擊者誘導使用者訪問惡意網站 B&lt;/li&gt;&#xA;&lt;li&gt;惡意網站 B 向網站 A 發送請求，瀏覽器自動帶上 Cookie&lt;/li&gt;&#xA;&lt;li&gt;網站 A 驗證 Cookie 有效，執行了惡意操作&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h1 id=&#34;具體例子&#34; class=&#34;custom-heading custom-heading-1 mt-8 border-b-2 border-gray-500&#34;&gt;&#xD;&#xA;    &lt;a href=&#34;#%e5%85%b7%e9%ab%94%e4%be%8b%e5%ad%90&#34; class=&#34;anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100&#34;&gt;#&lt;/a&gt;&#xD;&#xA;    具體例子&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;h2 id=&#34;銀行轉帳攻擊&#34; class=&#34;custom-heading custom-heading-2 mt-8 border-b-2 border-gray-500&#34;&gt;&#xD;&#xA;    &lt;a href=&#34;#%e9%8a%80%e8%a1%8c%e8%bd%89%e5%b8%b3%e6%94%bb%e6%93%8a&#34; class=&#34;anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100&#34;&gt;#&lt;/a&gt;&#xD;&#xA;    銀行轉帳攻擊&#xD;&#xA;&lt;/h2&gt;&#xD;&#xA;&lt;p&gt;假設你登入了網路銀行，這時收到一封看似無害的郵件，點擊連結後進入了惡意網站。該網站可能包含這樣的代碼：&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

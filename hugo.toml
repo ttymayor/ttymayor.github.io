@@ -124,7 +124,7 @@ role = "Attendee"
 period = "2022, 2024, 2025"
 [[params.voluntary]]
 organization = "THU Hacker Club"
-role = "Leader and Academic"
+role = "Leader & Academic"
 period = "2024-09 - Present"
 
 # 證書檢定模板

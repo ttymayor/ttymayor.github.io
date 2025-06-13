@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth">
+<html lang="en" class="scroll-smooth">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -122,7 +122,7 @@
         
         <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     </head>
-    <body class="min-h-screen bg-[#121212] text-gray-100">
+    <body class="min-h-screen bg-white text-gray-900 dark:bg-[#121212] dark:text-gray-100">
         
 <head>
     
@@ -342,7 +342,7 @@
     </p>
     <p>後續會繼續更新，其他常用指令，如果我想寫的話（？</p>
 </blockquote>
-<h2 id="特色簡介" class="custom-heading custom-heading-2 mt-8 border-b-2 border-gray-500"></h>
+<h2 id="特色簡介" class="custom-heading custom-heading-2 mt-8 border-b-2 border-gray-500">
     <a href="#%e7%89%b9%e8%89%b2%e7%b0%a1%e4%bb%8b" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
     特色簡介
 </h2>
@@ -353,11 +353,11 @@
 <li>內建虛擬環境建立，你無須自行在專案建立虛擬環境來執行專案</li>
 </ol>
 <p>還有很多值得探索，畢竟<strong>真的很快</strong>。</p>
-<h2 id="基礎使用" class="custom-heading custom-heading-2 mt-8 border-b-2 border-gray-500"></h>
+<h2 id="基礎使用" class="custom-heading custom-heading-2 mt-8 border-b-2 border-gray-500">
     <a href="#%e5%9f%ba%e7%a4%8e%e4%bd%bf%e7%94%a8" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
     基礎使用
 </h2>
-<h3 id="安裝-uv" class="custom-heading custom-heading-3 mt-8 border-b-2 border-gray-500"></h>
+<h3 id="安裝-uv" class="custom-heading custom-heading-3 mt-8 ">
     <a href="#%e5%ae%89%e8%a3%9d-uv" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
     安裝 uv
 </h3>
@@ -375,14 +375,14 @@
 </span></span><span class="line"><span class="cl">pipx install uv
 </span></span></code></pre></div></li>
 </ol>
-<h3 id="初始化專案使用-uv" class="custom-heading custom-heading-3 mt-8 border-b-2 border-gray-500"></h>
+<h3 id="初始化專案使用-uv" class="custom-heading custom-heading-3 mt-8 ">
     <a href="#%e5%88%9d%e5%a7%8b%e5%8c%96%e5%b0%88%e6%a1%88%e4%bd%bf%e7%94%a8-uv" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
     初始化專案使用 uv
 </h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">uv init example
 </span></span></code></pre></div><p>或是在專案目錄下</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">uv init --app
-</span></span></code></pre></div><h3 id="安裝套件" class="custom-heading custom-heading-3 mt-8 border-b-2 border-gray-500"></h>
+</span></span></code></pre></div><h3 id="安裝套件" class="custom-heading custom-heading-3 mt-8 ">
     <a href="#%e5%ae%89%e8%a3%9d%e5%a5%97%e4%bb%b6" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
     安裝套件
 </h3>
@@ -390,7 +390,7 @@
 <p>你可以完全平替 pip install 指令，也就是可以這樣安裝套件</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">uv add flask
 </span></span></code></pre></div><p>uv 就會幫你寫好 <code>pyproject.toml</code> 跟 <code>uv.lock</code>。</p>
-<h3 id="執行專案" class="custom-heading custom-heading-3 mt-8 border-b-2 border-gray-500"></h>
+<h3 id="執行專案" class="custom-heading custom-heading-3 mt-8 ">
     <a href="#%e5%9f%b7%e8%a1%8c%e5%b0%88%e6%a1%88" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
     執行專案
 </h3>
@@ -398,7 +398,7 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">uv run &lt;欲執行檔案&gt;
 </span></span></code></pre></div><p>剛開始初始化的專案會幫你/妳寫一個 <code>main.py</code> 可以使用下面指令。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">uv run main.py
-</span></span></code></pre></div><h3 id="心得" class="custom-heading custom-heading-3 mt-8 border-b-2 border-gray-500"></h>
+</span></span></code></pre></div><h3 id="心得" class="custom-heading custom-heading-3 mt-8 ">
     <a href="#%e5%bf%83%e5%be%97" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
     心得
 </h3>
@@ -410,6 +410,294 @@
         <aside class="mt-8">
             
         </aside>
+        
+        
+        <div class="mt-12">
+            <h2 class="text-3xl font-bold mb-6"></h2>
+            <div class="comments-section p-6 bg-indigo-700/10 shadow-md rounded-lg max-w-3xl mx-auto mt-12 border border-indigo-500/50 hover:border-indigo-500 transition-all duration-300">
+    <h3 class="mb-8 text-2xl font-bold">留言板（尚在測試階段）</h3>
+
+    
+    <div id="existing-comments" class="mt-6">
+        
+    </div>
+
+    <div id="auth-section" class="mt-6"> 
+        <div id="login-form" class="auth-form">
+            <h4 class="mb-4 text-xl font-semibold">登入</h4>
+            <form id="login-form-element"> 
+                <div class="form-group">
+                    <label for="login-email">電子郵件：</label>
+                    <input type="email" id="login-email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="login-password">密碼：</label>
+                    <input type="password" id="login-password" name="password" required>
+                </div>
+                
+                <button type="submit" class="p-2 bg-indigo-700 hover:bg-indigo-500 rounded transition-all duration-300">登入</button>
+            </form>
+            <p class="mt-2">還沒有帳號？ <a id="show-register" class="text-indigo-600 cursor-pointer">註冊</a></p>
+        </div>
+
+        <div id="register-form" class="auth-form" style="display: none;">
+            <h4 class="mb-4 text-xl font-semibold">註冊</h4>
+            <form id="register-form-element"> 
+                <div class="form-group">
+                    <label for="register-username">使用者名稱：</label>
+                    <input type="text" id="register-username" name="username" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="register-email">電子郵件：</label>
+                    <input type="email" id="register-email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="register-password">密碼：</label>
+                    <input type="password" id="register-password" name="password" required>
+                </div>
+                
+                <button type="submit" class="p-2 bg-indigo-700 hover:bg-indigo-500 rounded transition-all duration-300">註冊</button>
+            </form>
+            <p class="mt-2">已有帳號？ <a id="show-login" class="text-indigo-600 cursor-pointer">登入</a></p>
+        </div>
+    </div>
+
+    <div id="user-section" style="display: none;" class="mt-6"> 
+        <p>歡迎，<span id="current-user"></span>！ <a id="logout" class="text-indigo-600 cursor-pointer">登出</a></p>
+        
+        
+        
+        <form id="comment-form" class="mt-6">
+            <div class="form-group">
+                <label for="comment">留言：</label>
+                <textarea id="comment" name="comment" rows="4" required></textarea>
+            </div>
+            
+            <button type="submit" class="p-2 bg-indigo-700 hover:bg-indigo-500 rounded transition-all duration-300">提交留言</button>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        
+        const API_BASE = 'http://ttymayor.zeabur.app/api/v1';
+        let currentUser = null;
+        let authToken = null;
+
+        
+        function showMessage(message, type = 'success') {
+            if (type === 'error') {
+                alert('錯誤: ' + message);
+            } else {
+                alert(message);
+            }
+        }
+        
+        
+        async function loadComments() {
+            const fullUrl = window.location.href;
+            const url = fullUrl.split('?')[0].split('#')[0];
+
+            try {
+                const response = await axios.get(`${API_BASE}/comments/by-url?url=${encodeURIComponent(url)}`);
+                
+                const comments = response.data.comments;
+                const commentsContainer = document.getElementById('existing-comments');
+                commentsContainer.innerHTML = '';
+                
+                if (comments && comments.length > 0) {
+                    comments.forEach(comment => {
+                        const commentElement = document.createElement('div');
+                        commentElement.className = 'comment p-3 mb-3 border-b border-gray-700';
+                        commentElement.innerHTML = `
+                            <p class="font-bold text-indigo-400">${comment.user?.username || '匿名'}</p>
+                            <p class="text-gray-300 my-2">${comment.content}</p>
+                            <p class="text-sm text-gray-500">${new Date(comment.created_at).toLocaleString()}</p>
+                        `;
+                        commentsContainer.appendChild(commentElement);
+                    });
+                } else {
+                    commentsContainer.innerHTML = '<p class="text-gray-500">目前沒有留言</p>';
+                }
+            } catch (error) {
+                console.error('載入評論錯誤:', error);
+                if (error.response?.status !== 404) {
+                    console.log('無法載入留言，可能是該頁面還沒有留言');
+                }
+                const commentsContainer = document.getElementById('existing-comments');
+                commentsContainer.innerHTML = '<p class="text-gray-500">目前沒有留言</p>';
+            }
+        }
+        
+        
+        function updateAuthStatus() {
+            loadComments(); 
+            const token = localStorage.getItem('authToken');
+            const username = localStorage.getItem('username');
+            
+            if (token && username) {
+                authToken = token;
+                currentUser = { username: username };
+                document.getElementById('auth-section').style.display = 'none';
+                document.getElementById('user-section').style.display = 'block';
+                document.getElementById('current-user').textContent = username;
+            } else {
+                authToken = null;
+                currentUser = null;
+                document.getElementById('auth-section').style.display = 'block';
+                document.getElementById('user-section').style.display = 'none';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginFormContainer = document.getElementById('login-form');
+            const registerFormContainer = document.getElementById('register-form');
+            const showRegisterLink = document.getElementById('show-register');
+            const showLoginLink = document.getElementById('show-login');
+            
+            
+            
+            
+            const loginFormElement = document.getElementById('login-form-element'); 
+            const registerFormElement = document.getElementById('register-form-element');
+            const logoutLink = document.getElementById('logout');
+            const commentForm = document.getElementById('comment-form');
+
+            showRegisterLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                loginFormContainer.style.display = 'none';
+                registerFormContainer.style.display = 'block';
+            });
+
+            showLoginLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                registerFormContainer.style.display = 'none';
+                loginFormContainer.style.display = 'block';
+            });
+
+            loginFormElement.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const email = document.getElementById('login-email').value;
+                const password = document.getElementById('login-password').value;
+                
+                try {
+                    const response = await axios.post(`${API_BASE}/login`, {
+                        email: email,
+                        password: password
+                    });
+                    
+                    const token = response.data.token;
+                    const userData = response.data.user;
+                    
+                    localStorage.setItem('authToken', token);
+                    localStorage.setItem('username', userData?.username || email);
+                    
+                    showMessage('登入成功！');
+                    loginFormElement.reset();
+                    updateAuthStatus();
+                } catch (error) {
+                    const errorMsg = error.response?.data?.error || '登入失敗，請檢查您的憑證';
+                    showMessage(errorMsg, 'error');
+                }
+            });
+
+            registerFormElement.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const username = document.getElementById('register-username').value;
+                const email = document.getElementById('register-email').value;
+                const password = document.getElementById('register-password').value;
+                
+                try {
+                    await axios.post(`${API_BASE}/register`, {
+                        username: username,
+                        email: email,
+                        password: password
+                    });
+                    
+                    showMessage('註冊成功，請登入');
+                    registerFormContainer.style.display = 'none';
+                    loginFormContainer.style.display = 'block';
+                    registerFormElement.reset();
+                } catch (error) {
+                    const errorMsg = error.response?.data?.error || '註冊失敗';
+                    showMessage(errorMsg, 'error');
+                }
+            });
+
+            logoutLink.addEventListener('click', function() {
+                localStorage.removeItem('authToken');
+                localStorage.removeItem('username');
+                updateAuthStatus(); 
+                showMessage('已登出');
+                
+            });
+
+            commentForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                if (!authToken) {
+                    showMessage('請先登入', 'error');
+                    return;
+                }
+
+                const fullUrl = window.location.href; 
+                const url = fullUrl.split('?')[0].split('#')[0]; 
+                const content = document.getElementById('comment').value;
+
+                try {
+                    await axios.post(`${API_BASE}/comments`, {
+                        url: url, 
+                        content: content
+                    }, {
+                        headers: {
+                            'Authorization': `Bearer ${authToken}`
+                        }
+                    });
+
+                    showMessage('留言成功！');
+                    commentForm.reset();
+                    loadComments(); 
+                } catch (error) {
+                    const errorMsg = error.response?.data?.error || '送出留言失敗';
+                    showMessage(errorMsg, 'error');
+                }
+            });
+
+            window.loadComments = loadComments;
+
+            
+            
+            updateAuthStatus();
+        });
+    </script>
+
+<style>
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+</style>
+
+
+</div>
+
+        </div>
     </section>
 </div>
 
@@ -533,7 +821,7 @@
         padding-bottom: 0.5rem;
     }
     .custom-heading-1 {
-        font-size: 1.75rem;
+        font-size: 1.8rem;
         font-weight: 700;
         margin-bottom: 1.5rem;
     }
@@ -542,18 +830,18 @@
         margin-bottom: 1.25rem;
     }
     .custom-heading-3 {
-        font-size: 1.55rem;
+        font-size: 1.45rem;
         margin-bottom: 1rem;
     }
     .custom-heading-4 {
-        font-size: 1.45rem;
+        font-size: 1.35rem;
         margin-bottom: 0.5rem;
     }
     .custom-heading-5 {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
     }
     .custom-heading-6 {
-        font-size: 1.35rem;
+        font-size: 1.25rem;
     }
      
     .anchor {
