@@ -595,8 +595,8 @@
                     loginFormElement.reset();
                     updateAuthStatus();
                 } catch (error) {
-                    const errorMsg = error.response?.data?.error || '登入失敗，請檢查您的憑證';
-                    showMessage(errorMsg, 'error');
+                    
+                    showMessage(error, 'error');
                 }
             });
 
