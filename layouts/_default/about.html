@@ -37,6 +37,18 @@
                         </div>
                     </a>
 
+                    <!-- ZeroJudge -->
+                    <a href="{{ .Site.Params.zero_judge }}" target="_blank" class="contact-link flex items-center gap-4 p-4 rounded-lg bg-[#121212] border border-gray-700 hover:border-indigo-300 transition-all duration-300 group">
+                        <svg class="w-7 h-7 text-gray-400 shrink-0 group-hover:text-gray-200 transition-colors duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                        </svg>
+                        <div class="min-w-0">
+                            <div class="text-gray-400 group-hover:text-gray-200 transition-colors duration-300 truncate">ZeroJudge</div>
+                            <div class="text-sm text-gray-500 group-hover:text-gray-400 transition-colors duration-300 truncate">{{ .Site.Params.zero_judge_username }}</div>
+                        </div>
+                    </a></a>
 
                     <!-- MonkeyType -->
                     <!-- <a href="{{ .Site.Params.monkeytype }}" target="_blank" class="contact-link flex items-center gap-4 p-4 rounded-lg bg-[#121212] border border-gray-800 transition-all duration-300 group">

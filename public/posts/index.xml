@@ -6,8 +6,15 @@
     <description>Recent content in Posts on 市長 / tantuyu 的技術網誌</description>
     <generator>Hugo</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Fri, 13 Jun 2025 15:37:54 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 17 Jun 2025 06:11:59 +0800</lastBuildDate>
     <atom:link href="https://ttymayor.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>C&#43;&#43; 期末刷題作業</title>
+      <link>https://ttymayor.com/posts/2025/6/course-cpp-final-hw/</link>
+      <pubDate>Tue, 17 Jun 2025 06:11:59 +0800</pubDate>
+      <guid>https://ttymayor.com/posts/2025/6/course-cpp-final-hw/</guid>
+      <description>&lt;blockquote class=&#34;border-l-4 p-1 px-6 my-3 rounded-lg bg-blue-200/25 text-blue-100 border-blue-500 hover:ring-1 ring-blue-500 transition-all duration-300&#34;&gt;&#xD;&#xA;    &lt;p class=&#34;text-lg font-semibold flex items-center&#34;&gt;&#xD;&#xA;        ℹ️&#xD;&#xA;        &#xD;&#xA;        Note&#xD;&#xA;        &#xD;&#xA;    &lt;/p&gt;&#xD;&#xA;    &lt;p&gt;圖片不見可以跟我說一下，但我應該也不會改，嘻嘻&lt;/p&gt;&#xD;&#xA;&lt;/blockquote&gt;&#xD;&#xA;&lt;h1 id=&#34;c-期末作業cpe--leetcode-history&#34; class=&#34;custom-heading custom-heading-1 mt-8 border-b-2 border-gray-500&#34;&gt;&#xD;&#xA;    &lt;a href=&#34;#c-%e6%9c%9f%e6%9c%ab%e4%bd%9c%e6%a5%adcpe--leetcode-history&#34; class=&#34;anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100&#34;&gt;#&lt;/a&gt;&#xD;&#xA;    C++ 期末作業：CPE &amp;amp; Leetcode History&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;h2 id=&#34;leetcode-daily-question&#34; class=&#34;custom-heading custom-heading-2 mt-8 border-b-2 border-gray-500&#34;&gt;&#xD;&#xA;    &lt;a href=&#34;#leetcode-daily-question&#34; class=&#34;anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100&#34;&gt;#&lt;/a&gt;&#xD;&#xA;    LeetCode Daily Question&#xD;&#xA;&lt;/h2&gt;&#xD;&#xA;&lt;h3 id=&#34;2016-maximum-difference-between-increasing-elements&#34; class=&#34;custom-heading custom-heading-3 mt-8 &#34;&gt;&#xD;&#xA;    &lt;a href=&#34;#2016-maximum-difference-between-increasing-elements&#34; class=&#34;anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100&#34;&gt;#&lt;/a&gt;&#xD;&#xA;    2016. Maximum Difference Between Increasing Elements&#xD;&#xA;&lt;/h3&gt;&#xD;&#xA;&lt;p&gt;題目連結：&lt;a href=&#34;https://leetcode.com/problems/maximum-difference-between-increasing-elements/?envType=daily-question&amp;amp;envId=2025-06-16&#34;&#xD;&#xA;   class=&#34;text-indigo-500 hover:text-indigo-300 hover:underline transition-all duration-300&#34; rel=&#34;external&#34;&gt;https://leetcode.com/problems/maximum-difference-between-increasing-elements/?envType=daily-question&amp;amp;envId=2025-06-16&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>如何防範 CSRF</title>
       <link>https://ttymayor.com/posts/2025/6/defend-against-csrf/</link>
