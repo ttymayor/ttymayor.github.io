@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>2025 我學到什麼 - 市長 / tantuyu 的技術網誌</title>
+        <title>如何防範 XSS - 市長 / tantuyu 的技術網誌</title>
         
         
         <link rel="apple-touch-icon" sizes="180x180" href="https://ttymayor.com/favicon_io/apple-touch-icon.png">
@@ -312,7 +312,7 @@
     <section class="max-w-3xl w-full">
         <div class="mb-8">
             <h1 class="text-4xl font-bold mb-6 leading-relaxed">
-                <span class="text-indigo-500 hover:text-indigo-300 transition-all duration-300 select-none">$ </span>2025 我學到什麼
+                <span class="text-indigo-500 hover:text-indigo-300 transition-all duration-300 select-none">$ </span>如何防範 XSS
             </h1>
 
             
@@ -321,78 +321,419 @@
                 
                 
                 
-                <time datetime="2025-04-15T18:50:46&#43;08:00">April 15, 2025</time>
+                <time datetime="2025-06-17T06:36:32&#43;08:00">June 17, 2025</time>
                 
             </div>
             
 
             
             
+            <div class="flex items-center gap-2 text-sm mt-2">
+                <span class="text-gray-400">分類:</span>
+                <ul class="flex flex-wrap gap-2">
+                    
+                    <li>
+                        <a href="../../../../categories/%E8%B3%87%E8%A8%8A%E5%AE%89%E5%85%A8/" class="text-indigo-400 hover:text-indigo-300 transition-colors">資訊安全</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            
         </div>
 
         
         <article class="prose prose-invert max-w-none mb-8">
-            
-
-
-
-
-<blockquote class="border-l-4 p-1 px-6 my-3 rounded-lg bg-indigo-200/25 text-indigo-100 border-indigo-500 hover:ring-1 ring-indigo-500 transition-all duration-300">
-    <p class="text-lg font-semibold flex items-center">
-        💬
-        
-        Important
-        
-    </p>
-    <p>沒意外會繼續更新</p>
-</blockquote>
-<h2 id="2025-我學到什麼" class="custom-heading custom-heading-2 mt-8 border-b-2 border-gray-500">
-    <a href="#2025-%e6%88%91%e5%ad%b8%e5%88%b0%e4%bb%80%e9%ba%bc" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
-    2025 我學到什麼？
+            <h1 id="什麼是-xss" class="custom-heading custom-heading-1 mt-8 border-b-2 border-gray-500">
+    <a href="#%e4%bb%80%e9%ba%bc%e6%98%af-xss" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
+    什麼是 XSS？
+</h1>
+<p>XSS（Cross-Site Scripting），中文稱為<strong>跨站腳本攻擊</strong>。這是一種網頁安全漏洞，允許攻擊者將惡意腳本注入到網頁中。</p>
+<h2 id="xss-攻擊類型" class="custom-heading custom-heading-2 mt-8 border-b-2 border-gray-500">
+    <a href="#xss-%e6%94%bb%e6%93%8a%e9%a1%9e%e5%9e%8b" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
+    XSS 攻擊類型
 </h2>
-<p>才踏入社會不久，很多我人生中的第一次都在這時期上演，因此，在生活上試錯了許多我自己糊塗或者說那些我應該要有，卻沒有的大人特質。此外，這不一定適用於每個人或每個階段，這些僅僅是我自己的人生經驗。</p>
-<ol>
-<li>面對社交的局面，不可以過度謙虛，你的價值在自己身上不需要刻意拿掉，因為那是被看見的機會。</li>
-<li>找到自己喜歡的運動，這很重要，而我到現在還沒能熟悉一項運動技能。</li>
-<li>培養興趣，無非是除了能當飯吃的興趣，因為它就跟運動一樣，可以緩解壓力，調理情緒。</li>
-<li>絕對要先從「無」到「有」，再從「有」到「達標」，最後才是從「達標」到「趨於完美」。</li>
-<li>分錢時，若難平分，晚輩的你請主動付較高額的部分。</li>
-<li>機會來了，就得主動掌握，而不是等待它再次站到你面前。</li>
-<li>成人世界的關係越模糊越好。</li>
-<li>思緒混亂時，去洗涼水或冷水澡。</li>
-<li>熱情 + 冷漠這種忽熱忽冷的模式會起到讓他人尊重你。</li>
-<li>找到自己喜歡的音樂類型，因為那是屬於你的頻率。</li>
-</ol>
+<h3 id="1-反射型-xss-reflected" class="custom-heading custom-heading-3 mt-8 ">
+    <a href="#1-%e5%8f%8d%e5%b0%84%e5%9e%8b-xss-reflected" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
+    1. 反射型 XSS (Reflected)
+</h3>
+<p>最常見的 XSS 類型，攻擊腳本直接反射在 URL 中：</p>
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="Code block">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">javascript</span>
+        
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#e06c75">https</span><span style="color:#56b6c2">:</span><span style="color:#7f848e">//example.com/search?q=&lt;script&gt;alert(&#39;attacked&#39;)&lt;/script&gt;
+</span></span></span></code></pre></div></div>
+        
+    </div>
+</figure>
 
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
 
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
 
-
-
-  <blockquote class="bg-indigo-800/15 border-l-4 border-indigo-500 p-1 px-6 my-3 rounded-lg hover:ring-1 ring-indigo-500 transition-all duration-300">
-    <ol>
-<li>好奇心將是未來二十年成功者必備的關鍵特質。</li>
-<li>世界變化越快，機會越多。</li>
-<li>找到人生的極值 Gradient Method。</li>
-</ol>
-<p>葉丙成 於 <a href="https://www.youtube.com/watch?v=DW0ZGbrZ3wI"
-   class="text-indigo-500 hover:text-indigo-300 hover:underline transition-all duration-300" rel="external">SITCON 2025 演講：「AI 時代人才新思維」</a></p>
-  </blockquote>
-<h2 id="履歷怎麼寫" class="custom-heading custom-heading-2 mt-8 border-b-2 border-gray-500">
-    <a href="#%e5%b1%a5%e6%ad%b7%e6%80%8e%e9%ba%bc%e5%af%ab" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
-    履歷怎麼寫？
-</h2>
-<ol>
-<li><strong>工作經驗</strong> 比 <strong>教育背景</strong> 更重要，有例外：只有實習經驗</li>
-<li>把結果 <strong>「量化」</strong>，量化是重點，即便結果不是漂亮的，面試官仍會覺得你是更有想法。e.g. 我做過某某企劃<strong>提升公司形象</strong> → 我做過某某企劃<strong>提升公司 10% 知名度</strong>。</li>
-</ol>
-<h6 id="好看影片" class="custom-heading custom-heading-6 mt-8 ">
-    <a href="#%e5%a5%bd%e7%9c%8b%e5%bd%b1%e7%89%87" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
-    好看影片
-</h6>
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+<h3 id="2-儲存型-xss-stored" class="custom-heading custom-heading-3 mt-8 ">
+    <a href="#2-%e5%84%b2%e5%ad%98%e5%9e%8b-xss-stored" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
+    2. 儲存型 XSS (Stored)
+</h3>
+<p>惡意代碼被存儲在伺服器中，例如：</p>
 <ul>
-<li><a href="https://www.youtube.com/watch?v=-5GS67QxC_o&amp;list=TLPQMTYwNDIwMjXoVm4kRf4DDg&amp;index=3"
-   class="text-indigo-500 hover:text-indigo-300 hover:underline transition-all duration-300" rel="external">無用會議、工作分心⋯害你事情老是做不完？到底怎麼提升工作效率？ ft. Google 產品行銷 @JeffSu 《強者我朋友》 EP 102｜志祺七七</a></li>
+<li>留言板內容</li>
+<li>個人資料</li>
+<li>社交媒體貼文</li>
 </ul>
+<p>下面就是常見的範例，也常常拿這個來戳漏洞</p>
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="Code block">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">html</span>
+        
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#e06c75">script</span>&gt;<span style="color:#e06c75">alert</span>(<span style="color:#d19a66">1</span>);&lt;/<span style="color:#e06c75">script</span>&gt;</span></span></code></pre></div></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+<h3 id="3-dom-型-xss" class="custom-heading custom-heading-3 mt-8 ">
+    <a href="#3-dom-%e5%9e%8b-xss" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
+    3. DOM 型 XSS
+</h3>
+<p>透過修改頁面的 DOM 環境來進行攻擊。但也要誘使使用者點擊 URL 來觸發</p>
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="Code block">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">html</span>
+        
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#e06c75">img</span> <span style="color:#e06c75">src</span><span style="color:#56b6c2">=</span><span style="color:#98c379">#</span> <span style="color:#e06c75">onerror</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;alert(&#39;attacked&#39;)&#34;</span>&gt;</span></span></code></pre></div></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+<h2 id="防範措施" class="custom-heading custom-heading-2 mt-8 border-b-2 border-gray-500">
+    <a href="#%e9%98%b2%e7%af%84%e6%8e%aa%e6%96%bd" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
+    防範措施
+</h2>
+<h3 id="1-輸入驗證與過濾" class="custom-heading custom-heading-3 mt-8 ">
+    <a href="#1-%e8%bc%b8%e5%85%a5%e9%a9%97%e8%ad%89%e8%88%87%e9%81%8e%e6%bf%be" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
+    1. 輸入驗證與過濾
+</h3>
+<p>至於到底是前端還是後端，建議是全端都需要做輸入驗證，只要有 input tag 就應該要檢查是否出現漏洞。</p>
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="Code block">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">javascript</span>
+        
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#7f848e">// 使用 escapeHTML 函數
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span><span style="color:#c678dd">function</span> <span style="color:#e06c75">escapeHTML</span>(<span style="color:#e06c75">str</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">return</span> <span style="color:#e06c75">str</span>.<span style="color:#e06c75">replace</span>(<span style="color:#98c379">/[&amp;&lt;&gt;&#34;&#39;]/g</span>, <span style="color:#c678dd">function</span>(<span style="color:#e06c75">match</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">const</span> <span style="color:#e06c75">escape</span> <span style="color:#56b6c2">=</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#98c379">&#39;&amp;&#39;</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;&amp;amp;&#39;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#98c379">&#39;&lt;&#39;</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;&amp;lt;&#39;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#98c379">&#39;&gt;&#39;</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;&amp;gt;&#39;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#98c379">&#39;&#34;&#39;</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;&amp;quot;&#39;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#98c379">&#34;&#39;&#34;</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;&amp;#39;&#39;</span>
+</span></span><span style="display:flex;"><span>        };
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">return</span> <span style="color:#e06c75">escape</span>[<span style="color:#e06c75">match</span>];
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+<h3 id="2-設置-csp" class="custom-heading custom-heading-3 mt-8 ">
+    <a href="#2-%e8%a8%ad%e7%bd%ae-csp" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
+    2. 設置 CSP
+</h3>
+<p>在 HTTP Header 中加入內容安全策略（CSP）的標頭：</p>
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="Code block">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">http</span>
+        
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>Content-Security-Policy: default-src &#39;self&#39;</span></span></code></pre></div></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+<h3 id="3-使用-httponly-cookie" class="custom-heading custom-heading-3 mt-8 ">
+    <a href="#3-%e4%bd%bf%e7%94%a8-httponly-cookie" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
+    3. 使用 HttpOnly Cookie
+</h3>
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="Code block">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">javascript</span>
+        
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#e06c75">Set</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">Cookie</span><span style="color:#56b6c2">:</span> <span style="color:#e06c75">sessionId</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">123</span>; <span style="color:#e06c75">HttpOnly</span>; <span style="color:#e06c75">Secure</span></span></span></code></pre></div></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+<h3 id="4-輸出編碼" class="custom-heading custom-heading-3 mt-8 ">
+    <a href="#4-%e8%bc%b8%e5%87%ba%e7%b7%a8%e7%a2%bc" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
+    4. 輸出編碼
+</h3>
+<p>始終對不可信數據進行編碼：</p>
+<ul>
+<li>HTML 編碼</li>
+<li>JavaScript 編碼</li>
+<li>URL 編碼</li>
+<li>CSS 編碼</li>
+</ul>
+<h2 id="實際預防步驟" class="custom-heading custom-heading-2 mt-8 border-b-2 border-gray-500">
+    <a href="#%e5%af%a6%e9%9a%9b%e9%a0%90%e9%98%b2%e6%ad%a5%e9%a9%9f" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
+    實際預防步驟
+</h2>
+<ol>
+<li>使用現代框架的內建防護</li>
+<li>實施輸入驗證</li>
+<li>應用 CSP 政策</li>
+<li>定期安全稽核</li>
+<li>保持軟體更新</li>
+</ol>
+<h2 id="結論" class="custom-heading custom-heading-2 mt-8 border-b-2 border-gray-500">
+    <a href="#%e7%b5%90%e8%ab%96" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
+    結論
+</h2>
+<p>XSS 攻擊雖然常見，但通過正確的防護措施可以有效預防。重要的是要建立多層防禦機制，並保持警惕。</p>
+<ol>
+<li><strong>永遠不要信任用戶輸入</strong></li>
+<li><strong>使用白名單而非黑名單過濾</strong></li>
+<li><strong>實施適當的輸出編碼</strong></li>
+<li><strong>配置嚴格的 CSP 策略</strong></li>
+<li><strong>定期進行安全測試</strong></li>
+</ol>
+<h2 id="參考資料" class="custom-heading custom-heading-2 mt-8 border-b-2 border-gray-500">
+    <a href="#%e5%8f%83%e8%80%83%e8%b3%87%e6%96%99" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
+    參考資料
+</h2>
+<ol>
+<li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+   class="text-indigo-500 hover:text-indigo-300 hover:underline transition-all duration-300" rel="external">OWASP XSS Prevention Cheat Sheet</a></li>
+<li><a href="https://portswigger.net/web-security/cross-site-scripting"
+   class="text-indigo-500 hover:text-indigo-300 hover:underline transition-all duration-300" rel="external">PortSwigger Web Security Academy - XSS</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP"
+   class="text-indigo-500 hover:text-indigo-300 hover:underline transition-all duration-300" rel="external">MDN - Content Security Policy</a></li>
+<li><a href="https://owasp.org/Top10/A03_2021-Injection/"
+   class="text-indigo-500 hover:text-indigo-300 hover:underline transition-all duration-300" rel="external">OWASP Top 10 - A03:2021 Injection</a></li>
+</ol>
 
         </article>
 
@@ -404,7 +745,19 @@
             <ul class="flex flex-row flex-wrap items-start gap-2">
                 
                 <li>
-                    <a href="../../../../tags/%E6%88%90%E9%95%B7/" class="inline-block px-2 py-1 text-xs bg-[#121212] text-gray-100 border border-gray-800 rounded-md transition-all duration-300 hover:bg-indigo-500">成長</a>
+                    <a href="../../../../tags/%E8%B3%87%E5%AE%89/" class="inline-block px-2 py-1 text-xs bg-[#121212] text-gray-100 border border-gray-800 rounded-md transition-all duration-300 hover:bg-indigo-500">資安</a>
+                </li>
+                
+                <li>
+                    <a href="../../../../tags/xss/" class="inline-block px-2 py-1 text-xs bg-[#121212] text-gray-100 border border-gray-800 rounded-md transition-all duration-300 hover:bg-indigo-500">XSS</a>
+                </li>
+                
+                <li>
+                    <a href="../../../../tags/%E7%B6%B2%E8%B7%AF%E5%AE%89%E5%85%A8/" class="inline-block px-2 py-1 text-xs bg-[#121212] text-gray-100 border border-gray-800 rounded-md transition-all duration-300 hover:bg-indigo-500">網路安全</a>
+                </li>
+                
+                <li>
+                    <a href="../../../../tags/web-security/" class="inline-block px-2 py-1 text-xs bg-[#121212] text-gray-100 border border-gray-800 rounded-md transition-all duration-300 hover:bg-indigo-500">Web Security</a>
                 </li>
                 
             </ul>

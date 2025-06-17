@@ -1,7 +1,6 @@
 ---
 title: '如何防範 XSS'
 date: '2025-06-17T06:36:32+08:00'
-draft: true
 tags: ['資安', 'XSS', '網路安全', 'Web Security']
 categories: ['資訊安全']
 ---
@@ -12,7 +11,7 @@ XSS（Cross-Site Scripting），中文稱為**跨站腳本攻擊**。這是一�
 
 ## XSS 攻擊類型
 
-### 1. 反射型 XSS
+### 1. 反射型 XSS (Reflected)
 
 最常見的 XSS 類型，攻擊腳本直接反射在 URL 中：
 
@@ -20,7 +19,7 @@ XSS（Cross-Site Scripting），中文稱為**跨站腳本攻擊**。這是一�
 https://example.com/search?q=<script>alert('attacked')</script>
 ```
 
-### 2. 儲存型 XSS
+### 2. 儲存型 XSS (Stored)
 
 惡意代碼被存儲在伺服器中，例如：
 
@@ -28,13 +27,25 @@ https://example.com/search?q=<script>alert('attacked')</script>
 - 個人資料
 - 社交媒體貼文
 
+下面就是常見的範例，也常常拿這個來戳漏洞
+
+```html
+<script>alert(1);</script>
+```
+
 ### 3. DOM 型 XSS
 
-透過修改頁面的 DOM 環境來進行攻擊。
+透過修改頁面的 DOM 環境來進行攻擊。但也要誘使使用者點擊 URL 來觸發
+
+```html
+<img src=# onerror="alert('attacked')">
+```
 
 ## 防範措施
 
-### 1. 輸入驗證與過濾
+### 1. 輸入驗證與過濾   
+
+至於到底是前端還是後端，建議是全端都需要做輸入驗證，只要有 input tag 就應該要檢查是否出現漏洞。
 
 ```javascript
 // 使用 escapeHTML 函數
@@ -54,7 +65,7 @@ function escapeHTML(str) {
 
 ### 2. 設置 CSP
 
-在 HTTP Header 中加入：
+在 HTTP Header 中加入內容安全策略（CSP）的標頭：
 
 ```http
 Content-Security-Policy: default-src 'self'
@@ -85,3 +96,16 @@ Set-Cookie: sessionId=123; HttpOnly; Secure
 ## 結論
 
 XSS 攻擊雖然常見，但通過正確的防護措施可以有效預防。重要的是要建立多層防禦機制，並保持警惕。
+
+1. **永遠不要信任用戶輸入**
+2. **使用白名單而非黑名單過濾**
+3. **實施適當的輸出編碼**
+4. **配置嚴格的 CSP 策略**
+5. **定期進行安全測試**
+
+## 參考資料
+
+1. [OWASP XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+2. [PortSwigger Web Security Academy - XSS](https://portswigger.net/web-security/cross-site-scripting)
+3. [MDN - Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
+4. [OWASP Top 10 - A03:2021 Injection](https://owasp.org/Top10/A03_2021-Injection/)

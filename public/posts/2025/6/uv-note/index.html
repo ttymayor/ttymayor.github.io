@@ -151,7 +151,7 @@
     <div class="max-w-6xl mx-auto px-4">
         <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div class="flex justify-between items-center">
-                <a href="https://ttymayor.com/" class="text-xl font-bold text-white hover:text-gray-300 transition-colors duration-300">
+                <a href="https://ttymayor.com/" class="text-xl font-bold text-white dark:text-gray-200 hover:text-gray-300 dark:hover:text-white transition-colors duration-300">
                     市長 / tantuyu
                 </a>
                 
@@ -367,42 +367,456 @@
 </h3>
 <ol>
 <li>直接安裝在系統上
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># On macOS and Linux.</span>
-</span></span><span class="line"><span class="cl">curl -LsSf https://astral.sh/uv/install.sh <span class="p">|</span> sh
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># On Windows.</span>
-</span></span><span class="line"><span class="cl">powershell -ExecutionPolicy ByPass -c <span class="s2">&#34;irm https://astral.sh/uv/install.ps1 | iex&#34;</span>
-</span></span></code></pre></div></li>
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="Code block">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">bash</span>
+        
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#7f848e"># On macOS and Linux.</span>
+</span></span><span style="display:flex;"><span>curl -LsSf https://astral.sh/uv/install.sh | sh</span></span></code></pre></div></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="Code block">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">bash</span>
+        
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#7f848e"># On Windows.</span>
+</span></span><span style="display:flex;"><span>powershell -ExecutionPolicy ByPass -c <span style="color:#98c379">&#34;irm https://astral.sh/uv/install.ps1 | iex&#34;</span></span></span></code></pre></div></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+</li>
 <li>使用 PyPI
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># With pip.</span>
-</span></span><span class="line"><span class="cl">pip install uv
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Or pipx.</span>
-</span></span><span class="line"><span class="cl">pipx install uv
-</span></span></code></pre></div></li>
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="Code block">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">bash</span>
+        
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#7f848e"># With pip.</span>
+</span></span><span style="display:flex;"><span>pip install uv</span></span></code></pre></div></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="Code block">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">bash</span>
+        
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#7f848e"># Or pipx.</span>
+</span></span><span style="display:flex;"><span>pipx install uv</span></span></code></pre></div></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+</li>
 </ol>
 <h3 id="初始化專案使用-uv" class="custom-heading custom-heading-3 mt-8 ">
     <a href="#%e5%88%9d%e5%a7%8b%e5%8c%96%e5%b0%88%e6%a1%88%e4%bd%bf%e7%94%a8-uv" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
     初始化專案使用 uv
 </h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">uv init example
-</span></span></code></pre></div><p>或是在專案目錄下</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">uv init --app
-</span></span></code></pre></div><h3 id="安裝套件" class="custom-heading custom-heading-3 mt-8 ">
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="Code block">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">bash</span>
+        
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>uv init example</span></span></code></pre></div></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+<p>或是在專案目錄下</p>
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="Code block">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">bash</span>
+        
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>uv init --app</span></span></code></pre></div></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+<h3 id="安裝套件" class="custom-heading custom-heading-3 mt-8 ">
     <a href="#%e5%ae%89%e8%a3%9d%e5%a5%97%e4%bb%b6" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
     安裝套件
 </h3>
 <p>有兩種方式：<code>uv add</code> 與 <code>uv pip install</code></p>
 <p>你可以完全平替 pip install 指令，也就是可以這樣安裝套件</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">uv add flask
-</span></span></code></pre></div><p>uv 就會幫你寫好 <code>pyproject.toml</code> 跟 <code>uv.lock</code>。</p>
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="Code block">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">bash</span>
+        
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>uv add flask</span></span></code></pre></div></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+<p>uv 就會幫你寫好 <code>pyproject.toml</code> 跟 <code>uv.lock</code>。</p>
 <h3 id="執行專案" class="custom-heading custom-heading-3 mt-8 ">
     <a href="#%e5%9f%b7%e8%a1%8c%e5%b0%88%e6%a1%88" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
     執行專案
 </h3>
 <p><code>uv run</code> 會自動生成 .venv，並使用其虛擬環境來執行你的專案。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">uv run &lt;欲執行檔案&gt;
-</span></span></code></pre></div><p>剛開始初始化的專案會幫你/妳寫一個 <code>main.py</code> 可以使用下面指令。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">uv run main.py
-</span></span></code></pre></div><h3 id="心得" class="custom-heading custom-heading-3 mt-8 ">
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="Code block">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">bash</span>
+        
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>uv run &lt;欲執行檔案&gt;</span></span></code></pre></div></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+<p>剛開始初始化的專案會幫你/妳寫一個 <code>main.py</code> 可以使用下面指令。</p>
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="Code block">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">bash</span>
+        
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>uv run main.py</span></span></code></pre></div></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+<h3 id="心得" class="custom-heading custom-heading-3 mt-8 ">
     <a href="#%e5%bf%83%e5%be%97" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
     心得
 </h3>
@@ -773,16 +1187,6 @@
     article table tr:hover {
         background-color: #252661;
         transition: 0.3s;
-    }
-    article div pre {
-        margin: 1.5rem 0;
-        padding: 1rem;
-        background-color: #212121;
-        border-radius: 8px;
-        overflow-x: auto;
-    }
-    article div pre code {
-        line-height: 1.6;
     }
      
     article input[type="checkbox"] {

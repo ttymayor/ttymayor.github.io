@@ -151,7 +151,7 @@
     <div class="max-w-6xl mx-auto px-4">
         <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div class="flex justify-between items-center">
-                <a href="https://ttymayor.com/" class="text-xl font-bold text-white hover:text-gray-300 transition-colors duration-300">
+                <a href="https://ttymayor.com/" class="text-xl font-bold text-white dark:text-gray-200 hover:text-gray-300 dark:hover:text-white transition-colors duration-300">
                     市長 / tantuyu
                 </a>
                 
@@ -367,46 +367,138 @@
 <ol>
 <li>
 <p>暴力解，時間複雜度：O(n^2)</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">maximumDifference</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="k">continue</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">                <span class="n">ans</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span> <span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-</span></span><span class="line"><span class="cl">            <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">ans</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span></code></pre></div></li>
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="Code block">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">cpp</span>
+        
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#c678dd">class</span> <span style="color:#e5c07b">Solution</span> {
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">public</span><span style="color:#56b6c2">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">int</span> <span style="color:#e06c75">maximumDifference</span>(<span style="color:#e06c75">vector</span><span style="color:#56b6c2">&lt;</span><span style="color:#e5c07b">int</span><span style="color:#56b6c2">&gt;&amp;</span> <span style="color:#e06c75">nums</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">int</span> <span style="color:#e06c75">n</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">nums</span>.<span style="color:#e06c75">size</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">int</span> <span style="color:#e06c75">ans</span> <span style="color:#56b6c2">=</span> <span style="color:#56b6c2">-</span><span style="color:#d19a66">1</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;</span> <span style="color:#e06c75">n</span> <span style="color:#56b6c2">-</span> <span style="color:#d19a66">1</span>; <span style="color:#e06c75">i</span><span style="color:#56b6c2">++</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">j</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">+</span> <span style="color:#d19a66">1</span>; <span style="color:#e06c75">j</span> <span style="color:#56b6c2">&lt;</span> <span style="color:#e06c75">n</span>; <span style="color:#e06c75">j</span><span style="color:#56b6c2">++</span>) {
+</span></span><span style="display:flex;"><span>                <span style="color:#c678dd">if</span> (<span style="color:#e06c75">nums</span>[<span style="color:#e06c75">i</span>] <span style="color:#56b6c2">&gt;=</span> <span style="color:#e06c75">nums</span>[<span style="color:#e06c75">j</span>]) <span style="color:#c678dd">continue</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">ans</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">max</span>(<span style="color:#e06c75">ans</span>, <span style="color:#e06c75">nums</span>[<span style="color:#e06c75">j</span>] <span style="color:#56b6c2">-</span> <span style="color:#e06c75">nums</span>[<span style="color:#e06c75">i</span>]);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">return</span> <span style="color:#e06c75">ans</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};</span></span></code></pre></div></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+</li>
 <li>
 <p>優化後：每次遍歷一次，都是在用先前的最小值，所以可以記錄最小值，就不須跑兩層迴圈。
 時間複雜度：O(n)（線性）</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">maximumDifference</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">premin</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">premin</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="n">ans</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">premin</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="n">premin</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">            <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">ans</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span></code></pre></div></li>
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="Code block">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">cpp</span>
+        
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#c678dd">class</span> <span style="color:#e5c07b">Solution</span> {
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">public</span><span style="color:#56b6c2">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">int</span> <span style="color:#e06c75">maximumDifference</span>(<span style="color:#e06c75">vector</span><span style="color:#56b6c2">&lt;</span><span style="color:#e5c07b">int</span><span style="color:#56b6c2">&gt;&amp;</span> <span style="color:#e06c75">nums</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">int</span> <span style="color:#e06c75">n</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">nums</span>.<span style="color:#e06c75">size</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">int</span> <span style="color:#e06c75">ans</span> <span style="color:#56b6c2">=</span> <span style="color:#56b6c2">-</span><span style="color:#d19a66">1</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">int</span> <span style="color:#e06c75">premin</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">nums</span>[<span style="color:#d19a66">0</span>];
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;</span> <span style="color:#e06c75">n</span>; <span style="color:#e06c75">i</span><span style="color:#56b6c2">++</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">if</span> (<span style="color:#e06c75">nums</span>[<span style="color:#e06c75">i</span>] <span style="color:#56b6c2">&gt;</span> <span style="color:#e06c75">premin</span>) {
+</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">ans</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">max</span>(<span style="color:#e06c75">ans</span>, <span style="color:#e06c75">nums</span>[<span style="color:#e06c75">i</span>] <span style="color:#56b6c2">-</span> <span style="color:#e06c75">premin</span>);
+</span></span><span style="display:flex;"><span>            } <span style="color:#c678dd">else</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">premin</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">nums</span>[<span style="color:#e06c75">i</span>];
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">return</span> <span style="color:#e06c75">ans</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};</span></span></code></pre></div></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+</li>
 </ol>
 <h3 id="1432-max-difference-you-can-get-from-changing-an-integer" class="custom-heading custom-heading-3 mt-8 ">
     <a href="#1432-max-difference-you-can-get-from-changing-an-integer" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
@@ -418,45 +510,91 @@
 <p>Tags: <code>Math 數學</code> <code>Greedy 貪婪</code></p>
 <p><img src="../../../../posts/2025/6/image-1.png" alt="AC 截圖"class="rounded-lg shadow-lg place-self-center hover:ring-1 ring-indigo-500 transition-all duration-300 hover:scale-[1.01] "
 ></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">maxDiff</span><span class="p">(</span><span class="kt">int</span> <span class="n">num</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">string</span> <span class="n">str_num</span> <span class="o">=</span> <span class="n">to_string</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">str_num</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="n">string</span> <span class="n">mx_num</span> <span class="o">=</span> <span class="n">str_num</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="n">string</span> <span class="n">mn_num</span> <span class="o">=</span> <span class="n">str_num</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="c1">// find max
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">mx_num</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="sc">&#39;9&#39;</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="n">transfer</span><span class="p">(</span><span class="n">mx_num</span><span class="p">,</span> <span class="n">mx_num</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="sc">&#39;9&#39;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">                <span class="k">break</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="c1">// find min
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="n">mn_num</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="sc">&#39;1&#39;</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="n">mn_num</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="sc">&#39;0&#39;</span> <span class="o">&amp;&amp;</span> <span class="n">mn_num</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="sc">&#39;1&#39;</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                    <span class="n">transfer</span><span class="p">(</span><span class="n">mn_num</span><span class="p">,</span> <span class="n">mn_num</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="sc">&#39;0&#39;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">                    <span class="k">break</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">                <span class="p">}</span>
-</span></span><span class="line"><span class="cl">            <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">transfer</span><span class="p">(</span><span class="n">mn_num</span><span class="p">,</span> <span class="n">mn_num</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="sc">&#39;1&#39;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nf">stoi</span><span class="p">(</span><span class="n">mx_num</span><span class="p">)</span> <span class="o">-</span> <span class="n">stoi</span><span class="p">(</span><span class="n">mn_num</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">transfer</span><span class="p">(</span><span class="n">string</span> <span class="o">&amp;</span><span class="n">s</span><span class="p">,</span> <span class="kt">char</span> <span class="n">before</span><span class="p">,</span> <span class="kt">char</span> <span class="n">after</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">char</span><span class="o">&amp;</span> <span class="nl">c</span> <span class="p">:</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">==</span> <span class="n">before</span><span class="p">)</span> <span class="n">c</span> <span class="o">=</span> <span class="n">after</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span></code></pre></div><h2 id="leetcode-自選題" class="custom-heading custom-heading-2 mt-8 border-b-2 border-gray-500">
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="Code block">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">cpp</span>
+        
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#c678dd">class</span> <span style="color:#e5c07b">Solution</span> {
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">public</span><span style="color:#56b6c2">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">int</span> <span style="color:#e06c75">maxDiff</span>(<span style="color:#e5c07b">int</span> <span style="color:#e06c75">num</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">string</span> <span style="color:#e06c75">str_num</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">to_string</span>(<span style="color:#e06c75">num</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">int</span> <span style="color:#e06c75">n</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">str_num</span>.<span style="color:#e06c75">size</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">string</span> <span style="color:#e06c75">mx_num</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">str_num</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">string</span> <span style="color:#e06c75">mn_num</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">str_num</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#7f848e">// find max
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>        <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;</span> <span style="color:#e06c75">n</span>; <span style="color:#e06c75">i</span><span style="color:#56b6c2">++</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">if</span> (<span style="color:#e06c75">mx_num</span>[<span style="color:#e06c75">i</span>] <span style="color:#56b6c2">!=</span> <span style="color:#98c379">&#39;9&#39;</span>) {
+</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">transfer</span>(<span style="color:#e06c75">mx_num</span>, <span style="color:#e06c75">mx_num</span>[<span style="color:#e06c75">i</span>], <span style="color:#98c379">&#39;9&#39;</span>);
+</span></span><span style="display:flex;"><span>                <span style="color:#c678dd">break</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#7f848e">// find min
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>        <span style="color:#c678dd">if</span> (<span style="color:#e06c75">mn_num</span>[<span style="color:#d19a66">0</span>] <span style="color:#56b6c2">==</span> <span style="color:#98c379">&#39;1&#39;</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;</span> <span style="color:#e06c75">n</span>; <span style="color:#e06c75">i</span><span style="color:#56b6c2">++</span>) {
+</span></span><span style="display:flex;"><span>                <span style="color:#c678dd">if</span> (<span style="color:#e06c75">mn_num</span>[<span style="color:#e06c75">i</span>] <span style="color:#56b6c2">!=</span> <span style="color:#98c379">&#39;0&#39;</span> <span style="color:#56b6c2">&amp;&amp;</span> <span style="color:#e06c75">mn_num</span>[<span style="color:#e06c75">i</span>] <span style="color:#56b6c2">!=</span> <span style="color:#98c379">&#39;1&#39;</span>) {
+</span></span><span style="display:flex;"><span>                    <span style="color:#e06c75">transfer</span>(<span style="color:#e06c75">mn_num</span>, <span style="color:#e06c75">mn_num</span>[<span style="color:#e06c75">i</span>], <span style="color:#98c379">&#39;0&#39;</span>);
+</span></span><span style="display:flex;"><span>                    <span style="color:#c678dd">break</span>;
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        } <span style="color:#c678dd">else</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">transfer</span>(<span style="color:#e06c75">mn_num</span>, <span style="color:#e06c75">mn_num</span>[<span style="color:#d19a66">0</span>], <span style="color:#98c379">&#39;1&#39;</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">return</span> <span style="color:#61afef;font-weight:bold">stoi</span>(<span style="color:#e06c75">mx_num</span>) <span style="color:#56b6c2">-</span> <span style="color:#e06c75">stoi</span>(<span style="color:#e06c75">mn_num</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">void</span> <span style="color:#61afef;font-weight:bold">transfer</span>(<span style="color:#e06c75">string</span> <span style="color:#56b6c2">&amp;</span><span style="color:#e06c75">s</span>, <span style="color:#e5c07b">char</span> <span style="color:#e06c75">before</span>, <span style="color:#e5c07b">char</span> <span style="color:#e06c75">after</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">char</span><span style="color:#56b6c2">&amp;</span> <span style="color:#e06c75">c</span> : <span style="color:#e06c75">s</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">if</span> (<span style="color:#e06c75">c</span> <span style="color:#56b6c2">==</span> <span style="color:#e06c75">before</span>) <span style="color:#e06c75">c</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">after</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};</span></span></code></pre></div></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+<h2 id="leetcode-自選題" class="custom-heading custom-heading-2 mt-8 border-b-2 border-gray-500">
     <a href="#leetcode-%e8%87%aa%e9%81%b8%e9%a1%8c" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
     LeetCode 自選題
 </h2>
@@ -470,23 +608,69 @@
 <p>Tags: <code>Tree 樹</code> <code>Recursion 遞迴</code></p>
 <p><img src="../../../../posts/2025/6/image-2.png" alt="AC 截圖"class="rounded-lg shadow-lg place-self-center hover:ring-1 ring-indigo-500 transition-all duration-300 hover:scale-[1.01] "
 ></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">countNodes</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="n">counter</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">ans</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">ans</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">counter</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">,</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">total</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">root</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="n">total</span><span class="o">++</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="n">counter</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span> <span class="n">total</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">counter</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span> <span class="n">total</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span></code></pre></div><h3 id="257-binary-tree-paths" class="custom-heading custom-heading-3 mt-8 ">
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="Code block">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">cpp</span>
+        
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#c678dd">class</span> <span style="color:#e5c07b">Solution</span> {
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">public</span><span style="color:#56b6c2">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">int</span> <span style="color:#e06c75">countNodes</span>(<span style="color:#e06c75">TreeNode</span><span style="color:#56b6c2">*</span> <span style="color:#e06c75">root</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">int</span> <span style="color:#e06c75">ans</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">counter</span>(<span style="color:#e06c75">root</span>, <span style="color:#e06c75">ans</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">return</span> <span style="color:#e06c75">ans</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">void</span> <span style="color:#61afef;font-weight:bold">counter</span>(<span style="color:#e06c75">TreeNode</span><span style="color:#56b6c2">*</span> <span style="color:#e06c75">root</span>, <span style="color:#e5c07b">int</span><span style="color:#56b6c2">&amp;</span> <span style="color:#e06c75">total</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">if</span> (<span style="color:#e06c75">root</span> <span style="color:#56b6c2">==</span> <span style="color:#e5c07b">NULL</span>) <span style="color:#c678dd">return</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">total</span><span style="color:#56b6c2">++</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">counter</span>(<span style="color:#e06c75">root</span><span style="color:#56b6c2">-&gt;</span><span style="color:#e06c75">left</span>, <span style="color:#e06c75">total</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">counter</span>(<span style="color:#e06c75">root</span><span style="color:#56b6c2">-&gt;</span><span style="color:#e06c75">right</span>, <span style="color:#e06c75">total</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};</span></span></code></pre></div></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+<h3 id="257-binary-tree-paths" class="custom-heading custom-heading-3 mt-8 ">
     <a href="#257-binary-tree-paths" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
     257. Binary Tree Paths
 </h3>
@@ -496,26 +680,72 @@
 <p>Tags: <code>String 字串</code> <code>Backtracking 回溯</code> <code>Tree 樹</code> <code>Depth-First Search 深度優先搜尋演算法</code> <code>Binary Tree 二元樹</code></p>
 <p><img src="../../../../posts/2025/6/image-3.png" alt="AC 截圖"class="rounded-lg shadow-lg place-self-center hover:ring-1 ring-indigo-500 transition-all duration-300 hover:scale-[1.01] "
 ></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
-</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">binaryTreePaths</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">ans</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="n">findPaths</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="n">ans</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">ans</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">findPaths</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">,</span> <span class="n">string</span> <span class="n">path</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;&amp;</span> <span class="n">ans</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">path</span> <span class="o">+=</span> <span class="n">to_string</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">!=</span> <span class="nb">NULL</span> <span class="o">||</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="n">path</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#34;-&gt;&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="n">findPaths</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">ans</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="n">findPaths</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">ans</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">==</span> <span class="nb">NULL</span> <span class="o">&amp;&amp;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="n">ans</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">path</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span></code></pre></div><h2 id="cpe" class="custom-heading custom-heading-2 mt-8 border-b-2 border-gray-500">
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="Code block">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">cpp</span>
+        
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#c678dd">class</span> <span style="color:#e5c07b">Solution</span> {
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">public</span><span style="color:#56b6c2">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">vector</span><span style="color:#56b6c2">&lt;</span><span style="color:#e06c75">string</span><span style="color:#56b6c2">&gt;</span> <span style="color:#e06c75">binaryTreePaths</span>(<span style="color:#e06c75">TreeNode</span><span style="color:#56b6c2">*</span> <span style="color:#e06c75">root</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">vector</span><span style="color:#56b6c2">&lt;</span><span style="color:#e06c75">string</span><span style="color:#56b6c2">&gt;</span> <span style="color:#e06c75">ans</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">findPaths</span>(<span style="color:#e06c75">root</span>, <span style="color:#98c379">&#34;&#34;</span>, <span style="color:#e06c75">ans</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">return</span> <span style="color:#e06c75">ans</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">void</span> <span style="color:#61afef;font-weight:bold">findPaths</span>(<span style="color:#e06c75">TreeNode</span><span style="color:#56b6c2">*</span> <span style="color:#e06c75">root</span>, <span style="color:#e06c75">string</span> <span style="color:#e06c75">path</span>, <span style="color:#e06c75">vector</span><span style="color:#56b6c2">&lt;</span><span style="color:#e06c75">string</span><span style="color:#56b6c2">&gt;&amp;</span> <span style="color:#e06c75">ans</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">path</span> <span style="color:#56b6c2">+=</span> <span style="color:#e06c75">to_string</span>(<span style="color:#e06c75">root</span><span style="color:#56b6c2">-&gt;</span><span style="color:#e06c75">val</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">if</span> (<span style="color:#e06c75">root</span><span style="color:#56b6c2">-&gt;</span><span style="color:#e06c75">left</span> <span style="color:#56b6c2">!=</span> <span style="color:#e5c07b">NULL</span> <span style="color:#56b6c2">||</span> <span style="color:#e06c75">root</span><span style="color:#56b6c2">-&gt;</span><span style="color:#e06c75">right</span> <span style="color:#56b6c2">!=</span> <span style="color:#e5c07b">NULL</span>) <span style="color:#e06c75">path</span>.<span style="color:#e06c75">append</span>(<span style="color:#98c379">&#34;-&gt;&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">if</span> (<span style="color:#e06c75">root</span><span style="color:#56b6c2">-&gt;</span><span style="color:#e06c75">left</span> <span style="color:#56b6c2">!=</span> <span style="color:#e5c07b">NULL</span>) <span style="color:#e06c75">findPaths</span>(<span style="color:#e06c75">root</span><span style="color:#56b6c2">-&gt;</span><span style="color:#e06c75">left</span>, <span style="color:#e06c75">path</span>, <span style="color:#e06c75">ans</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">if</span> (<span style="color:#e06c75">root</span><span style="color:#56b6c2">-&gt;</span><span style="color:#e06c75">right</span> <span style="color:#56b6c2">!=</span> <span style="color:#e5c07b">NULL</span>) <span style="color:#e06c75">findPaths</span>(<span style="color:#e06c75">root</span><span style="color:#56b6c2">-&gt;</span><span style="color:#e06c75">right</span>, <span style="color:#e06c75">path</span>, <span style="color:#e06c75">ans</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">if</span> (<span style="color:#e06c75">root</span><span style="color:#56b6c2">-&gt;</span><span style="color:#e06c75">left</span> <span style="color:#56b6c2">==</span> <span style="color:#e5c07b">NULL</span> <span style="color:#56b6c2">&amp;&amp;</span> <span style="color:#e06c75">root</span><span style="color:#56b6c2">-&gt;</span><span style="color:#e06c75">right</span> <span style="color:#56b6c2">==</span> <span style="color:#e5c07b">NULL</span>) <span style="color:#e06c75">ans</span>.<span style="color:#e06c75">push_back</span>(<span style="color:#e06c75">path</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};</span></span></code></pre></div></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+<h2 id="cpe" class="custom-heading custom-heading-2 mt-8 border-b-2 border-gray-500">
     <a href="#cpe" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
     CPE
 </h2>
@@ -548,39 +778,85 @@
 <p>Tags: <code>Prefix Sum 前綴和</code> <code>DP 動態規劃</code></p>
 <p><img src="../../../../posts/2025/6/image-4.png" alt="AC 截圖"class="rounded-lg shadow-lg place-self-center hover:ring-1 ring-indigo-500 transition-all duration-300 hover:scale-[1.01] "
 ></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp">
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kt">long</span> <span class="kt">long</span> <span class="n">n</span><span class="p">,</span> <span class="n">a</span><span class="p">[</span><span class="mi">105</span><span class="p">][</span><span class="mi">105</span><span class="p">],</span> <span class="n">ans</span><span class="p">,</span> <span class="n">sum</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// 輸入圖
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">                <span class="c1">// 直接做前綴和
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">            <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="c1">// 處理二維問題
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">                <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                    <span class="n">sum</span> <span class="o">+=</span> <span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">i</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">                    <span class="n">ans</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">sum</span><span class="p">,</span> <span class="n">ans</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">                    <span class="k">if</span> <span class="p">(</span><span class="n">sum</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">                <span class="p">}</span>
-</span></span><span class="line"><span class="cl">            <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ans</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h3 id="uva-00160---factors-and-factorials-歷屆-2-星題" class="custom-heading custom-heading-3 mt-8 ">
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="Code block">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">cpp</span>
+        
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#7f848e">#include</span> <span style="color:#7f848e">&lt;bits/stdc++.h&gt;</span><span style="color:#7f848e">
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span><span style="color:#c678dd">using</span> <span style="color:#c678dd">namespace</span> <span style="color:#e06c75">std</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">long</span> <span style="color:#e5c07b">long</span> <span style="color:#e06c75">n</span>, <span style="color:#e06c75">a</span>[<span style="color:#d19a66">105</span>][<span style="color:#d19a66">105</span>], <span style="color:#e06c75">ans</span>, <span style="color:#e06c75">sum</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#61afef;font-weight:bold">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">while</span> (<span style="color:#e06c75">cin</span> <span style="color:#56b6c2">&gt;&gt;</span> <span style="color:#e06c75">n</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#7f848e">// 輸入圖
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>        <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;=</span> <span style="color:#e06c75">n</span>; <span style="color:#e06c75">i</span><span style="color:#56b6c2">++</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">j</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>; <span style="color:#e06c75">j</span> <span style="color:#56b6c2">&lt;=</span> <span style="color:#e06c75">n</span>; <span style="color:#e06c75">j</span><span style="color:#56b6c2">++</span>) {
+</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">cin</span> <span style="color:#56b6c2">&gt;&gt;</span> <span style="color:#e06c75">a</span>[<span style="color:#e06c75">i</span>][<span style="color:#e06c75">j</span>];
+</span></span><span style="display:flex;"><span>                <span style="color:#7f848e">// 直接做前綴和
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>                <span style="color:#e06c75">a</span>[<span style="color:#e06c75">i</span>][<span style="color:#e06c75">j</span>] <span style="color:#56b6c2">+=</span> <span style="color:#e06c75">a</span>[<span style="color:#e06c75">i</span>][<span style="color:#e06c75">j</span><span style="color:#56b6c2">-</span><span style="color:#d19a66">1</span>];
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#7f848e">// 處理二維問題
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>        <span style="color:#e06c75">ans</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;</span> <span style="color:#e06c75">n</span>; <span style="color:#e06c75">i</span><span style="color:#56b6c2">++</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">j</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">+</span> <span style="color:#d19a66">1</span>; <span style="color:#e06c75">j</span> <span style="color:#56b6c2">&lt;=</span> <span style="color:#e06c75">n</span>; <span style="color:#e06c75">j</span><span style="color:#56b6c2">++</span>) {
+</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">sum</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">k</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>; <span style="color:#e06c75">k</span> <span style="color:#56b6c2">&lt;=</span> <span style="color:#e06c75">n</span>; <span style="color:#e06c75">k</span><span style="color:#56b6c2">++</span>) {
+</span></span><span style="display:flex;"><span>                    <span style="color:#e06c75">sum</span> <span style="color:#56b6c2">+=</span> <span style="color:#e06c75">a</span>[<span style="color:#e06c75">k</span>][<span style="color:#e06c75">j</span>] <span style="color:#56b6c2">-</span> <span style="color:#e06c75">a</span>[<span style="color:#e06c75">k</span>][<span style="color:#e06c75">i</span>];
+</span></span><span style="display:flex;"><span>                    <span style="color:#e06c75">ans</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">max</span>(<span style="color:#e06c75">sum</span>, <span style="color:#e06c75">ans</span>);
+</span></span><span style="display:flex;"><span>                    <span style="color:#c678dd">if</span> (<span style="color:#e06c75">sum</span> <span style="color:#56b6c2">&lt;</span> <span style="color:#d19a66">0</span>) <span style="color:#e06c75">sum</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>;
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">cout</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#e06c75">ans</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#98c379">&#39;\n&#39;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+<h3 id="uva-00160---factors-and-factorials-歷屆-2-星題" class="custom-heading custom-heading-3 mt-8 ">
     <a href="#uva-00160---factors-and-factorials-%e6%ad%b7%e5%b1%86-2-%e6%98%9f%e9%a1%8c" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
     UVa 00160 - Factors and Factorials (歷屆 2 星題)
 </h3>
@@ -595,67 +871,113 @@
 <p>Tags: <code>Prime 質數</code> <code>建表</code> (<code>Greedy 貪婪</code>)</p>
 <p><img src="../../../../posts/2025/6/image-5.png" alt="AC 截圖"class="rounded-lg shadow-lg place-self-center hover:ring-1 ring-indigo-500 transition-all duration-300 hover:scale-[1.01] "
 ></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp">
-</span></span></span><span class="line"><span class="cl"><span class="cp">#define ouo ios_base::sync_with_stdio(false), cin.tie(0)
-</span></span></span><span class="line"><span class="cl"><span class="cp">#define ll long long
-</span></span></span><span class="line"><span class="cl"><span class="cp">#define db double
-</span></span></span><span class="line"><span class="cl"><span class="cp">#define pii pair&lt;int, int&gt;
-</span></span></span><span class="line"><span class="cl"><span class="cp">#define pdd pair&lt;double, double&gt;
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">prime</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">isPrime</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">isPrime</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">isPrime</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">isPrime</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">isPrime</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">prime</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">i</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">;</span> <span class="n">j</span> <span class="o">+=</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="n">isPrime</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">init</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">break</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="n">map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">primeList</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">isPrime</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="n">primeList</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="k">else</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="kt">int</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">i</span><span class="p">,</span> <span class="n">primeIdx</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">                <span class="k">while</span> <span class="p">(</span><span class="n">tmp</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                    <span class="k">while</span> <span class="p">(</span><span class="n">tmp</span> <span class="o">%</span> <span class="n">prime</span><span class="p">[</span><span class="n">primeIdx</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                        <span class="n">primeList</span><span class="p">[</span><span class="n">prime</span><span class="p">[</span><span class="n">primeIdx</span><span class="p">]]</span><span class="o">++</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">                        <span class="n">tmp</span> <span class="o">/=</span> <span class="n">prime</span><span class="p">[</span><span class="n">primeIdx</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">                    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">                    <span class="n">primeIdx</span><span class="o">++</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">                <span class="p">}</span>
-</span></span><span class="line"><span class="cl">            <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">setw</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">n</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;! =&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">item</span> <span class="p">:</span> <span class="n">primeList</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">count</span> <span class="o">&gt;</span> <span class="mi">15</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span> <span class="o">&lt;&lt;</span> <span class="n">setw</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">setw</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="p">}</span>
-</span></span><span class="line"><span class="cl">            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">setw</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">item</span><span class="p">.</span><span class="n">second</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="n">count</span><span class="o">++</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h3 id="uva-00543---goldbachs-conjecture-20250520-q4" class="custom-heading custom-heading-3 mt-8 ">
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="Code block">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">cpp</span>
+        
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#7f848e">#include</span> <span style="color:#7f848e">&lt;bits/stdc++.h&gt;</span><span style="color:#7f848e">
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e">#define ouo ios_base::sync_with_stdio(false), cin.tie(0)
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e">#define ll long long
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e">#define db double
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e">#define pii pair&lt;int, int&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e">#define pdd pair&lt;double, double&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span><span style="color:#c678dd">using</span> <span style="color:#c678dd">namespace</span> <span style="color:#e06c75">std</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">vector</span><span style="color:#56b6c2">&lt;</span><span style="color:#e5c07b">int</span><span style="color:#56b6c2">&gt;</span> <span style="color:#e06c75">prime</span>;
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">vector</span><span style="color:#56b6c2">&lt;</span><span style="color:#e5c07b">bool</span><span style="color:#56b6c2">&gt;</span> <span style="color:#e06c75">isPrime</span>(<span style="color:#d19a66">100</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">void</span> <span style="color:#61afef;font-weight:bold">init</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;=</span> <span style="color:#d19a66">100</span>; <span style="color:#e06c75">i</span><span style="color:#56b6c2">++</span>) <span style="color:#e06c75">isPrime</span>[<span style="color:#e06c75">i</span>] <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">true</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">isPrime</span>[<span style="color:#d19a66">0</span>] <span style="color:#56b6c2">=</span> <span style="color:#e06c75">isPrime</span>[<span style="color:#d19a66">1</span>] <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">false</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">2</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;=</span> <span style="color:#d19a66">100</span>; <span style="color:#e06c75">i</span><span style="color:#56b6c2">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">if</span> (<span style="color:#e06c75">isPrime</span>[<span style="color:#e06c75">i</span>]) {
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">prime</span>.<span style="color:#e06c75">push_back</span>(<span style="color:#e06c75">i</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">j</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">*</span> <span style="color:#e06c75">i</span>; <span style="color:#e06c75">j</span> <span style="color:#56b6c2">&lt;=</span> <span style="color:#d19a66">100</span>; <span style="color:#e06c75">j</span> <span style="color:#56b6c2">+=</span> <span style="color:#e06c75">i</span>) {
+</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">isPrime</span>[<span style="color:#e06c75">j</span>] <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">false</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#61afef;font-weight:bold">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">init</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">int</span> <span style="color:#e06c75">n</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">while</span> (<span style="color:#e06c75">cin</span> <span style="color:#56b6c2">&gt;&gt;</span> <span style="color:#e06c75">n</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">if</span> (<span style="color:#e06c75">n</span> <span style="color:#56b6c2">==</span> <span style="color:#d19a66">0</span>) <span style="color:#c678dd">break</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">map</span><span style="color:#56b6c2">&lt;</span><span style="color:#e5c07b">int</span>, <span style="color:#e5c07b">int</span><span style="color:#56b6c2">&gt;</span> <span style="color:#e06c75">primeList</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">n</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&gt;=</span> <span style="color:#d19a66">2</span>; <span style="color:#e06c75">i</span><span style="color:#56b6c2">--</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">if</span> (<span style="color:#e06c75">isPrime</span>[<span style="color:#e06c75">i</span>]) <span style="color:#e06c75">primeList</span>[<span style="color:#e06c75">i</span>]<span style="color:#56b6c2">++</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">else</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#e5c07b">int</span> <span style="color:#e06c75">tmp</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">i</span>, <span style="color:#e06c75">primeIdx</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#c678dd">while</span> (<span style="color:#e06c75">tmp</span> <span style="color:#56b6c2">!=</span> <span style="color:#d19a66">1</span>) {
+</span></span><span style="display:flex;"><span>                    <span style="color:#c678dd">while</span> (<span style="color:#e06c75">tmp</span> <span style="color:#56b6c2">%</span> <span style="color:#e06c75">prime</span>[<span style="color:#e06c75">primeIdx</span>] <span style="color:#56b6c2">==</span> <span style="color:#d19a66">0</span>) {
+</span></span><span style="display:flex;"><span>                        <span style="color:#e06c75">primeList</span>[<span style="color:#e06c75">prime</span>[<span style="color:#e06c75">primeIdx</span>]]<span style="color:#56b6c2">++</span>;
+</span></span><span style="display:flex;"><span>                        <span style="color:#e06c75">tmp</span> <span style="color:#56b6c2">/=</span> <span style="color:#e06c75">prime</span>[<span style="color:#e06c75">primeIdx</span>];
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>                    <span style="color:#e06c75">primeIdx</span><span style="color:#56b6c2">++</span>;
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">int</span> <span style="color:#e06c75">count</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">cout</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#e06c75">setw</span>(<span style="color:#d19a66">3</span>) <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#e06c75">n</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">cout</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#98c379">&#34;! =&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">for</span> (<span style="color:#c678dd">auto</span> <span style="color:#e06c75">item</span> : <span style="color:#e06c75">primeList</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">if</span> (<span style="color:#e06c75">count</span> <span style="color:#56b6c2">&gt;</span> <span style="color:#d19a66">15</span>) {
+</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">count</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">cout</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#98c379">&#39;\n&#39;</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#e06c75">setw</span>(<span style="color:#d19a66">3</span>) <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#98c379">&#34; &#34;</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#e06c75">setw</span>(<span style="color:#d19a66">3</span>) <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#98c379">&#34; &#34;</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">cout</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#e06c75">setw</span>(<span style="color:#d19a66">3</span>) <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#e06c75">item</span>.<span style="color:#e06c75">second</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">count</span><span style="color:#56b6c2">++</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">cout</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#98c379">&#39;\n&#39;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+<h3 id="uva-00543---goldbachs-conjecture-20250520-q4" class="custom-heading custom-heading-3 mt-8 ">
     <a href="#uva-00543---goldbachs-conjecture-20250520-q4" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
     UVa 00543 - Goldbach&rsquo;s Conjecture (2025/05/20 Q.4)
 </h3>
@@ -670,48 +992,94 @@
 <p>Tags: <code>Prime 質數</code> <code>建表</code></p>
 <p><img src="../../../../posts/2025/6/image-6.png" alt="AC 截圖"class="rounded-lg shadow-lg place-self-center hover:ring-1 ring-indigo-500 transition-all duration-300 hover:scale-[1.01] "
 ></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp">
-</span></span></span><span class="line"><span class="cl"><span class="cp">#define ouo ios_base::sync_with_stdio(false), cin.tie(0)
-</span></span></span><span class="line"><span class="cl"><span class="cp">#define ll long long
-</span></span></span><span class="line"><span class="cl"><span class="cp">#define db double
-</span></span></span><span class="line"><span class="cl"><span class="cp">#define pii pair&lt;int, int&gt;
-</span></span></span><span class="line"><span class="cl"><span class="cp">#define pdd pair&lt;double, double&gt;
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">prime</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">isPrime</span><span class="p">(</span><span class="mi">1000005</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">isPrime</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">isPrime</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">1000005</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">isPrime</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">prime</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="n">i</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">1000005</span><span class="p">;</span> <span class="n">j</span> <span class="o">+=</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="n">isPrime</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">break</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="kt">bool</span> <span class="n">hasPair</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">prime</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">isPrime</span><span class="p">[</span><span class="n">n</span> <span class="o">-</span> <span class="n">prime</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; = &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">prime</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; + &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">-</span> <span class="n">prime</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">                <span class="n">hasPair</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">                <span class="k">break</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">hasPair</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Goldbach&#39;s conjecture is wrong.</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h3 id="uva-00357---let-me-count-the-ways-20250520-q5" class="custom-heading custom-heading-3 mt-8 ">
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="Code block">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">cpp</span>
+        
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#7f848e">#include</span> <span style="color:#7f848e">&lt;bits/stdc++.h&gt;</span><span style="color:#7f848e">
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e">#define ouo ios_base::sync_with_stdio(false), cin.tie(0)
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e">#define ll long long
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e">#define db double
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e">#define pii pair&lt;int, int&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e">#define pdd pair&lt;double, double&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span><span style="color:#c678dd">using</span> <span style="color:#c678dd">namespace</span> <span style="color:#e06c75">std</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#61afef;font-weight:bold">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">vector</span><span style="color:#56b6c2">&lt;</span><span style="color:#e5c07b">int</span><span style="color:#56b6c2">&gt;</span> <span style="color:#e06c75">prime</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">vector</span><span style="color:#56b6c2">&lt;</span><span style="color:#e5c07b">bool</span><span style="color:#56b6c2">&gt;</span> <span style="color:#e06c75">isPrime</span>(<span style="color:#d19a66">1000005</span>, <span style="color:#e5c07b">true</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">isPrime</span>[<span style="color:#d19a66">0</span>] <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">false</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">isPrime</span>[<span style="color:#d19a66">1</span>] <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">false</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">2</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;</span> <span style="color:#d19a66">1000005</span>; <span style="color:#e06c75">i</span><span style="color:#56b6c2">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">if</span> (<span style="color:#e06c75">isPrime</span>[<span style="color:#e06c75">i</span>]) {
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">prime</span>.<span style="color:#e06c75">push_back</span>(<span style="color:#e06c75">i</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">j</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">i</span>; <span style="color:#e06c75">j</span> <span style="color:#56b6c2">&lt;</span> <span style="color:#d19a66">1000005</span>; <span style="color:#e06c75">j</span> <span style="color:#56b6c2">+=</span> <span style="color:#e06c75">i</span>) {
+</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">isPrime</span>[<span style="color:#e06c75">j</span>] <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">false</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">int</span> <span style="color:#e06c75">n</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">while</span> (<span style="color:#e06c75">cin</span> <span style="color:#56b6c2">&gt;&gt;</span> <span style="color:#e06c75">n</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">if</span> (<span style="color:#e06c75">n</span> <span style="color:#56b6c2">==</span> <span style="color:#d19a66">0</span>) <span style="color:#c678dd">break</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">bool</span> <span style="color:#e06c75">hasPair</span> <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">false</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>; <span style="color:#e06c75">prime</span>[<span style="color:#e06c75">i</span>] <span style="color:#56b6c2">&lt;=</span> <span style="color:#e06c75">n</span> <span style="color:#56b6c2">/</span> <span style="color:#d19a66">2</span>; <span style="color:#e06c75">i</span><span style="color:#56b6c2">++</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">if</span> (<span style="color:#e06c75">isPrime</span>[<span style="color:#e06c75">n</span> <span style="color:#56b6c2">-</span> <span style="color:#e06c75">prime</span>[<span style="color:#e06c75">i</span>]]) {
+</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">cout</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#e06c75">n</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#98c379">&#34; = &#34;</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#e06c75">prime</span>[<span style="color:#e06c75">i</span>] <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#98c379">&#34; + &#34;</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#e06c75">n</span> <span style="color:#56b6c2">-</span> <span style="color:#e06c75">prime</span>[<span style="color:#e06c75">i</span>] <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#98c379">&#39;\n&#39;</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">hasPair</span> <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">true</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#c678dd">break</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">if</span> (<span style="color:#56b6c2">!</span><span style="color:#e06c75">hasPair</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">cout</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#98c379">&#34;Goldbach&#39;s conjecture is wrong.</span><span style="color:#98c379">\n</span><span style="color:#98c379">&#34;</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+<h3 id="uva-00357---let-me-count-the-ways-20250520-q5" class="custom-heading custom-heading-3 mt-8 ">
     <a href="#uva-00357---let-me-count-the-ways-20250520-q5" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
     UVa 00357 - Let Me Count The Ways (2025/05/20 Q.5)
 </h3>
@@ -726,36 +1094,82 @@
 <p>Tags: <code>DP 動態規劃</code></p>
 <p><img src="../../../../posts/2025/6/image-7.png" alt="AC 截圖"class="rounded-lg shadow-lg place-self-center hover:ring-1 ring-indigo-500 transition-all duration-300 hover:scale-[1.01] "
 ></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp">
-</span></span></span><span class="line"><span class="cl"><span class="cp">#define ouo ios_base::sync_with_stdio(false), cin.tie(0)
-</span></span></span><span class="line"><span class="cl"><span class="cp">#define ll long long
-</span></span></span><span class="line"><span class="cl"><span class="cp">#define db double
-</span></span></span><span class="line"><span class="cl"><span class="cp">#define pii pair&lt;int, int&gt;
-</span></span></span><span class="line"><span class="cl"><span class="cp">#define pdd pair&lt;double, double&gt;
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">ll</span> <span class="n">dp</span><span class="p">[</span><span class="mi">30001</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">coins</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">};</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">coins</span><span class="p">[</span><span class="n">i</span><span class="p">];</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">30001</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">dp</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dp</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="n">coins</span><span class="p">[</span><span class="n">i</span><span class="p">]];</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;There is only 1 way to produce &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; cents change.</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;There are &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">dp</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; ways to produce &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; cents change.</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div>
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="Code block">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">cpp</span>
+        
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#7f848e">#include</span> <span style="color:#7f848e">&lt;bits/stdc++.h&gt;</span><span style="color:#7f848e">
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e">#define ouo ios_base::sync_with_stdio(false), cin.tie(0)
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e">#define ll long long
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e">#define db double
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e">#define pii pair&lt;int, int&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e">#define pdd pair&lt;double, double&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span><span style="color:#c678dd">using</span> <span style="color:#c678dd">namespace</span> <span style="color:#e06c75">std</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">ll</span> <span style="color:#e06c75">dp</span>[<span style="color:#d19a66">30001</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#61afef;font-weight:bold">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">int</span> <span style="color:#e06c75">coins</span>[] <span style="color:#56b6c2">=</span> {<span style="color:#d19a66">1</span>, <span style="color:#d19a66">5</span>, <span style="color:#d19a66">10</span>, <span style="color:#d19a66">25</span>, <span style="color:#d19a66">50</span>};
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">dp</span>[<span style="color:#d19a66">0</span>] <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;</span> <span style="color:#d19a66">5</span>; <span style="color:#e06c75">i</span><span style="color:#56b6c2">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">j</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">coins</span>[<span style="color:#e06c75">i</span>]; <span style="color:#e06c75">j</span> <span style="color:#56b6c2">&lt;</span> <span style="color:#d19a66">30001</span>; <span style="color:#e06c75">j</span><span style="color:#56b6c2">++</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">dp</span>[<span style="color:#e06c75">j</span>] <span style="color:#56b6c2">+=</span> <span style="color:#e06c75">dp</span>[<span style="color:#e06c75">j</span> <span style="color:#56b6c2">-</span> <span style="color:#e06c75">coins</span>[<span style="color:#e06c75">i</span>]];
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">int</span> <span style="color:#e06c75">n</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">while</span> (<span style="color:#e06c75">cin</span> <span style="color:#56b6c2">&gt;&gt;</span> <span style="color:#e06c75">n</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">if</span> (<span style="color:#e06c75">dp</span>[<span style="color:#e06c75">n</span>] <span style="color:#56b6c2">==</span> <span style="color:#d19a66">1</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">cout</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#98c379">&#34;There is only 1 way to produce &#34;</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#e06c75">n</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#98c379">&#34; cents change.</span><span style="color:#98c379">\n</span><span style="color:#98c379">&#34;</span>;
+</span></span><span style="display:flex;"><span>        } <span style="color:#c678dd">else</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">cout</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#98c379">&#34;There are &#34;</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#e06c75">dp</span>[<span style="color:#e06c75">n</span>] <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#98c379">&#34; ways to produce &#34;</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#e06c75">n</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#98c379">&#34; cents change.</span><span style="color:#98c379">\n</span><span style="color:#98c379">&#34;</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+
         </article>
 
         
@@ -1121,16 +1535,6 @@
     article table tr:hover {
         background-color: #252661;
         transition: 0.3s;
-    }
-    article div pre {
-        margin: 1.5rem 0;
-        padding: 1rem;
-        background-color: #212121;
-        border-radius: 8px;
-        overflow-x: auto;
-    }
-    article div pre code {
-        line-height: 1.6;
     }
      
     article input[type="checkbox"] {

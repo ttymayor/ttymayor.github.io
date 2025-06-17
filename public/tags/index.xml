@@ -6,34 +6,41 @@
     <description>Recent content in Tags on 市長 / tantuyu 的技術網誌</description>
     <generator>Hugo</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Fri, 13 Jun 2025 15:37:54 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 17 Jun 2025 06:36:32 +0800</lastBuildDate>
     <atom:link href="https://ttymayor.com/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>CSRF</title>
-      <link>https://ttymayor.com/tags/csrf/</link>
-      <pubDate>Fri, 13 Jun 2025 15:37:54 +0800</pubDate>
-      <guid>https://ttymayor.com/tags/csrf/</guid>
-      <description></description>
-    </item>
     <item>
       <title>Web Security</title>
       <link>https://ttymayor.com/tags/web-security/</link>
-      <pubDate>Fri, 13 Jun 2025 15:37:54 +0800</pubDate>
+      <pubDate>Tue, 17 Jun 2025 06:36:32 +0800</pubDate>
       <guid>https://ttymayor.com/tags/web-security/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>XSS</title>
+      <link>https://ttymayor.com/tags/xss/</link>
+      <pubDate>Tue, 17 Jun 2025 06:36:32 +0800</pubDate>
+      <guid>https://ttymayor.com/tags/xss/</guid>
       <description></description>
     </item>
     <item>
       <title>資安</title>
       <link>https://ttymayor.com/tags/%E8%B3%87%E5%AE%89/</link>
-      <pubDate>Fri, 13 Jun 2025 15:37:54 +0800</pubDate>
+      <pubDate>Tue, 17 Jun 2025 06:36:32 +0800</pubDate>
       <guid>https://ttymayor.com/tags/%E8%B3%87%E5%AE%89/</guid>
       <description></description>
     </item>
     <item>
       <title>網路安全</title>
       <link>https://ttymayor.com/tags/%E7%B6%B2%E8%B7%AF%E5%AE%89%E5%85%A8/</link>
-      <pubDate>Fri, 13 Jun 2025 15:37:54 +0800</pubDate>
+      <pubDate>Tue, 17 Jun 2025 06:36:32 +0800</pubDate>
       <guid>https://ttymayor.com/tags/%E7%B6%B2%E8%B7%AF%E5%AE%89%E5%85%A8/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CSRF</title>
+      <link>https://ttymayor.com/tags/csrf/</link>
+      <pubDate>Fri, 13 Jun 2025 15:37:54 +0800</pubDate>
+      <guid>https://ttymayor.com/tags/csrf/</guid>
       <description></description>
     </item>
     <item>

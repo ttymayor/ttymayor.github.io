@@ -151,7 +151,7 @@
     <div class="max-w-6xl mx-auto px-4">
         <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div class="flex justify-between items-center">
-                <a href="https://ttymayor.com/" class="text-xl font-bold text-white hover:text-gray-300 transition-colors duration-300">
+                <a href="https://ttymayor.com/" class="text-xl font-bold text-white dark:text-gray-200 hover:text-gray-300 dark:hover:text-white transition-colors duration-300">
                     市長 / tantuyu
                 </a>
                 
@@ -373,8 +373,54 @@
     銀行轉帳攻擊
 </h2>
 <p>假設你登入了網路銀行，這時收到一封看似無害的郵件，點擊連結後進入了惡意網站。該網站可能包含這樣的代碼：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://bank.com/transfer?to=attacker&amp;amount=10000&#34;</span> <span class="p">/&gt;</span>
-</span></span></code></pre></div><p>由於你仍處於登入狀態，瀏覽器會自動發送包含認證 Cookie 的請求，導致資金被轉移。</p>
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="Code block">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">html</span>
+        
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#e06c75">img</span> <span style="color:#e06c75">src</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;https://bank.com/transfer?to=attacker&amp;amount=10000&#34;</span> /&gt;</span></span></code></pre></div></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+<p>由於你仍處於登入狀態，瀏覽器會自動發送包含認證 Cookie 的請求，導致資金被轉移。</p>
 <h2 id="修改密碼攻擊" class="custom-heading custom-heading-2 mt-8 border-b-2 border-gray-500">
     <a href="#%e4%bf%ae%e6%94%b9%e5%af%86%e7%a2%bc%e6%94%bb%e6%93%8a" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
     修改密碼攻擊
@@ -412,12 +458,58 @@
 <p>CSRF Token<br>
 在請求任何敏感訊息時，加以驗證。如：添加隨機 Token 在表單上。<br>
 駭客就無法僅憑無 Token 的表單進行請求。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&#34;/transfer&#34;</span> <span class="na">method</span><span class="o">=</span><span class="s">&#34;POST&#34;</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;hidden&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;csrf_token&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;abc123xyz789&#34;</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;amount&#34;</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;submit&#34;</span><span class="p">&gt;</span>轉帳<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
-</span></span></code></pre></div></li>
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="Code block">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">html</span>
+        
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#e06c75">form</span> <span style="color:#e06c75">action</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;/transfer&#34;</span> <span style="color:#e06c75">method</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;POST&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#e06c75">input</span> <span style="color:#e06c75">type</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;hidden&#34;</span> <span style="color:#e06c75">name</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;csrf_token&#34;</span> <span style="color:#e06c75">value</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;abc123xyz789&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#e06c75">input</span> <span style="color:#e06c75">type</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;text&#34;</span> <span style="color:#e06c75">name</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;amount&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#e06c75">button</span> <span style="color:#e06c75">type</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;submit&#34;</span>&gt;轉帳&lt;/<span style="color:#e06c75">button</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#e06c75">form</span>&gt;</span></span></code></pre></div></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+</li>
 <li>
 <p>檢查 Referer Header<br>
 檢查請求來源。
@@ -426,8 +518,54 @@
 <li>
 <p>SameSite Cookie 屬性<br>
 設定 Cookie 的 SameSite 屬性為 <code>Strict</code> 或 <code>Lax</code>：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nx">Set</span><span class="o">-</span><span class="nx">Cookie</span><span class="o">:</span> <span class="nx">sessionid</span><span class="o">=</span><span class="nx">abc123</span><span class="p">;</span> <span class="nx">SameSite</span><span class="o">=</span><span class="nx">Strict</span><span class="p">;</span> <span class="nx">Secure</span><span class="p">;</span> <span class="nx">HttpOnly</span>
-</span></span></code></pre></div></li>
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="Code block">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">javascript</span>
+        
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#e06c75">Set</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">Cookie</span><span style="color:#56b6c2">:</span> <span style="color:#e06c75">sessionid</span><span style="color:#56b6c2">=</span><span style="color:#e06c75">abc123</span>; <span style="color:#e06c75">SameSite</span><span style="color:#56b6c2">=</span><span style="color:#e06c75">Strict</span>; <span style="color:#e06c75">Secure</span>; <span style="color:#e06c75">HttpOnly</span></span></span></code></pre></div></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+</li>
 <li>
 <p>雙重送出 Cookie (Double Submit Cookie)<br>
 將 CSRF Token 同時放在 Cookie 和請求參數中，伺服器驗證兩者是否一致。</p>
@@ -891,16 +1029,6 @@
     article table tr:hover {
         background-color: #252661;
         transition: 0.3s;
-    }
-    article div pre {
-        margin: 1.5rem 0;
-        padding: 1rem;
-        background-color: #212121;
-        border-radius: 8px;
-        overflow-x: auto;
-    }
-    article div pre code {
-        line-height: 1.6;
     }
      
     article input[type="checkbox"] {

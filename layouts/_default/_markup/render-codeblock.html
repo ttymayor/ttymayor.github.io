@@ -1,0 +1,49 @@
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="{{- with .Attributes.title }}{{ . }}{{ else }}Code block{{ end }}">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        {{ with .Type }}
+        <span class="text-sm text-indigo-300 mr-4">{{ . | markdownify }}</span>
+        {{ end }}
+        {{ with .Attributes.title }}
+        <span class="flex-1 text-sm">{{ . | markdownify }}</span>
+        {{ end }}
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        {{ with transform.HighlightCodeBlock . }}
+            <div class="custom-highlight">{{ .Wrapped }}</div>
+        {{ end }}
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>

@@ -20,7 +20,8 @@ canonifyURLs = true
     ordered = true
     startLevel = 1
   [markup.highlight]
-    noClasses = false
+    # Set to true to enable syntax highlighting
+    style = "onedark"  # Choose a highlighting style
 
 [params]
 name = "市長 / tantuyu"
