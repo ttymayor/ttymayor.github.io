@@ -68,7 +68,7 @@ description: " "
 
 ## Text Effect
 
-**粗體** *斜體* ~~刪除線~~
+**粗體** *斜體* ~~刪除線~~ ||我被隱藏了||
 
 ## Code Block
 

@@ -1,0 +1,1968 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>為什麼有些專案使用多個程式語言撰寫 - 市長 / tantuyu 的技術網誌</title>
+        
+        
+        <link rel="apple-touch-icon" sizes="180x180" href="https://ttymayor.com/favicon_io/apple-touch-icon.png">
+        <link rel="icon" type="image/x-icon" href="https://ttymayor.com/favicon_io/favicon.ico">
+        <link rel="manifest" href="https://ttymayor.com/favicon_io/site.webmanifest">        
+        <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+        <link rel="preload" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" as="style">
+        
+        
+        <style>
+            ::selection {
+                background-color: #6366f1;
+                color: #f3f4f6;
+            }
+            html, body {
+                background-color: #121212;
+                color: #f3f4f6;
+            }            
+            .border {
+                border-color: #374151;
+            }            
+            .carousel-item {
+                display: inline-block;
+                margin: 0 1rem;
+            }            
+            .flex {
+                display: flex;
+            }
+            .flex-col {
+                flex-direction: column;
+            }
+            
+            @media (min-width: 768px) {
+                .md\:flex-row {
+                    flex-direction: row;
+                }
+            }
+            
+            .tech-carousel {
+                overflow: hidden;
+                width: 100%;
+                padding: 1rem 0;
+            }
+            
+            .carousel-track {
+                white-space: nowrap;
+            }
+
+            code:not(pre > code) {
+                background-color: #6666e181;
+                color: #f3f4f6;
+                padding: 0.1rem 0.3rem;
+                border-radius: 0.25rem;
+            }
+        </style>
+        
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+        <script>
+            
+            if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        </script>
+        <style>
+            :root {
+                color-scheme: dark;
+            }
+            
+            body {
+                @apply bg-[#121212] text-gray-100;
+            }
+
+            .tech-icon {
+                filter: grayscale(100%) brightness(200%);
+                transition: all 0.3s ease;
+            }
+            .tech-icon:hover {
+                filter: none;
+            }
+            
+            @keyframes scroll {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(-100%);
+                }
+            }
+            
+            .tech-carousel {
+                width: 100%;
+                padding: 1rem 0;
+            }
+            
+            .tech-track {
+                width: fit-content;
+                animation: scroll 20s linear infinite;
+            }
+            
+            .tech-track:hover {
+                animation-play-state: paused;
+            }
+            
+            .tech-slide {
+                float: left;
+            }
+
+            footer {
+                background: linear-gradient(to bottom, transparent, rgba(24, 25, 59, 0.5));
+            }
+        </style>
+
+        
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+        
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6440102652783062"
+     crossorigin="anonymous"></script>
+    </head>
+    <body class="min-h-screen bg-[#121212] text-gray-100">
+        
+<head>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C0RTF18BT4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-C0RTF18BT4');
+    </script>
+    
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+    </style>
+</head>
+<header class="py-6 relative">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div class="flex justify-between items-center">
+                <a href="https://ttymayor.com/" class="text-xl font-bold text-white dark:text-gray-200 hover:text-gray-300 dark:hover:text-white transition-colors duration-300">
+                    市長 / tantuyu
+                </a>
+                
+                <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <nav class="hidden md:flex flex-wrap justify-center items-center gap-4 md:gap-6">
+                
+                
+                <a href="https://ttymayor.com/about/" class="inline-block text-lg text-gray-300 hover:text-white transition-colors duration-300 ">關於</a>
+                
+                <a href="https://ttymayor.com/blogs/" class="inline-block text-lg text-gray-300 hover:text-white transition-colors duration-300 ">文章</a>
+                
+                <a href="https://ttymayor.com/contact/" class="inline-block text-lg text-gray-300 hover:text-white transition-colors duration-300 ">聯絡我</a>
+                
+            </nav>
+            <div class="hidden md:flex justify-end">
+                <div class="flex items-center">
+                    <span class="text-lg text-gray-300 mr-2">Local Time:</span>
+                    <div id="local-time" class="text-lg text-gray-300"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div id="mobile-menu" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden transition-all duration-300">
+        <div class="flex flex-col h-full">
+            <div class="flex justify-between items-center p-6 border-b border-gray-800">
+                <span class="text-xl font-bold text-white">選單</span>
+                <button id="mobile-menu-close" class="text-gray-300 hover:text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <nav class="flex flex-col p-6 space-y-4">
+                
+                <a href="https://ttymayor.com/about/" class="text-xl text-gray-300 hover:text-white transition-colors duration-300 ">關於</a>
+                
+                <a href="https://ttymayor.com/blogs/" class="text-xl text-gray-300 hover:text-white transition-colors duration-300 ">文章</a>
+                
+                <a href="https://ttymayor.com/contact/" class="text-xl text-gray-300 hover:text-white transition-colors duration-300 ">聯絡我</a>
+                
+            </nav>
+            <div class="mt-auto p-6 border-t border-gray-800">
+                <div class="flex items-center justify-center">
+                    <span class="text-lg text-gray-300 mr-2">Local Time:</span>
+                    <div id="mobile-local-time" class="text-lg text-gray-300"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<script>
+    
+    function updateLocalTime() {
+        const timeElements = document.querySelectorAll('#local-time, #mobile-local-time');
+        timeElements.forEach(element => {
+            if (element) {
+                const now = new Date();
+                
+                
+                const taiwanTime = new Date(now.getTime() + (now.getTimezoneOffset() + 480) * 60000);
+                const timeString = taiwanTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+                
+                
+                const timeLabel = element.previousElementSibling;
+                if (timeLabel) {
+                    timeLabel.textContent = "Taiwan Time";
+                }
+
+                element.textContent = timeString;
+            }
+        });
+    }
+    updateLocalTime();
+    setInterval(updateLocalTime, 1000);
+
+    
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    function toggleMobileMenu() {
+        const isHidden = mobileMenu.classList.contains('hidden');
+        if (isHidden) {
+            mobileMenu.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; 
+        } else {
+            mobileMenu.classList.add('hidden');
+            document.body.style.overflow = ''; 
+        }
+    }
+
+    mobileMenuButton.addEventListener('click', toggleMobileMenu);
+    mobileMenuClose.addEventListener('click', toggleMobileMenu);
+
+    
+    const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+    mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            toggleMobileMenu();
+        });
+    });
+
+    
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    if (themeToggleBtn) {
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+            themeToggleDarkIcon.classList.add('hidden');
+        } else {
+            themeToggleLightIcon.classList.add('hidden');
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+    }
+</script> 
+        <main class="min-h-[60vh]">
+            
+
+
+
+<div class="w-full mx-auto p-12 md:py-12 flex justify-center">
+    
+    
+    <section class="max-w-3xl w-full">
+        <div class="mb-8">
+            <h1 class="text-4xl font-bold mb-6 leading-relaxed">
+                <span class="text-indigo-500 hover:text-indigo-300 transition-all duration-300 select-none">$ </span>為什麼有些專案使用多個程式語言撰寫
+            </h1>
+
+            
+            
+            <div class="flex items-center flex-wrap gap-4 text-gray-400">
+                
+                
+                
+                <time datetime="2025-07-30T15:11:59&#43;08:00">July 30, 2025</time>
+                
+            </div>
+            
+
+            
+            
+            <div class="flex items-center gap-2 text-sm mt-2">
+                <span class="text-gray-400">分類:</span>
+                <ul class="flex flex-wrap gap-2">
+                    
+                    <li>
+                        <a href="../../../../categories/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8/" class="text-indigo-400 hover:text-indigo-300 transition-colors">計算機科學</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            
+        </div>
+
+        
+        <article class="prose prose-invert max-w-none mb-8">
+            <h2 id="舉例" class="custom-heading custom-heading-2 mt-8 border-b-2 border-gray-500">
+    <a href="#%e8%88%89%e4%be%8b" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
+    舉例
+</h2>
+<p>先舉個例子，一個 Django（Python）的專案通常會有 Python、HTML、CSS 和 JavaScript 這幾個語言編寫。道理很簡單，Python 用於後端處理資料，通常執行於伺服器端（Server），而 HTML、CSS 和 JavaScript 通常則是發送到請求的客戶端上（Client）。</p>
+<h2 id="從撰寫到編譯" class="custom-heading custom-heading-2 mt-8 border-b-2 border-gray-500">
+    <a href="#%e5%be%9e%e6%92%b0%e5%af%ab%e5%88%b0%e7%b7%a8%e8%ad%af" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
+    從撰寫到編譯
+</h2>
+<p>在理解為甚麼某些專案會使用多個程式語言進行開發前，你要先了解，一個編譯語言是怎麼從撰寫到執行的。</p>
+<p>舉例來說：Golang、Rust 和 C/C++ 都是編譯語言，它們需要編譯器才能從人類看得懂的語言轉換成電腦讀得懂的執行檔。所以編譯器有好幾種，它的工作原理是什麼？</p>
+<h3 id="範例" class="custom-heading custom-heading-3 mt-8 ">
+    <a href="#%e7%af%84%e4%be%8b" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
+    範例
+</h3>
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="Code block">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">c</span>
+        
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#7f848e">#include</span> <span style="color:#7f848e">&lt;stdio.h&gt;</span><span style="color:#7f848e">
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#61afef;font-weight:bold">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#61afef;font-weight:bold">printf</span>(<span style="color:#98c379">&#34;This is Tantuty!</span><span style="color:#98c379">\n</span><span style="color:#98c379">&#34;</span>);
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="Code block">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">bash</span>
+        
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>gcc main.c -o main</span></span></code></pre></div></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+<p>首先當你寫完第一支 C 語言的程式碼，並使用廣為人知的 GCC 編譯器進行編譯，它會發生什麼事？</p>
+<h3 id="1-預處理器-preprocessor" class="custom-heading custom-heading-3 mt-8 ">
+    <a href="#1-%e9%a0%90%e8%99%95%e7%90%86%e5%99%a8-preprocessor" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
+    1. 預處理器 (Preprocessor)
+</h3>
+<p>第一步將會把你的程式碼進行：刪除註解（因為電腦不需要看懂註解）、擴展巨集（macro expansion）、處理條件編譯指令（如 <code>#ifdef</code>）以及處理 <code>#include</code> 指令（將標頭檔內容插入）等操作。</p>
+<p>講人話就是從</p>
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="Code block">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">c</span>
+        
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#7f848e">#define ABCD 2
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e">#include</span> <span style="color:#7f848e">&lt;stdio.h&gt;</span><span style="color:#7f848e">
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#61afef;font-weight:bold">main</span>(<span style="color:#e5c07b">void</span>)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e">#ifdef ABCD
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>    <span style="color:#61afef;font-weight:bold">printf</span>(<span style="color:#98c379">&#34;1: yes</span><span style="color:#98c379">\n</span><span style="color:#98c379">&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#7f848e">#else
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>    <span style="color:#61afef;font-weight:bold">printf</span>(<span style="color:#98c379">&#34;1: no</span><span style="color:#98c379">\n</span><span style="color:#98c379">&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#7f848e">#endif
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e">#ifndef ABCD
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>    <span style="color:#61afef;font-weight:bold">printf</span>(<span style="color:#98c379">&#34;2: no1</span><span style="color:#98c379">\n</span><span style="color:#98c379">&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#7f848e">#elif ABCD == 2
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>    <span style="color:#61afef;font-weight:bold">printf</span>(<span style="color:#98c379">&#34;2: yes</span><span style="color:#98c379">\n</span><span style="color:#98c379">&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#7f848e">#else
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>    <span style="color:#61afef;font-weight:bold">printf</span>(<span style="color:#98c379">&#34;2: no2</span><span style="color:#98c379">\n</span><span style="color:#98c379">&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#7f848e">#endif
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e">#if !defined(DCBA) &amp;&amp; (ABCD &lt; 2 * 4 - 3)
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>    <span style="color:#61afef;font-weight:bold">printf</span>(<span style="color:#98c379">&#34;3: yes</span><span style="color:#98c379">\n</span><span style="color:#98c379">&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#7f848e">#endif
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>}</span></span></code></pre></div></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+<p>變為</p>
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="Code block">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">c</span>
+        
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#7f848e">// 把 stdio.h 引入進來
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#61afef;font-weight:bold">main</span>(<span style="color:#e5c07b">void</span>)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#61afef;font-weight:bold">printf</span>(<span style="color:#98c379">&#34;1: yes</span><span style="color:#98c379">\n</span><span style="color:#98c379">&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#61afef;font-weight:bold">printf</span>(<span style="color:#98c379">&#34;2: yes</span><span style="color:#98c379">\n</span><span style="color:#98c379">&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#61afef;font-weight:bold">printf</span>(<span style="color:#98c379">&#34;3: yes</span><span style="color:#98c379">\n</span><span style="color:#98c379">&#34;</span>);
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+<p>所以其實就是把像是 <code>#ifdef</code> <code>#define</code> <code>#include</code> 等等的語法擴展或簡化程式碼</p>
+<h3 id="2-編譯器-compiler" class="custom-heading custom-heading-3 mt-8 ">
+    <a href="#2-%e7%b7%a8%e8%ad%af%e5%99%a8-compiler" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
+    2. 編譯器 Compiler
+</h3>
+<p>這一步將會把程式碼編譯，但要注意的是，編譯並不會直接把程式碼直接編譯成「機器語言<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>」，而是被編譯成 Assembly Code（組合語言）也就是電腦的操作指令，但仍是人類可讀的語言。</p>
+<h3 id="3-組譯器-assembler" class="custom-heading custom-heading-3 mt-8 ">
+    <a href="#3-%e7%b5%84%e8%ad%af%e5%99%a8-assembler" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
+    3. 組譯器 Assembler
+</h3>
+<p>在技術上來說，其實這算是另一種編譯器，但這一步才會將上一步編譯後的 Assembly Code 轉換為機器語言<sup id="fnref1:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>，也就是 CPU 可以理解的 1 和 0，我們稱該檔案叫做「目標檔案（Object File）」，不過這個檔案還不可運作，因為 GCC 還需要解析該檔案中函數的放置位置。</p>
+<p>比如剛剛寫的 Code</p>
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="Code block">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">c</span>
+        
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#7f848e">// 把 stdio.h 引入進來
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#61afef;font-weight:bold">main</span>(<span style="color:#e5c07b">void</span>)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#61afef;font-weight:bold">printf</span>(<span style="color:#98c379">&#34;1: yes</span><span style="color:#98c379">\n</span><span style="color:#98c379">&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#61afef;font-weight:bold">printf</span>(<span style="color:#98c379">&#34;2: yes</span><span style="color:#98c379">\n</span><span style="color:#98c379">&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#61afef;font-weight:bold">printf</span>(<span style="color:#98c379">&#34;3: yes</span><span style="color:#98c379">\n</span><span style="color:#98c379">&#34;</span>);
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+<p><code>stdio.h</code> 也需要經過剛才的「預處理器 (Preprocessor)」「編譯器 Compiler」「組譯器 Assembler」　才變成目標檔案（Object File）</p>
+<h3 id="4-連結器-linker" class="custom-heading custom-heading-3 mt-8 ">
+    <a href="#4-%e9%80%a3%e7%b5%90%e5%99%a8-linker" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
+    4. 連結器 Linker
+</h3>
+<p>到這一步，可能會有多個目標檔案（Object File）有些是我們自己寫的（如：<code>main.c</code>），有些則是被引用的靜態函式庫（如：<code>stdio.h</code>），所以現在有：<code>main.o</code> 與 <code>stdio.o</code> 的目標檔案（Object File）。</p>
+<p>而「連結器 Linker」的工作很簡單，就是把目標檔案（Object File）組合成一個獨立的可執行檔，這有兩種做法：簡單的方法是將被引用的靜態函式庫複製到可執行檔中，這稱作「靜態連結」；另一種連結方式則是動態連結。</p>
+<p>反思一下，你現在的電腦上要多少個檔案要引用 <code>printf()</code> 功能，如果每個程式都靜態包含該函式的副本，那你的硬碟上就會有成千上萬個相同的副本在組譯後的目標檔案。很明顯，Coding 都不允許我們重複撰寫程式碼，那憑什麼組譯可以？這明顯可以簡化。</p>
+<p>所以透過動態連結這些靜態函式庫會預先編譯成一種稱為動態共享庫的特殊類型檔案，這些檔案在 Unix 系統上副檔名被稱作 <code>*.so</code> 檔；在 Windows 系統上則被稱作 <code>*.dll</code> 檔作為標示。這些檔案照理來說因為已經編譯完成，所以他們是可執行的，但是他們並不包含啟動執行的入口點，這是很合理的，因為庫通常用來被引用，也沒有主函式 <code>main()</code> 被呼叫。</p>
+<p>因此，原本你編譯後的程式碼大概會長這樣（這裡方便表示我用 <code>&lt;&gt;</code> 表示外部的庫被複製進來）</p>
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="stdio.o">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">o</span>
+        
+        
+        <span class="flex-1 text-sm">stdio.o</span>
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><pre tabindex="0"><code class="language-o" data-lang="o">000000000000000100000000000000010000000000000001...</code></pre></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="main.o">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">o</span>
+        
+        
+        <span class="flex-1 text-sm">main.o</span>
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><pre tabindex="0"><code class="language-o" data-lang="o">&lt;000000000000000100000000000000010000000000000001...&gt;01101011010100100110101101010010011010110101001001101011010100100110101101010010...</code></pre></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+<p>因為動態連結的關係會改寫成這樣</p>
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="main.o">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">o</span>
+        
+        
+        <span class="flex-1 text-sm">main.o</span>
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><pre tabindex="0"><code class="language-o" data-lang="o">********01101011010100100110101101010010011010110101001001101011010100100110101101010010...</code></pre></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+<p>在運行時，若程式需要動態庫中的函數，作業系統會將所需的載入到程式的位置空間。</p>
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="main.o">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">o</span>
+        
+        
+        <span class="flex-1 text-sm">main.o</span>
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><pre tabindex="0"><code class="language-o" data-lang="o">000000000000000100000000000000010000000000000001********0110101101010010011010110101001001101011010100100110101101010010011010110101001001101011010100100110101101010010011010110101001001101011010100100110101101010010011010110101001001101011010100100110101101010010011010110101001001101011010100100110101101010010011010110101001001101011010100100110101101010010011010110101001001101011010100100110101101010010011010110101001001101011010100100110101101010010011010110101001001101011010100100110101101010010011010110101001001101011010100100110101101010010011010110101001001101011010100100110101101010010011010110101001001101011010100100110101101010010011010110101001001101011010100100110101101010010011010110101001001101011010100100110101101010010011010110101001001101011010100100110101101010010011010110101001001101011010100100110101101010010011010110101001001101011010100100110101101010010011010110101001001101011010100100110101101010010011010110101001001101011010100100110101101010010011010110101001001101011010100100110101101010010011010110101001001101011010100100110101101010010011010110101001001101011010100100110101101010010011010110101001001101011010100100110101101010010011010110101001001101011010100100110101101010010011010110101001001101011010100100110101101010010011010110101001001101011010100100110101101010010011010110101001001101011010100100110101101010010</code></pre></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+<p>這看起來很怪，但確實提供更好的彈性，因為只有在執行時，系統才會將動態庫加載，既省去了磁碟空間，也省去了記憶體。</p>
+<p>現在這個檔案就可以拿來被打包成執行檔也就是常見的 <code>*.exe</code> 檔。</p>
+<h3 id="那每個步驟都模組化的意義何在" class="custom-heading custom-heading-3 mt-8 ">
+    <a href="#%e9%82%a3%e6%af%8f%e5%80%8b%e6%ad%a5%e9%a9%9f%e9%83%bd%e6%a8%a1%e7%b5%84%e5%8c%96%e7%9a%84%e6%84%8f%e7%be%a9%e4%bd%95%e5%9c%a8" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
+    那每個步驟都模組化的意義何在？
+</h3>
+<p>既然我們可以從原始程式碼轉換成可執行檔，為何還要那麼分成那麼多步驟。</p>
+<h4 id="-save-temps" class="custom-heading custom-heading-4 mt-8 ">
+    <a href="#-save-temps" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
+    <code>-save-temps</code>
+</h4>
+<p>這些過程通常不會被看見的原因是因為 GCC 會將中間產出的檔案隱藏，只會顯示最後可執行檔，但你可以透過指令選項來顯示這些被省略的檔案 <code>-save-temps</code>，也就是</p>
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="Code block">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">bash</span>
+        
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>gcc main.c -o main -save-temps</span></span></code></pre></div></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+<p>這樣會產出中間檔案（以 <code>[]</code> 表示編譯過程產生的檔案）</p>
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="Code block">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><pre tabindex="0"><code>   Preprocessor   Compiler    Assembler     linker
+main.c  -&gt;  [main.i  -&gt;  main.s  -&gt;  main.o]  -&gt;  main.exe</code></pre></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+<h4 id="-s" class="custom-heading custom-heading-4 mt-8 ">
+    <a href="#-s" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
+    <code>-S</code>
+</h4>
+<p>其實還有其他選項像是 <code>-S</code> 會在編譯（Assembler）後停止，你可以查看該檔，確實就是組合語言。</p>
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="Code block">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">bash</span>
+        
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>gcc main.c -S -o main.s</span></span></code></pre></div></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="main.s">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">s</span>
+        
+        
+        <span class="flex-1 text-sm">main.s</span>
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><div class="highlight" title="main.s"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-s" data-lang="s"><span style="display:flex;"><span>	<span style="color:#e06c75">.file</span>	<span style="color:#98c379">&#34;main.c&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">.def</span>	<span style="color:#e06c75">___main</span>;	<span style="color:#e06c75">.scl</span>	<span style="color:#d19a66">2</span>;	<span style="color:#e06c75">.type</span>	<span style="color:#d19a66">32</span>;	<span style="color:#e06c75">.endef</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">.section</span> <span style="color:#e06c75">.rdata</span>,<span style="color:#98c379">&#34;dr&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">LC0</span><span style="color:#56b6c2">:</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">.ascii</span> <span style="color:#98c379">&#34;1: yes\0&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">LC1</span><span style="color:#56b6c2">:</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">.ascii</span> <span style="color:#98c379">&#34;2: yes\0&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">LC2</span><span style="color:#56b6c2">:</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">.ascii</span> <span style="color:#98c379">&#34;3: yes\0&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">.text</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">.globl</span>	<span style="color:#e06c75">_main</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">.def</span>	<span style="color:#e06c75">_main</span>;	<span style="color:#e06c75">.scl</span>	<span style="color:#d19a66">2</span>;	<span style="color:#e06c75">.type</span>	<span style="color:#d19a66">32</span>;	<span style="color:#e06c75">.endef</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">_main</span><span style="color:#56b6c2">:</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">LFB10</span><span style="color:#56b6c2">:</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">.cfi_startproc</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">pushl</span>	<span style="color:#56b6c2">%ebp
+</span></span></span><span style="display:flex;"><span><span style="color:#56b6c2">	.cfi_def_cfa_offset 8
+</span></span></span><span style="display:flex;"><span><span style="color:#56b6c2">	.cfi_offset 5, -8
+</span></span></span><span style="display:flex;"><span><span style="color:#56b6c2">	movl	%</span><span style="color:#e06c75">esp</span>, <span style="color:#56b6c2">%ebp
+</span></span></span><span style="display:flex;"><span><span style="color:#56b6c2">	.cfi_def_cfa_register 5
+</span></span></span><span style="display:flex;"><span><span style="color:#56b6c2">	andl	$-16, %</span><span style="color:#e06c75">esp</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">subl</span>	<span style="color:#56b6c2">$</span><span style="color:#d19a66">16</span>, %<span style="color:#e06c75">esp</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">call</span>	<span style="color:#e06c75">___main</span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">...</span></span></span></code></pre></div></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+<p>你也可以幫 main.s 完成剩下步驟的編譯</p>
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="Code block">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">bash</span>
+        
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>gcc main.s -o main</span></span></code></pre></div></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+<p>最後就會從組合語言的 <code>main.s</code> 產出 <code>main.exe</code> 檔</p>
+<h4 id="範例解釋意義何在" class="custom-heading custom-heading-4 mt-8 ">
+    <a href="#%e7%af%84%e4%be%8b%e8%a7%a3%e9%87%8b%e6%84%8f%e7%be%a9%e4%bd%95%e5%9c%a8" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
+    <a href="#%e9%82%a3%e6%af%8f%e5%80%8b%e6%ad%a5%e9%a9%9f%e9%83%bd%e6%a8%a1%e7%b5%84%e5%8c%96%e7%9a%84%e6%84%8f%e7%be%a9%e4%bd%95%e5%9c%a8"
+   class="text-indigo-500 hover:text-indigo-300 hover:underline transition-all duration-300">範例解釋意義何在</a>
+</h4>
+<p>假設我們不信任編譯器的最佳化過程，我們可以先把程式碼切成 function 的寫法，然後再將我們寫得 function 進行編譯像是 <code>say_hi() -&gt; say_hi.s</code> 然後再將 <code>main.c</code> 一起完成編譯仍然可被包成執行檔。</p>
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="say_hi.c">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">c</span>
+        
+        
+        <span class="flex-1 text-sm">say_hi.c</span>
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><div class="highlight" title="say_hi.c"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#7f848e">#include</span> <span style="color:#7f848e">&lt;stdio.h&gt;</span><span style="color:#7f848e">
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">void</span> <span style="color:#61afef;font-weight:bold">say_hi</span>(<span style="color:#e5c07b">void</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#61afef;font-weight:bold">printf</span>(<span style="color:#98c379">&#34;Hi!</span><span style="color:#98c379">\n</span><span style="color:#98c379">&#34;</span>);
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="Code block">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">bash</span>
+        
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>gcc say_hi.c -S -o say_hi.s</span></span></code></pre></div></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="main.c">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">c</span>
+        
+        
+        <span class="flex-1 text-sm">main.c</span>
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><div class="highlight" title="main.c"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#c678dd">extern</span> <span style="color:#e5c07b">void</span> <span style="color:#61afef;font-weight:bold">say_hi</span>(<span style="color:#e5c07b">void</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#61afef;font-weight:bold">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#61afef;font-weight:bold">say_hi</span>();
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="Code block">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        <span class="text-sm text-indigo-300 mr-4">bash</span>
+        
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>gcc say_hi.s main.c -o main</span></span></code></pre></div></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+<figure class="my-6 rounded-lg overflow-hidden shadow-lg" role="figure" aria-label="Code block">
+    <div class="flex items-center px-4 py-2 bg-indigo-950 text-white">
+        
+        
+        <button class="flex items-center gap-1 px-2 py-1 bg-indigo-950 hover:bg-indigo-800 border-0 rounded text-white cursor-pointer transition-colors duration-200 active:scale-[0.98] ml-auto" onclick="copyCode(this)" title="Copy code">
+            <svg class="fill-current" viewBox="0 0 24 24" width="18" height="18">
+                <path d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span class="copy-text">Copy</span>
+        </button>
+    </div>
+    <div class="p-4 bg-indigo-950/30 overflow-x-auto">
+        
+            <div class="custom-highlight"><pre tabindex="0"><code>Hi!</code></pre></div>
+        
+    </div>
+</figure>
+
+<style>
+.custom-highlight pre {
+    padding: 0 1rem 0 0;
+    white-space: pre;
+    width: fit-content;
+    background-color: transparent !important;
+}
+
+.custom-highlight code {
+    display: inline-block;
+    min-width: 100%;
+    background-color: transparent;
+}
+</style>
+
+<script>
+function copyCode(button) {
+    const codeBlock = button.closest('.my-6').querySelector('pre');
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        const originalText = button.querySelector('.copy-text').textContent;
+        button.querySelector('.copy-text').textContent = 'Copied!';
+        setTimeout(() => {
+            button.querySelector('.copy-text').textContent = originalText;
+        }, 2000);
+    });
+}
+</script>
+<h4 id="應用範圍" class="custom-heading custom-heading-4 mt-8 ">
+    <a href="#%e6%87%89%e7%94%a8%e7%af%84%e5%9c%8d" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
+    應用範圍
+</h4>
+<p>這樣的技術被廣為使用，像是系統：Linux Kernel、ffmpeg、OpenSSL 和很多嵌入式專案</p>
+<h3 id="答案" class="custom-heading custom-heading-3 mt-8 ">
+    <a href="#%e7%ad%94%e6%a1%88" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
+    答案
+</h3>
+<p>我們平時所說的 GCC 並不只是一個編譯工具，更像是一個工具鏈，該工具把上面四個步驟按順序執行。而這四個步驟所用的工具是可以替換的。你可以把 C 的編譯器、組譯器改成 C++ 的，或是 Fortran、Ada，更或是 Golang，所以 GCC 也支援這些程式語言的編譯流程。</p>
+<p>有趣的故事是 GCC 原名為「GNU C Compiler」後更名為「GNU Compiler Collection」，原因就如上所說，原本僅支援 C 語言，現在可以編譯不只一種語言了。</p>
+<p>也就是說，你可以寫 C 語言搭配 Golang，分別進行編譯，再一起被編寫成一個執行檔。</p>
+<ol>
+<li>分工模組化：最適合的語言完成特定的任務。</li>
+<li>性能考量：以 C/C++、Rust 等高效能語言處理核心運算，再以 Python、Go、JavaScript 等高階語言快速實現業務邏輯。</li>
+<li>生態系：某些領域（像是資料分析、機器學習、前端互動）在特定語言上有成熟函式庫，能大幅提升開發效率。</li>
+</ol>
+<h2 id="打破迷思" class="custom-heading custom-heading-2 mt-8 border-b-2 border-gray-500">
+    <a href="#%e6%89%93%e7%a0%b4%e8%bf%b7%e6%80%9d" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
+    打破迷思
+</h2>
+<p>所以編譯 Compiler 並不是所謂編譯成電腦讀得懂的二進制，而是通常將原始程式碼轉換為像是 Assembly Language 等語言來表示甚至有可能是另一個 Programming Language。</p>
+<h2 id="參考資料" class="custom-heading custom-heading-2 mt-8 border-b-2 border-gray-500">
+    <a href="#%e5%8f%83%e8%80%83%e8%b3%87%e6%96%99" class="anchor absolute -ml-6 text-indigo-500 hover:text-indigo-300 transition-all duration-3 opacity-0 group-hover:opacity-100">#</a>
+    參考資料
+</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=XJC5WB2Bwrc"
+   class="text-indigo-500 hover:text-indigo-300 hover:underline transition-all duration-300" rel="external">Why Some Projects Use Multiple Programming Languages</a></li>
+</ul>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>所謂的機器語言就是電腦才看得懂的 0001110001010001&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref1:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+        </article>
+
+        
+        <aside class="mt-8">
+            
+            <h3 class="text-lg font-semibold mb-3">Tags</h3>
+            
+            <ul class="flex flex-row flex-wrap items-start gap-2">
+                
+                <li>
+                    <a href="../../../../tags/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8/" class="inline-block px-2 py-1 text-xs bg-[#121212] text-gray-100 border border-gray-800 rounded-md transition-all duration-300 hover:bg-indigo-500">計算機科學</a>
+                </li>
+                
+                <li>
+                    <a href="../../../../tags/computer-science/" class="inline-block px-2 py-1 text-xs bg-[#121212] text-gray-100 border border-gray-800 rounded-md transition-all duration-300 hover:bg-indigo-500">Computer Science</a>
+                </li>
+                
+                <li>
+                    <a href="../../../../tags/%E8%A7%A3%E6%83%91/" class="inline-block px-2 py-1 text-xs bg-[#121212] text-gray-100 border border-gray-800 rounded-md transition-all duration-300 hover:bg-indigo-500">解惑</a>
+                </li>
+                
+            </ul>
+            
+        </aside>
+        
+        
+        <div class="mt-12">
+            <h2 class="text-3xl font-bold mb-6"></h2>
+            <div class="comments-section p-6 bg-indigo-700/10 shadow-md rounded-lg max-w-3xl mx-auto mt-12 border border-indigo-500/50 hover:border-indigo-500 transition-all duration-300">
+    <h3 class="mb-8 text-2xl font-bold">留言板（尚在測試階段）</h3>
+
+    
+    <div id="existing-comments" class="mt-6">
+        
+    </div>
+
+    <div id="auth-section" class="mt-6"> 
+        <div id="login-form" class="auth-form">
+            <h4 class="mb-4 text-xl font-semibold">登入</h4>
+            <form id="login-form-element"> 
+                <div class="form-group">
+                    <label for="login-email">電子郵件：</label>
+                    <input type="email" id="login-email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="login-password">密碼：</label>
+                    <input type="password" id="login-password" name="password" required>
+                </div>
+                
+                <button type="submit" class="p-2 bg-indigo-700 hover:bg-indigo-500 rounded transition-all duration-300">登入</button>
+            </form>
+            <p class="mt-2">還沒有帳號？ <a id="show-register" class="text-indigo-600 cursor-pointer">註冊</a></p>
+        </div>
+
+        <div id="register-form" class="auth-form" style="display: none;">
+            <h4 class="mb-4 text-xl font-semibold">註冊</h4>
+            <form id="register-form-element"> 
+                <div class="form-group">
+                    <label for="register-username">使用者名稱：</label>
+                    <input type="text" id="register-username" name="username" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="register-email">電子郵件：</label>
+                    <input type="email" id="register-email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="register-password">密碼：</label>
+                    <input type="password" id="register-password" name="password" required>
+                </div>
+                
+                <button type="submit" class="p-2 bg-indigo-700 hover:bg-indigo-500 rounded transition-all duration-300">註冊</button>
+            </form>
+            <p class="mt-2">已有帳號？ <a id="show-login" class="text-indigo-600 cursor-pointer">登入</a></p>
+        </div>
+    </div>
+
+    <div id="user-section" style="display: none;" class="mt-6"> 
+        <p>歡迎，<span id="current-user"></span>！ <a id="logout" class="text-indigo-600 cursor-pointer">登出</a></p>
+        
+        
+        
+        <form id="comment-form" class="mt-6">
+            <div class="form-group">
+                <label for="comment">留言：</label>
+                <textarea id="comment" name="comment" rows="4" required></textarea>
+            </div>
+            
+            <button type="submit" class="p-2 bg-indigo-700 hover:bg-indigo-500 rounded transition-all duration-300">提交留言</button>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        
+        const API_BASE = 'http://ttymayor.zeabur.app/api/v1';
+        let currentUser = null;
+        let authToken = null;
+
+        
+        function showMessage(message, type = 'success') {
+            if (type === 'error') {
+                alert('錯誤: ' + message);
+            } else {
+                alert(message);
+            }
+        }
+        
+        
+        async function loadComments() {
+            const fullUrl = window.location.href;
+            const url = fullUrl.split('?')[0].split('#')[0];
+
+            try {
+                const response = await axios.get(`${API_BASE}/comments/by-url?url=${encodeURIComponent(url)}`);
+                
+                const comments = response.data.comments;
+                const commentsContainer = document.getElementById('existing-comments');
+                commentsContainer.innerHTML = '';
+                
+                if (comments && comments.length > 0) {
+                    comments.forEach(comment => {
+                        const commentElement = document.createElement('div');
+                        commentElement.className = 'comment p-3 mb-3 border-b border-gray-700';
+                        commentElement.innerHTML = `
+                            <p class="font-bold text-indigo-400">${comment.user?.username || '匿名'}</p>
+                            <p class="text-gray-300 my-2">${comment.content}</p>
+                            <p class="text-sm text-gray-500">${new Date(comment.created_at).toLocaleString()}</p>
+                        `;
+                        commentsContainer.appendChild(commentElement);
+                    });
+                } else {
+                    commentsContainer.innerHTML = '<p class="text-gray-500">目前沒有留言</p>';
+                }
+            } catch (error) {
+                console.error('載入評論錯誤:', error);
+                if (error.response?.status !== 404) {
+                    console.log('無法載入留言，可能是該頁面還沒有留言');
+                }
+                const commentsContainer = document.getElementById('existing-comments');
+                commentsContainer.innerHTML = '<p class="text-gray-500">目前沒有留言</p>';
+            }
+        }
+        
+        
+        function updateAuthStatus() {
+            loadComments(); 
+            const token = localStorage.getItem('authToken');
+            const username = localStorage.getItem('username');
+            
+            if (token && username) {
+                authToken = token;
+                currentUser = { username: username };
+                document.getElementById('auth-section').style.display = 'none';
+                document.getElementById('user-section').style.display = 'block';
+                document.getElementById('current-user').textContent = username;
+            } else {
+                authToken = null;
+                currentUser = null;
+                document.getElementById('auth-section').style.display = 'block';
+                document.getElementById('user-section').style.display = 'none';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginFormContainer = document.getElementById('login-form');
+            const registerFormContainer = document.getElementById('register-form');
+            const showRegisterLink = document.getElementById('show-register');
+            const showLoginLink = document.getElementById('show-login');
+            
+            
+            
+            
+            const loginFormElement = document.getElementById('login-form-element'); 
+            const registerFormElement = document.getElementById('register-form-element');
+            const logoutLink = document.getElementById('logout');
+            const commentForm = document.getElementById('comment-form');
+
+            showRegisterLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                loginFormContainer.style.display = 'none';
+                registerFormContainer.style.display = 'block';
+            });
+
+            showLoginLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                registerFormContainer.style.display = 'none';
+                loginFormContainer.style.display = 'block';
+            });
+
+            loginFormElement.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const email = document.getElementById('login-email').value;
+                const password = document.getElementById('login-password').value;
+                
+                try {
+                    const response = await axios.post(`${API_BASE}/login`, {
+                        email: email,
+                        password: password
+                    });
+                    
+                    const token = response.data.token;
+                    const userData = response.data.user;
+                    
+                    localStorage.setItem('authToken', token);
+                    localStorage.setItem('username', userData?.username || email);
+                    
+                    showMessage('登入成功！');
+                    loginFormElement.reset();
+                    updateAuthStatus();
+                } catch (error) {
+                    
+                    showMessage(error, 'error');
+                }
+            });
+
+            registerFormElement.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const username = document.getElementById('register-username').value;
+                const email = document.getElementById('register-email').value;
+                const password = document.getElementById('register-password').value;
+                
+                try {
+                    await axios.post(`${API_BASE}/register`, {
+                        username: username,
+                        email: email,
+                        password: password
+                    });
+                    
+                    showMessage('註冊成功，請登入');
+                    registerFormContainer.style.display = 'none';
+                    loginFormContainer.style.display = 'block';
+                    registerFormElement.reset();
+                } catch (error) {
+                    const errorMsg = error.response?.data?.error || '註冊失敗';
+                    showMessage(errorMsg, 'error');
+                }
+            });
+
+            logoutLink.addEventListener('click', function() {
+                localStorage.removeItem('authToken');
+                localStorage.removeItem('username');
+                updateAuthStatus(); 
+                showMessage('已登出');
+                
+            });
+
+            commentForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                if (!authToken) {
+                    showMessage('請先登入', 'error');
+                    return;
+                }
+
+                const fullUrl = window.location.href; 
+                const url = fullUrl.split('?')[0].split('#')[0]; 
+                const content = document.getElementById('comment').value;
+
+                try {
+                    await axios.post(`${API_BASE}/comments`, {
+                        url: url, 
+                        content: content
+                    }, {
+                        headers: {
+                            'Authorization': `Bearer ${authToken}`
+                        }
+                    });
+
+                    showMessage('留言成功！');
+                    commentForm.reset();
+                    loadComments(); 
+                } catch (error) {
+                    const errorMsg = error.response?.data?.error || '送出留言失敗';
+                    showMessage(errorMsg, 'error');
+                }
+            });
+
+            window.loadComments = loadComments;
+
+            
+            
+            updateAuthStatus();
+        });
+    </script>
+
+<style>
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+</style>
+
+
+</div>
+
+        </div>
+    </section>
+</div>
+
+
+
+
+<style>
+    article {
+        max-width: 100%;
+    }
+    article ol, article ul {
+        margin: 1.5rem 0 1.5rem 1.75rem;
+        padding-left: 0.5rem;
+    }
+    article li {
+        margin-bottom: 0.75rem;
+        list-style-position: outside;
+        padding-left: 0.5rem;
+        line-height: 1.6;
+    }
+    article li::marker {
+        color: #6366f1;
+        font-weight: bold;
+    }
+    article ol li {
+        list-style-type: decimal;
+    }
+    article ul li {
+        list-style-type: disc;
+    }
+    article ol li ol, article ul li ul, article ul li ol, article ol li ul {
+        margin-top: 1rem;
+    }
+    article ul li ul li {
+        list-style-type: circle;
+    }
+    article ol li ol li {
+        list-style-type: lower-alpha;
+    }
+    article li:hover::marker {
+        color: #a5b4fc;
+        transition: color 0.3s ease-in-out;
+    }
+    article p {
+        margin: 1.5rem 0;
+        line-height: 1.6;
+    }
+    article table {
+        margin: 1.5rem 0;
+        width: 100%;
+        border-radius: 8px;
+        border-collapse: collapse;
+    }
+    article table th, article table td {
+        padding: 0.75rem;
+        border: 1px solid #919191;
+        text-align: left;
+    }
+    article table th {
+        background-color: #0e0e21;
+        color: #fff;
+    }
+    article table tr:nth-child(even) {
+        background-color: #1b1b36;
+    }
+    article table tr:nth-child(odd) {
+        background-color: rgb(26, 26, 53);
+    }
+    article table tr:hover {
+        background-color: #252661;
+        transition: 0.3s;
+    }
+     
+    article input[type="checkbox"] {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 1.25em;
+        height: 1.25em;
+        border: 1px solid #6366f1;
+        border-radius: 4px;
+        vertical-align: middle;
+        margin-right: 0.5em;
+        position: relative;
+        background-color: #121212;
+    }
+
+    article input[type="checkbox"]:checked {
+        background-color: #6366f1;
+        border-color: #6366f1;
+    }
+
+    article input[type="checkbox"]:checked::after {
+        content: '✓';
+        position: absolute;
+        color: white;
+        font-size: 0.9em;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    article ul li:has(input[type="checkbox"]) {
+        list-style-type: none;
+        margin-left: -1.5rem;
+    }
+    
+     
+    .custom-heading {
+        position: relative;
+        font-weight: 600;
+        padding-bottom: 0.5rem;
+    }
+    .custom-heading-1 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+    }
+    .custom-heading-2 {
+        font-size: 1.65rem;
+        margin-bottom: 1.25rem;
+    }
+    .custom-heading-3 {
+        font-size: 1.45rem;
+        margin-bottom: 1rem;
+    }
+    .custom-heading-4 {
+        font-size: 1.35rem;
+        margin-bottom: 0.5rem;
+    }
+    .custom-heading-5 {
+        font-size: 1.3rem;
+    }
+    .custom-heading-6 {
+        font-size: 1.25rem;
+    }
+     
+    .anchor {
+        opacity: 0;
+        transition: opacity 0.2s ease;
+    }
+     
+    .custom-heading:hover .anchor {
+        opacity: 1;
+    }
+</style>
+
+
+        </main>
+        
+<footer class="mt-32 text-center">
+    <div class="max-w-3xl mx-auto">
+        <div class="border-t border-gray-800 pt-5">
+            <div class="flex flex-col items-center justify-center gap-2">                
+                <p class="text-gray-500 text-xm ">© 2025 市長 / tantuyu</p>
+                <span id="busuanzi_container_site_pv" class="text-gray-500 text-xm">瀏覽次數：<span id="busuanzi_value_site_pv"></span> 次</span>
+                <p class="text-gray-500 text-xm pb-12">Built using <a href="https://gohugo.io/" target="_blank" class="animated-link text-indigo-500 hover:text-indigo-300 transition-all">Hugo</a>. Take a look at author <a href="https://github.com/prxshetty/" target="_blank" class="animated-link text-indigo-500 hover:text-indigo-300 transition-all">GitHub</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<style>
+    .animated-link {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+    }
+    
+    .animated-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -1px;
+        left: 0;
+        background-color: #a3b3ff;
+        transition: width 0.3s ease-in-out;
+    }
+    
+    .animated-link:hover::after {
+        width: 100%;
+    }
+</style> 
+        
+        <button onclick="topFunction()" id="goTopBtn" class="opacity-0 fixed bottom-8 right-8 z-50 bg-indigo-700 hover:bg-indigo-500 shadow-lg shadow-indigo-500/50 text-white p-3 rounded-full w-10 h-10 flex items-center justify-center text-lg transition-all duration-300 focus:outline-none pointer-events-none" title="Go to top">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+            </svg>
+        </button>
+        
+        <button onclick="topFunction()" id="footerGoTopBtn" class="w-full bg-indigo-700 hover:bg-indigo-500 text-white py-3 text-center transition-all duration-300" title="Go to top">
+            回到頂部
+        </button>
+        <script>
+            let goTopBtn = document.getElementById("goTopBtn");
+            let footerGoTopBtn = document.getElementById("footerGoTopBtn");
+            let footer = document.querySelector("footer");
+
+            window.addEventListener("scroll", scrollFunction);
+
+            function scrollFunction() {
+            
+            const footerRect = footer.getBoundingClientRect();
+            const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+            const nearFooter = footerRect.top < viewportHeight - 50; 
+
+            if ((document.body.scrollTop > 750 || document.documentElement.scrollTop > 750) && !nearFooter) {
+                goTopBtn.classList.remove("opacity-0", "pointer-events-none");
+                goTopBtn.classList.add("opacity-100");
+            } else {
+                goTopBtn.classList.add("opacity-0", "pointer-events-none");
+                goTopBtn.classList.remove("opacity-100");
+            }
+
+            
+            }
+
+            function topFunction() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+        </script>
+    </body>
+</html> 

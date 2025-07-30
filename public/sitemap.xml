@@ -3,21 +3,36 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://ttymayor.com/categories/</loc>
-    <lastmod>2025-06-17T06:36:32+08:00</lastmod>
+    <lastmod>2025-07-30T15:11:59+08:00</lastmod>
+  </url><url>
+    <loc>https://ttymayor.com/tags/computer-science/</loc>
+    <lastmod>2025-07-30T15:11:59+08:00</lastmod>
   </url><url>
     <loc>https://ttymayor.com/posts/</loc>
-    <lastmod>2025-06-17T06:36:32+08:00</lastmod>
+    <lastmod>2025-07-30T15:11:59+08:00</lastmod>
   </url><url>
     <loc>https://ttymayor.com/tags/</loc>
-    <lastmod>2025-06-17T06:36:32+08:00</lastmod>
+    <lastmod>2025-07-30T15:11:59+08:00</lastmod>
+  </url><url>
+    <loc>https://ttymayor.com/</loc>
+    <lastmod>2025-07-30T15:11:59+08:00</lastmod>
+  </url><url>
+    <loc>https://ttymayor.com/posts/2025/7/why-some-projects-use-multiple-programming-languages/</loc>
+    <lastmod>2025-07-30T15:11:59+08:00</lastmod>
+  </url><url>
+    <loc>https://ttymayor.com/categories/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8/</loc>
+    <lastmod>2025-07-30T15:11:59+08:00</lastmod>
+  </url><url>
+    <loc>https://ttymayor.com/tags/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8/</loc>
+    <lastmod>2025-07-30T15:11:59+08:00</lastmod>
+  </url><url>
+    <loc>https://ttymayor.com/tags/%E8%A7%A3%E6%83%91/</loc>
+    <lastmod>2025-07-30T15:11:59+08:00</lastmod>
   </url><url>
     <loc>https://ttymayor.com/tags/web-security/</loc>
     <lastmod>2025-06-17T06:36:32+08:00</lastmod>
   </url><url>
     <loc>https://ttymayor.com/tags/xss/</loc>
-    <lastmod>2025-06-17T06:36:32+08:00</lastmod>
-  </url><url>
-    <loc>https://ttymayor.com/</loc>
     <lastmod>2025-06-17T06:36:32+08:00</lastmod>
   </url><url>
     <loc>https://ttymayor.com/posts/2025/6/defend-against-xss/</loc>
