@@ -11,6 +11,11 @@
                 <span class="text-indigo-500 hover:text-indigo-300 transition-all duration-300 select-none">$ </span>{{ .Title }}
             </h1>
 
+            {{/*  view count  */}}
+            <div class="flex items-center flex-wrap gap-2 text-gray-400">
+            本文已被瀏覽<span id="vercount_value_page_pv">Loading</span>次
+            </div>
+
             {{/*  time and categories  */}}
             {{ if or (eq .Section "blogs") (eq .Section "blog") (eq .Section "posts") (eq .Section "post") }}
             <div class="flex items-center flex-wrap gap-4 text-gray-400">
