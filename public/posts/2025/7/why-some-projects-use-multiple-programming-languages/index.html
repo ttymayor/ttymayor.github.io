@@ -4,7 +4,240 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>為什麼有些專案使用多個程式語言撰寫 - 市長 / tantuyu 的技術網誌</title>
+
         
+        <meta name="description" content="
+    #
+    舉例
+
+先舉個例子，一個 Django（Python）的專案通常會有 Python、HTML、CSS 和 JavaScript 這幾個語言編寫。道理很簡單，Python 用於後端處理資料，通常執行於伺服器端（Server），而 HTML、CSS 和 JavaScript 通常則是發送到請求的客戶端上（Client）。
+
+    #
+    從撰寫到編譯
+
+在理解為甚麼某些專案會使用多個程式語言進行開發前，你要先了解，一個編譯語言是怎麼從撰寫到執行的。
+舉例來說：Golang、Rust 和 C/C&#43;&#43; 都是編譯語言，它們需要編譯器才能從人類看得懂的語言轉換成電腦讀得懂的執行檔。所以編譯器有好幾種，它的工作原理是什麼？
+
+    #
+    範例
+
+
+    
+        
+        c
+        
+        
+        
+            
+                
+            
+            Copy
+        
+    
+    
+        
+            #include &lt;stdio.h&gt;
+
+int main() {
+    printf(&#34;This is Tantuty!\n&#34;);
+}
+        
+    
+
+
+
+
+
+
+    
+        
+        bash
+        
+        
+        
+            
+                
+            
+            Copy
+        
+    
+    
+        
+            gcc main.c -o main
+        
+    
+
+
+
+
+
+首先當你寫完第一支 C 語言的程式碼，並使用廣為人知的 GCC 編譯器進行編譯，它會發生什麼事？">
+        <meta name="author" content="市長 / tantuyu">
+        
+        
+        <meta property="og:title" content="為什麼有些專案使用多個程式語言撰寫 - 市長 / tantuyu 的技術網誌">
+        <meta property="og:description" content="
+    #
+    舉例
+
+先舉個例子，一個 Django（Python）的專案通常會有 Python、HTML、CSS 和 JavaScript 這幾個語言編寫。道理很簡單，Python 用於後端處理資料，通常執行於伺服器端（Server），而 HTML、CSS 和 JavaScript 通常則是發送到請求的客戶端上（Client）。
+
+    #
+    從撰寫到編譯
+
+在理解為甚麼某些專案會使用多個程式語言進行開發前，你要先了解，一個編譯語言是怎麼從撰寫到執行的。
+舉例來說：Golang、Rust 和 C/C&#43;&#43; 都是編譯語言，它們需要編譯器才能從人類看得懂的語言轉換成電腦讀得懂的執行檔。所以編譯器有好幾種，它的工作原理是什麼？
+
+    #
+    範例
+
+
+    
+        
+        c
+        
+        
+        
+            
+                
+            
+            Copy
+        
+    
+    
+        
+            #include &lt;stdio.h&gt;
+
+int main() {
+    printf(&#34;This is Tantuty!\n&#34;);
+}
+        
+    
+
+
+
+
+
+
+    
+        
+        bash
+        
+        
+        
+            
+                
+            
+            Copy
+        
+    
+    
+        
+            gcc main.c -o main
+        
+    
+
+
+
+
+
+首先當你寫完第一支 C 語言的程式碼，並使用廣為人知的 GCC 編譯器進行編譯，它會發生什麼事？">
+        <meta property="og:type" content="article">
+        <meta property="og:url" content="https://ttymayor.com/posts/2025/7/why-some-projects-use-multiple-programming-languages/">
+        <meta property="og:site_name" content="市長 / tantuyu 的技術網誌">
+        
+        <meta property="article:author" content="市長 / tantuyu">
+        <meta property="article:published_time" content="2025-07-30T15:11:59&#43;08:00">
+        <meta property="article:modified_time" content="2025-07-30T15:11:59&#43;08:00">
+        <meta property="article:tag" content="計算機科學"><meta property="article:tag" content="Computer Science"><meta property="article:tag" content="解惑">
+        
+        
+        
+        
+        
+            
+        
+        <meta property="og:image" content="/images/og-default.png">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:image:alt" content="為什麼有些專案使用多個程式語言撰寫">
+        
+        
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@ttymayor">
+        <meta name="twitter:creator" content="@ttymayor">
+        <meta name="twitter:title" content="為什麼有些專案使用多個程式語言撰寫 - 市長 / tantuyu 的技術網誌">
+        <meta name="twitter:description" content="
+    #
+    舉例
+
+先舉個例子，一個 Django（Python）的專案通常會有 Python、HTML、CSS 和 JavaScript 這幾個語言編寫。道理很簡單，Python 用於後端處理資料，通常執行於伺服器端（Server），而 HTML、CSS 和 JavaScript 通常則是發送到請求的客戶端上（Client）。
+
+    #
+    從撰寫到編譯
+
+在理解為甚麼某些專案會使用多個程式語言進行開發前，你要先了解，一個編譯語言是怎麼從撰寫到執行的。
+舉例來說：Golang、Rust 和 C/C&#43;&#43; 都是編譯語言，它們需要編譯器才能從人類看得懂的語言轉換成電腦讀得懂的執行檔。所以編譯器有好幾種，它的工作原理是什麼？
+
+    #
+    範例
+
+
+    
+        
+        c
+        
+        
+        
+            
+                
+            
+            Copy
+        
+    
+    
+        
+            #include &lt;stdio.h&gt;
+
+int main() {
+    printf(&#34;This is Tantuty!\n&#34;);
+}
+        
+    
+
+
+
+
+
+
+    
+        
+        bash
+        
+        
+        
+            
+                
+            
+            Copy
+        
+    
+    
+        
+            gcc main.c -o main
+        
+    
+
+
+
+
+
+首先當你寫完第一支 C 語言的程式碼，並使用廣為人知的 GCC 編譯器進行編譯，它會發生什麼事？">
+        <meta name="twitter:image" content="/images/og-default.png">
+        
+        
+        <link rel="canonical" href="https://ttymayor.com/posts/2025/7/why-some-projects-use-multiple-programming-languages/">
+
         
         <link rel="apple-touch-icon" sizes="180x180" href="https://ttymayor.com/favicon_io/apple-touch-icon.png">
         <link rel="icon" type="image/x-icon" href="https://ttymayor.com/favicon_io/favicon.ico">

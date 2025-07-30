@@ -9,25 +9,26 @@ relativeURLs = true
 canonifyURLs = true
 
 [markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
-    [markup.goldmark.parser]
-      [markup.goldmark.parser.attribute]
-        title = true
-  [markup.tableOfContents]
-    endLevel = 6
-    ordered = true
-    startLevel = 1
-  [markup.highlight]
-    # Set to true to enable syntax highlighting
-    style = "onedark"  # Choose a highlighting style
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
+[markup.goldmark.parser]
+[markup.goldmark.parser.attribute]
+title = true
+[markup.tableOfContents]
+endLevel = 6
+ordered = true
+startLevel = 1
+[markup.highlight]
+style = "onedark"
 
 [params]
 name = "市長 / tantuyu"
 location = "New Taipei City, Taiwan"
 description = """熱愛資訊的學生，正在學習後端開發中。喔不，我現在學習全端開發中。"""
 profile_image = "/images/headshot.jpg"
+og_image = "/images/og-default.png"
+twitter_username = "@ttymayor"
 discord = "tantuyutty"
 zero_judge = "https://zerojudge.tw/UserStatistic?id=165916"
 zero_judge_username = "ttymayor"
@@ -44,62 +45,61 @@ leetcode_username = "ttymayor"
 
 # 技術欄
 [[params.techsRow1]]
-  name = "PHP"
-  icon = "devicon-php-plain text-2xl"
+name = "PHP"
+icon = "devicon-php-plain text-2xl"
 [[params.techsRow1]]
-  name = "Laravel"
-  icon = "devicon-laravel-original text-2xl"
+name = "Laravel"
+icon = "devicon-laravel-original text-2xl"
 [[params.techsRow1]]
-  name = "Python"
-  icon = "devicon-python-plain text-2xl"
+name = "Python"
+icon = "devicon-python-plain text-2xl"
 [[params.techsRow1]]
-  name = "Flask"
-  icon = "devicon-flask-original text-2xl"
+name = "Flask"
+icon = "devicon-flask-original text-2xl"
 [[params.techsRow1]]
-  name = "C++"
-  icon = "devicon-cplusplus-plain text-2xl"
+name = "C++"
+icon = "devicon-cplusplus-plain text-2xl"
 [[params.techsRow1]]
-  name = "MariaDB"
-  icon = "devicon-mariadb-original text-2xl"
+name = "MariaDB"
+icon = "devicon-mariadb-original text-2xl"
 [[params.techsRow1]]
-  name = "MySQL"
-  icon = "devicon-mysql-plain text-2xl"
+name = "MySQL"
+icon = "devicon-mysql-plain text-2xl"
 [[params.techsRow1]]
-  name = "Docker"
-  icon = "devicon-docker-plain text-2xl"
+name = "Docker"
+icon = "devicon-docker-plain text-2xl"
 [[params.techsRow1]]
-  name = "Golang"
-  icon = "devicon-go-plain text-2xl"
+name = "Golang"
+icon = "devicon-go-plain text-2xl"
 
 
 [[params.techsRow2]]
-  name = "Cloudflare"
-  icon = "devicon-cloudflare-plain text-2xl"
+name = "Cloudflare"
+icon = "devicon-cloudflare-plain text-2xl"
 [[params.techsRow2]]
-  name = "Ubuntu"
-  icon = "devicon-ubuntu-plain text-2xl"
+name = "Ubuntu"
+icon = "devicon-ubuntu-plain text-2xl"
 [[params.techsRow2]]
-  name = "Git"
-  icon = "devicon-git-plain text-2xl"
+name = "Git"
+icon = "devicon-git-plain text-2xl"
 [[params.techsRow2]]
-  name = "VS Code"
-  icon = "devicon-visualstudio-plain text-2xl"
+name = "VS Code"
+icon = "devicon-visualstudio-plain text-2xl"
 [[params.techsRow2]]
-  name = "Bash"
-  icon = "devicon-bash-plain text-2xl"
+name = "Bash"
+icon = "devicon-bash-plain text-2xl"
 [[params.techsRow2]]
-  name = "GitHub"
-  icon = "devicon-github-plain text-2xl"
+name = "GitHub"
+icon = "devicon-github-plain text-2xl"
 [[params.techsRow2]]
-  name = "Tailwind CSS"
-  icon = "devicon-tailwindcss-plain text-2xl"
+name = "Tailwind CSS"
+icon = "devicon-tailwindcss-plain text-2xl"
 [[params.techsRow2]]
-  name = "Markdown"
-  icon = "devicon-markdown-plain text-2xl"
+name = "Markdown"
+icon = "devicon-markdown-plain text-2xl"
 [[params.techsRow2]]
-  name = "Hugo"
-  icon = "devicon-hugo-plain text-2xl"
-
+name = "Hugo"
+icon = "devicon-hugo-plain text-2xl"
 
 
 # # 工作經驗模板
@@ -118,18 +118,18 @@ leetcode_username = "ttymayor"
 
 # 作品集模板
 [[params.projects]]
-    title = "留言板 API 開發（WIP）"
-    description = "就只是發現我的網站沒有留言系統，所以想自己寫個留言板 API，並順便拿 Golang 練練手。"
-    tech = "Golang, PostgreSQL"
-    image = "https://opengraph.githubassets.com/bfe65f3d06157fe7f5d9bd1a65e8f1934a543ca6eebe585c90b8e80195e54b4b/ttymayor/messageboard"
-    link = "https://github.com/ttymayor/messageboard"
+title = "留言板 API 開發（WIP）"
+description = "就只是發現我的網站沒有留言系統，所以想自己寫個留言板 API，並順便拿 Golang 練練手。"
+tech = "Golang, PostgreSQL"
+image = "https://opengraph.githubassets.com/bfe65f3d06157fe7f5d9bd1a65e8f1934a543ca6eebe585c90b8e80195e54b4b/ttymayor/messageboard"
+link = "https://github.com/ttymayor/messageboard"
 
 [[params.projects]]
-    title = "交換選課系統"
-    description = "每逢學期末，刺激的選課結果總讓人出乎意料，但有了它，你可以與其他人輕鬆配對選課 Vibe Coding - Using Copilot Agent."
-    tech = "Laravel, PHP, Vue.js"
-    image = "https://opengraph.githubassets.com/bfe65f3d06157fe7f5d9bd1a65e8f1934a543ca6eebe585c90b8e80195e54b4b/ttymayor/exchange_course"
-    link = "https://github.com/ttymayor/exchange_course"
+title = "交換選課系統"
+description = "每逢學期末，刺激的選課結果總讓人出乎意料，但有了它，你可以與其他人輕鬆配對選課 Vibe Coding - Using Copilot Agent."
+tech = "Laravel, PHP, Vue.js"
+image = "https://opengraph.githubassets.com/bfe65f3d06157fe7f5d9bd1a65e8f1934a543ca6eebe585c90b8e80195e54b4b/ttymayor/exchange_course"
+link = "https://github.com/ttymayor/exchange_course"
 
 # # 部落格文章模板
 # [[params.blogs]]
@@ -172,26 +172,26 @@ date = "2025-03"
 
 
 [menu]
-  [[menu.main]]
-    name = "about"
-    url = "/about/"
-    weight = 1
-  # [[menu.main]]
-  #   name = "experience"
-  #   url = "/experience/"
-  #   weight = 2
-  # [[menu.main]]
-  #   name = "projects"
-  #   url = "/projects/"
-  #   weight = 3
-  [[menu.main]]
-    name = "blogs"
-    url = "/blogs/"
-    weight = 4
-  [[menu.main]]
-    name = "contact"
-    url = "/contact/"
-    weight = 5
-  # [[menu.main]]
-  #   name = "posts"
-  #   url = "/posts/"
+[[menu.main]]
+name = "about"
+url = "/about/"
+weight = 1
+# [[menu.main]]
+#   name = "experience"
+#   url = "/experience/"
+#   weight = 2
+# [[menu.main]]
+#   name = "projects"
+#   url = "/projects/"
+#   weight = 3
+[[menu.main]]
+name = "blogs"
+url = "/blogs/"
+weight = 4
+[[menu.main]]
+name = "contact"
+url = "/contact/"
+weight = 5
+# [[menu.main]]
+#   name = "posts"
+#   url = "/posts/"

@@ -4,7 +4,171 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>如何防範 XSS - 市長 / tantuyu 的技術網誌</title>
+
         
+        <meta name="description" content="
+    #
+    什麼是 XSS？
+
+XSS（Cross-Site Scripting），中文稱為跨站腳本攻擊。這是一種網頁安全漏洞，允許攻擊者將惡意腳本注入到網頁中。
+
+    #
+    XSS 攻擊類型
+
+
+    #
+    1. 反射型 XSS (Reflected)
+
+最常見的 XSS 類型，攻擊腳本直接反射在 URL 中：
+
+    
+        
+        javascript
+        
+        
+        
+            
+                
+            
+            Copy
+        
+    
+    
+        
+            https://example.com/search?q=&lt;script&gt;alert(&#39;attacked&#39;)&lt;/script&gt;
+
+        
+    
+
+
+
+
+
+
+    #
+    2. 儲存型 XSS (Stored)
+
+惡意代碼被存儲在伺服器中，例如：">
+        <meta name="author" content="市長 / tantuyu">
+        
+        
+        <meta property="og:title" content="如何防範 XSS - 市長 / tantuyu 的技術網誌">
+        <meta property="og:description" content="
+    #
+    什麼是 XSS？
+
+XSS（Cross-Site Scripting），中文稱為跨站腳本攻擊。這是一種網頁安全漏洞，允許攻擊者將惡意腳本注入到網頁中。
+
+    #
+    XSS 攻擊類型
+
+
+    #
+    1. 反射型 XSS (Reflected)
+
+最常見的 XSS 類型，攻擊腳本直接反射在 URL 中：
+
+    
+        
+        javascript
+        
+        
+        
+            
+                
+            
+            Copy
+        
+    
+    
+        
+            https://example.com/search?q=&lt;script&gt;alert(&#39;attacked&#39;)&lt;/script&gt;
+
+        
+    
+
+
+
+
+
+
+    #
+    2. 儲存型 XSS (Stored)
+
+惡意代碼被存儲在伺服器中，例如：">
+        <meta property="og:type" content="article">
+        <meta property="og:url" content="https://ttymayor.com/posts/2025/6/defend-against-xss/">
+        <meta property="og:site_name" content="市長 / tantuyu 的技術網誌">
+        
+        <meta property="article:author" content="市長 / tantuyu">
+        <meta property="article:published_time" content="2025-06-17T06:36:32&#43;08:00">
+        <meta property="article:modified_time" content="2025-06-17T06:36:32&#43;08:00">
+        <meta property="article:tag" content="資安"><meta property="article:tag" content="XSS"><meta property="article:tag" content="網路安全"><meta property="article:tag" content="Web Security">
+        
+        
+        
+        
+        
+            
+        
+        <meta property="og:image" content="/images/og-default.png">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:image:alt" content="如何防範 XSS">
+        
+        
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@ttymayor">
+        <meta name="twitter:creator" content="@ttymayor">
+        <meta name="twitter:title" content="如何防範 XSS - 市長 / tantuyu 的技術網誌">
+        <meta name="twitter:description" content="
+    #
+    什麼是 XSS？
+
+XSS（Cross-Site Scripting），中文稱為跨站腳本攻擊。這是一種網頁安全漏洞，允許攻擊者將惡意腳本注入到網頁中。
+
+    #
+    XSS 攻擊類型
+
+
+    #
+    1. 反射型 XSS (Reflected)
+
+最常見的 XSS 類型，攻擊腳本直接反射在 URL 中：
+
+    
+        
+        javascript
+        
+        
+        
+            
+                
+            
+            Copy
+        
+    
+    
+        
+            https://example.com/search?q=&lt;script&gt;alert(&#39;attacked&#39;)&lt;/script&gt;
+
+        
+    
+
+
+
+
+
+
+    #
+    2. 儲存型 XSS (Stored)
+
+惡意代碼被存儲在伺服器中，例如：">
+        <meta name="twitter:image" content="/images/og-default.png">
+        
+        
+        <link rel="canonical" href="https://ttymayor.com/posts/2025/6/defend-against-xss/">
+
         
         <link rel="apple-touch-icon" sizes="180x180" href="https://ttymayor.com/favicon_io/apple-touch-icon.png">
         <link rel="icon" type="image/x-icon" href="https://ttymayor.com/favicon_io/favicon.ico">

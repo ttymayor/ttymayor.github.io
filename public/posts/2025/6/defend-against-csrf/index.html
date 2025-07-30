@@ -4,7 +4,132 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>如何防範 CSRF - 市長 / tantuyu 的技術網誌</title>
+
         
+        <meta name="description" content="
+    #
+    什麼是 CSRF？
+
+CSRF（Cross Site Request Forgery），翻成中文叫做跨站請求偽造。
+我們可以拆成兩個名詞來理解，分別是 跨站 以及 請求偽造。
+
+跨站：是發生漏洞的地點，並不在目標網站上。通常是由有心人士開發了一個網站，並利用了你瀏覽器上的 Cookie 進行濫用。
+請求偽造：有心人士利用你在惡意網站填的資料，進行修改，並成功請求。
+
+簡單來說，CSRF 攻擊就是利用使用者已登入的身分，在使用者不知情的情況下執行惡意操作。
+
+    #
+    CSRF 攻擊流程
+
+
+使用者登入信任的網站 A，並獲得認證 Cookie
+攻擊者誘導使用者訪問惡意網站 B
+惡意網站 B 向網站 A 發送請求，瀏覽器自動帶上 Cookie
+網站 A 驗證 Cookie 有效，執行了惡意操作
+
+
+    #
+    具體例子
+
+
+    #
+    銀行轉帳攻擊
+
+假設你登入了網路銀行，這時收到一封看似無害的郵件，點擊連結後進入了惡意網站。該網站可能包含這樣的代碼：">
+        <meta name="author" content="市長 / tantuyu">
+        
+        
+        <meta property="og:title" content="如何防範 CSRF - 市長 / tantuyu 的技術網誌">
+        <meta property="og:description" content="
+    #
+    什麼是 CSRF？
+
+CSRF（Cross Site Request Forgery），翻成中文叫做跨站請求偽造。
+我們可以拆成兩個名詞來理解，分別是 跨站 以及 請求偽造。
+
+跨站：是發生漏洞的地點，並不在目標網站上。通常是由有心人士開發了一個網站，並利用了你瀏覽器上的 Cookie 進行濫用。
+請求偽造：有心人士利用你在惡意網站填的資料，進行修改，並成功請求。
+
+簡單來說，CSRF 攻擊就是利用使用者已登入的身分，在使用者不知情的情況下執行惡意操作。
+
+    #
+    CSRF 攻擊流程
+
+
+使用者登入信任的網站 A，並獲得認證 Cookie
+攻擊者誘導使用者訪問惡意網站 B
+惡意網站 B 向網站 A 發送請求，瀏覽器自動帶上 Cookie
+網站 A 驗證 Cookie 有效，執行了惡意操作
+
+
+    #
+    具體例子
+
+
+    #
+    銀行轉帳攻擊
+
+假設你登入了網路銀行，這時收到一封看似無害的郵件，點擊連結後進入了惡意網站。該網站可能包含這樣的代碼：">
+        <meta property="og:type" content="article">
+        <meta property="og:url" content="https://ttymayor.com/posts/2025/6/defend-against-csrf/">
+        <meta property="og:site_name" content="市長 / tantuyu 的技術網誌">
+        
+        <meta property="article:author" content="市長 / tantuyu">
+        <meta property="article:published_time" content="2025-06-13T15:37:54&#43;08:00">
+        <meta property="article:modified_time" content="2025-06-13T15:37:54&#43;08:00">
+        <meta property="article:tag" content="資安"><meta property="article:tag" content="CSRF"><meta property="article:tag" content="網路安全"><meta property="article:tag" content="Web Security">
+        
+        
+        
+        
+        
+            
+        
+        <meta property="og:image" content="/images/og-default.png">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:image:alt" content="如何防範 CSRF">
+        
+        
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@ttymayor">
+        <meta name="twitter:creator" content="@ttymayor">
+        <meta name="twitter:title" content="如何防範 CSRF - 市長 / tantuyu 的技術網誌">
+        <meta name="twitter:description" content="
+    #
+    什麼是 CSRF？
+
+CSRF（Cross Site Request Forgery），翻成中文叫做跨站請求偽造。
+我們可以拆成兩個名詞來理解，分別是 跨站 以及 請求偽造。
+
+跨站：是發生漏洞的地點，並不在目標網站上。通常是由有心人士開發了一個網站，並利用了你瀏覽器上的 Cookie 進行濫用。
+請求偽造：有心人士利用你在惡意網站填的資料，進行修改，並成功請求。
+
+簡單來說，CSRF 攻擊就是利用使用者已登入的身分，在使用者不知情的情況下執行惡意操作。
+
+    #
+    CSRF 攻擊流程
+
+
+使用者登入信任的網站 A，並獲得認證 Cookie
+攻擊者誘導使用者訪問惡意網站 B
+惡意網站 B 向網站 A 發送請求，瀏覽器自動帶上 Cookie
+網站 A 驗證 Cookie 有效，執行了惡意操作
+
+
+    #
+    具體例子
+
+
+    #
+    銀行轉帳攻擊
+
+假設你登入了網路銀行，這時收到一封看似無害的郵件，點擊連結後進入了惡意網站。該網站可能包含這樣的代碼：">
+        <meta name="twitter:image" content="/images/og-default.png">
+        
+        
+        <link rel="canonical" href="https://ttymayor.com/posts/2025/6/defend-against-csrf/">
+
         
         <link rel="apple-touch-icon" sizes="180x180" href="https://ttymayor.com/favicon_io/apple-touch-icon.png">
         <link rel="icon" type="image/x-icon" href="https://ttymayor.com/favicon_io/favicon.ico">

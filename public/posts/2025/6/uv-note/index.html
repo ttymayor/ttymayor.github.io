@@ -4,7 +4,516 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>超快速 Python 套件管理工具：uv 你用過嗎？-- uv 學習筆記 - 市長 / tantuyu 的技術網誌</title>
+
         
+        <meta name="description" content="
+    
+        💡
+        
+        Tip
+        
+    
+    後續會繼續更新，其他常用指令，如果我想寫的話（？
+
+
+    #
+    特色簡介
+
+
+你甚至可以取代 pip, pip-tools, pipx, poetry, pyenv, twine, virtualenv
+快，超快，比 pip 快 10-100 倍
+使用 Rust 撰寫，但你不需要安裝它，就可以透過 curl 或者 pip 體驗
+內建虛擬環境建立，你無須自行在專案建立虛擬環境來執行專案
+
+還有很多值得探索，畢竟真的很快。
+
+    #
+    基礎使用
+
+
+    #
+    安裝 uv
+
+
+直接安裝在系統上
+
+    
+        
+        bash
+        
+        
+        
+            
+                
+            
+            Copy
+        
+    
+    
+        
+            # On macOS and Linux.
+curl -LsSf https://astral.sh/uv/install.sh | sh
+        
+    
+
+
+
+
+
+
+    
+        
+        bash
+        
+        
+        
+            
+                
+            
+            Copy
+        
+    
+    
+        
+            # On Windows.
+powershell -ExecutionPolicy ByPass -c &#34;irm https://astral.sh/uv/install.ps1 | iex&#34;
+        
+    
+
+
+
+
+
+
+使用 PyPI
+
+    
+        
+        bash
+        
+        
+        
+            
+                
+            
+            Copy
+        
+    
+    
+        
+            # With pip.
+pip install uv
+        
+    
+
+
+
+
+
+
+    
+        
+        bash
+        
+        
+        
+            
+                
+            
+            Copy
+        
+    
+    
+        
+            # Or pipx.
+pipx install uv
+        
+    
+
+
+
+
+
+
+
+
+    #
+    初始化專案使用 uv
+
+
+    
+        
+        bash
+        
+        
+        
+            
+                
+            
+            Copy
+        
+    
+    
+        
+            uv init example
+        
+    
+
+
+
+
+
+或是在專案目錄下">
+        <meta name="author" content="市長 / tantuyu">
+        
+        
+        <meta property="og:title" content="超快速 Python 套件管理工具：uv 你用過嗎？-- uv 學習筆記 - 市長 / tantuyu 的技術網誌">
+        <meta property="og:description" content="
+    
+        💡
+        
+        Tip
+        
+    
+    後續會繼續更新，其他常用指令，如果我想寫的話（？
+
+
+    #
+    特色簡介
+
+
+你甚至可以取代 pip, pip-tools, pipx, poetry, pyenv, twine, virtualenv
+快，超快，比 pip 快 10-100 倍
+使用 Rust 撰寫，但你不需要安裝它，就可以透過 curl 或者 pip 體驗
+內建虛擬環境建立，你無須自行在專案建立虛擬環境來執行專案
+
+還有很多值得探索，畢竟真的很快。
+
+    #
+    基礎使用
+
+
+    #
+    安裝 uv
+
+
+直接安裝在系統上
+
+    
+        
+        bash
+        
+        
+        
+            
+                
+            
+            Copy
+        
+    
+    
+        
+            # On macOS and Linux.
+curl -LsSf https://astral.sh/uv/install.sh | sh
+        
+    
+
+
+
+
+
+
+    
+        
+        bash
+        
+        
+        
+            
+                
+            
+            Copy
+        
+    
+    
+        
+            # On Windows.
+powershell -ExecutionPolicy ByPass -c &#34;irm https://astral.sh/uv/install.ps1 | iex&#34;
+        
+    
+
+
+
+
+
+
+使用 PyPI
+
+    
+        
+        bash
+        
+        
+        
+            
+                
+            
+            Copy
+        
+    
+    
+        
+            # With pip.
+pip install uv
+        
+    
+
+
+
+
+
+
+    
+        
+        bash
+        
+        
+        
+            
+                
+            
+            Copy
+        
+    
+    
+        
+            # Or pipx.
+pipx install uv
+        
+    
+
+
+
+
+
+
+
+
+    #
+    初始化專案使用 uv
+
+
+    
+        
+        bash
+        
+        
+        
+            
+                
+            
+            Copy
+        
+    
+    
+        
+            uv init example
+        
+    
+
+
+
+
+
+或是在專案目錄下">
+        <meta property="og:type" content="article">
+        <meta property="og:url" content="https://ttymayor.com/posts/2025/6/uv-note/">
+        <meta property="og:site_name" content="市長 / tantuyu 的技術網誌">
+        
+        <meta property="article:author" content="市長 / tantuyu">
+        <meta property="article:published_time" content="2025-06-09T20:00:51&#43;08:00">
+        <meta property="article:modified_time" content="2025-06-09T20:00:51&#43;08:00">
+        
+        
+        
+        
+        
+        
+            
+        
+        <meta property="og:image" content="/images/og-default.png">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:image:alt" content="超快速 Python 套件管理工具：uv 你用過嗎？-- uv 學習筆記">
+        
+        
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@ttymayor">
+        <meta name="twitter:creator" content="@ttymayor">
+        <meta name="twitter:title" content="超快速 Python 套件管理工具：uv 你用過嗎？-- uv 學習筆記 - 市長 / tantuyu 的技術網誌">
+        <meta name="twitter:description" content="
+    
+        💡
+        
+        Tip
+        
+    
+    後續會繼續更新，其他常用指令，如果我想寫的話（？
+
+
+    #
+    特色簡介
+
+
+你甚至可以取代 pip, pip-tools, pipx, poetry, pyenv, twine, virtualenv
+快，超快，比 pip 快 10-100 倍
+使用 Rust 撰寫，但你不需要安裝它，就可以透過 curl 或者 pip 體驗
+內建虛擬環境建立，你無須自行在專案建立虛擬環境來執行專案
+
+還有很多值得探索，畢竟真的很快。
+
+    #
+    基礎使用
+
+
+    #
+    安裝 uv
+
+
+直接安裝在系統上
+
+    
+        
+        bash
+        
+        
+        
+            
+                
+            
+            Copy
+        
+    
+    
+        
+            # On macOS and Linux.
+curl -LsSf https://astral.sh/uv/install.sh | sh
+        
+    
+
+
+
+
+
+
+    
+        
+        bash
+        
+        
+        
+            
+                
+            
+            Copy
+        
+    
+    
+        
+            # On Windows.
+powershell -ExecutionPolicy ByPass -c &#34;irm https://astral.sh/uv/install.ps1 | iex&#34;
+        
+    
+
+
+
+
+
+
+使用 PyPI
+
+    
+        
+        bash
+        
+        
+        
+            
+                
+            
+            Copy
+        
+    
+    
+        
+            # With pip.
+pip install uv
+        
+    
+
+
+
+
+
+
+    
+        
+        bash
+        
+        
+        
+            
+                
+            
+            Copy
+        
+    
+    
+        
+            # Or pipx.
+pipx install uv
+        
+    
+
+
+
+
+
+
+
+
+    #
+    初始化專案使用 uv
+
+
+    
+        
+        bash
+        
+        
+        
+            
+                
+            
+            Copy
+        
+    
+    
+        
+            uv init example
+        
+    
+
+
+
+
+
+或是在專案目錄下">
+        <meta name="twitter:image" content="/images/og-default.png">
+        
+        
+        <link rel="canonical" href="https://ttymayor.com/posts/2025/6/uv-note/">
+
         
         <link rel="apple-touch-icon" sizes="180x180" href="https://ttymayor.com/favicon_io/apple-touch-icon.png">
         <link rel="icon" type="image/x-icon" href="https://ttymayor.com/favicon_io/favicon.ico">
