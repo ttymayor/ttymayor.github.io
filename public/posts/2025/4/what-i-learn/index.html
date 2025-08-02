@@ -1114,10 +1114,10 @@
     });
 
     
-    document.querySelectorAll('#toc-nav li').forEach(li => {
-      const hasChildren = li.querySelector('ul, ol');
+    document.querySelectorAll("#toc-nav li").forEach((li) => {
+      const hasChildren = li.querySelector("ul, ol");
       if (hasChildren) {
-        li.classList.add('has-children');
+        li.classList.add("has-children");
       }
     });
 
@@ -1129,36 +1129,42 @@
       .filter(Boolean);
 
     
-    const headingLevels = headings.map(heading => parseInt(heading.tagName.slice(1)));
-    
+    const headingLevels = headings.map((heading) =>
+      parseInt(heading.tagName.slice(1))
+    );
+
     function updateTocExpansion(activeIndex) {
       
-      document.querySelectorAll('#toc-nav li').forEach(li => li.classList.remove('active'));
-      
+      document
+        .querySelectorAll("#toc-nav li")
+        .forEach((li) => li.classList.remove("active"));
+
       if (activeIndex >= 0) {
         const activeLink = tocLinks[activeIndex];
-        const activeLi = activeLink.closest('li');
+        const activeLi = activeLink.closest("li");
+
         
+        activeLi.classList.add("active");
+
         
-        activeLi.classList.add('active');
-        
-        
-        let parentLi = activeLi.parentElement.closest('li');
+        let parentLi = activeLi.parentElement.closest("li");
         while (parentLi) {
-          parentLi.classList.add('active');
-          parentLi = parentLi.parentElement.closest('li');
+          parentLi.classList.add("active");
+          parentLi = parentLi.parentElement.closest("li");
         }
-        
+
         
         const currentLevel = headingLevels[activeIndex];
         for (let i = activeIndex + 1; i < headings.length; i++) {
           const nextLevel = headingLevels[i];
           if (nextLevel <= currentLevel) break;
-          
+
           
           if (nextLevel === currentLevel + 1) {
-            const nextLi = tocLinks[i].closest('li').parentElement.closest('li');
-            if (nextLi) nextLi.classList.add('active');
+            const nextLi = tocLinks[i]
+              .closest("li")
+              .parentElement.closest("li");
+            if (nextLi) nextLi.classList.add("active");
           }
         }
       }
@@ -1167,16 +1173,16 @@
     function onScroll() {
       let activeIndex = -1;
       const scrollPosition = window.scrollY + 150; 
-      
+
       for (let i = 0; i < headings.length; i++) {
         if (scrollPosition >= headings[i].offsetTop) {
           activeIndex = i;
         }
       }
-      
+
       
       updateTocExpansion(activeIndex);
-      
+
       
       tocLinks.forEach((link, i) => {
         if (i === activeIndex) {
@@ -1367,8 +1373,6 @@
     background-color: rgba(99, 102, 241, 0.1);
     color: #a5b4fc;
     border-left-color: #6366f1;
-  }
-</style>
   }
 </style>
 

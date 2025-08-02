@@ -117,7 +117,7 @@
   {{ end }}
 </div>
 
-{{/* TOC scripts */}}
+<!-- TOC scripts -->
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const tocLinks = document.querySelectorAll("#toc-nav a");
@@ -131,10 +131,10 @@
     });
 
     // 標記有子項目的 li 元素
-    document.querySelectorAll('#toc-nav li').forEach(li => {
-      const hasChildren = li.querySelector('ul, ol');
+    document.querySelectorAll("#toc-nav li").forEach((li) => {
+      const hasChildren = li.querySelector("ul, ol");
       if (hasChildren) {
-        li.classList.add('has-children');
+        li.classList.add("has-children");
       }
     });
 
@@ -146,36 +146,42 @@
       .filter(Boolean);
 
     // 建立標題層級對應
-    const headingLevels = headings.map(heading => parseInt(heading.tagName.slice(1)));
-    
+    const headingLevels = headings.map((heading) =>
+      parseInt(heading.tagName.slice(1))
+    );
+
     function updateTocExpansion(activeIndex) {
       // 重置所有 active 狀態
-      document.querySelectorAll('#toc-nav li').forEach(li => li.classList.remove('active'));
-      
+      document
+        .querySelectorAll("#toc-nav li")
+        .forEach((li) => li.classList.remove("active"));
+
       if (activeIndex >= 0) {
         const activeLink = tocLinks[activeIndex];
-        const activeLi = activeLink.closest('li');
-        
+        const activeLi = activeLink.closest("li");
+
         // 標記當前活動項目
-        activeLi.classList.add('active');
-        
+        activeLi.classList.add("active");
+
         // 向上遞歸展開所有父層級
-        let parentLi = activeLi.parentElement.closest('li');
+        let parentLi = activeLi.parentElement.closest("li");
         while (parentLi) {
-          parentLi.classList.add('active');
-          parentLi = parentLi.parentElement.closest('li');
+          parentLi.classList.add("active");
+          parentLi = parentLi.parentElement.closest("li");
         }
-        
+
         // 如果當前標題有子標題，也展開它們
         const currentLevel = headingLevels[activeIndex];
         for (let i = activeIndex + 1; i < headings.length; i++) {
           const nextLevel = headingLevels[i];
           if (nextLevel <= currentLevel) break;
-          
+
           // 如果是直接子標題（下一層級），展開它
           if (nextLevel === currentLevel + 1) {
-            const nextLi = tocLinks[i].closest('li').parentElement.closest('li');
-            if (nextLi) nextLi.classList.add('active');
+            const nextLi = tocLinks[i]
+              .closest("li")
+              .parentElement.closest("li");
+            if (nextLi) nextLi.classList.add("active");
           }
         }
       }
@@ -184,16 +190,16 @@
     function onScroll() {
       let activeIndex = -1;
       const scrollPosition = window.scrollY + 150; // 增加偏移量讓切換更自然
-      
+
       for (let i = 0; i < headings.length; i++) {
         if (scrollPosition >= headings[i].offsetTop) {
           activeIndex = i;
         }
       }
-      
+
       // 更新目錄展開狀態
       updateTocExpansion(activeIndex);
-      
+
       // 更新連結樣式
       tocLinks.forEach((link, i) => {
         if (i === activeIndex) {
@@ -384,8 +390,6 @@
     background-color: rgba(99, 102, 241, 0.1);
     color: #a5b4fc;
     border-left-color: #6366f1;
-  }
-</style>
   }
 </style>
 
