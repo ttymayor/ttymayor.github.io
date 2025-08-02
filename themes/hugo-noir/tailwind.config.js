@@ -5,7 +5,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Space Grotesk', 'sans-serif'],
+        sans: ['LINESeedTW_OTF_Rg', 'Space Grotesk', 'sans-serif'],
+        bold: ['LINESeedTW_OTF_Bd', 'Space Grotesk', 'sans-serif'],
+        extrabold: ['LINESeedTW_OTF_Eb', 'Space Grotesk', 'sans-serif'],
       },
     },
   },

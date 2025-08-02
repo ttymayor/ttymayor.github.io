@@ -1,14 +1,114 @@
 {{ if .TableOfContents }}
-<nav id="toc-nav" class="sticky top-24 text-sm rounded-xl p-4 opacity-50 transition-all duration-300 hover:opacity-100 bg-[#121212]">
-    <h2 class="font-bold text-lg mb-3 text-indigo-500">目錄 TOC</h2>
-    <div id="toc-content">
-        {{ .TableOfContents | safeHTML }}
-    </div>
-    <div class="mt-4">
-        <div class="w-full bg-gray-700 rounded-full h-2">
-            <div id="scroll-progress-bar" class="bg-indigo-400 h-2 rounded-full" style="width: 0%"></div>
-        </div>
-        <div class="text-right text-xs text-gray-400 mt-1" id="scroll-progress-text">0%</div>
-    </div>
+<nav
+  id="toc-nav"
+  class="sticky top-24 text-sm rounded-xl p-4 border border-gray-700 bg-[#1a1a1a] backdrop-blur-sm shadow-lg transition-all duration-300 hover:border-indigo-500"
+>
+  <h2 class="font-bold text-lg mb-4 text-indigo-500 flex items-center">
+    <svg
+      class="w-5 h-5 mr-2"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M4 6h16M4 10h16M4 14h16M4 18h16"
+      ></path>
+    </svg>
+    目錄
+  </h2>
+
+  <div id="toc-content" class="toc-content">
+    {{ .TableOfContents | safeHTML }}
+  </div>
 </nav>
+
+<style>
+  /* TOC 樣式 */
+  #toc-nav ul,
+  #toc-nav ol {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  #toc-nav ul ul,
+  #toc-nav ol ol {
+    padding-left: 1rem;
+    margin-top: 0.25rem;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  /* 當父層級是 active 時，展開子層級 */
+  #toc-nav li.active > ul,
+  #toc-nav li.active > ol {
+    max-height: 1000px;
+    opacity: 1;
+  }
+
+  #toc-nav li.active > a {
+    color: oklch(78.5% 0.115 274.713);
+    font-weight: bold;
+  }
+
+  /* 第一層永遠顯示 */
+  #toc-nav > ol > li {
+    max-height: none !important;
+    opacity: 1 !important;
+  }
+
+  #toc-nav li {
+    margin: 0.5rem 0;
+  }
+
+  #toc-nav a {
+    display: block;
+    color: #9ca3af;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+    position: relative;
+  }
+
+  #toc-nav a:hover {
+    color: #a5b4fc;
+    transform: translateX(2px);
+  }
+
+  /* 不同層級的視覺差異 */
+  #toc-nav ul ul a,
+  #toc-nav ol ol a {
+    font-size: 0.875rem;
+  }
+
+  #toc-nav ul ul ul a,
+  #toc-nav ol ol ol a {
+    font-size: 0.8rem;
+    opacity: 0.8;
+  }
+
+  #toc-nav ul ul ul ul a,
+  #toc-nav ol ol ol ol a {
+    font-size: 0.75rem;
+    opacity: 0.7;
+  }
+
+  #toc-nav ul ul ul ul ul a,
+  #toc-nav ol ol ol ol ol a {
+    font-size: 0.7rem;
+    opacity: 0.6;
+  }
+
+  #toc-nav ul ul ul ul ul ul a,
+  #toc-nav ol ol ol ol ol ol a {
+    font-size: 0.65rem;
+    opacity: 0.5;
+  }
+</style>
 {{ end }}

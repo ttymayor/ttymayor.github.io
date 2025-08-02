@@ -1,168 +1,218 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Blogs - 市長 / tantuyu 的技術網誌</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Blogs - 市長 / tantuyu 的技術網誌
+    </title>
 
-        
-        <meta name="description" content="">
-        <meta name="author" content="市長 / tantuyu">
-        
-        
-        <meta property="og:title" content="Blogs - 市長 / tantuyu 的技術網誌">
-        <meta property="og:description" content="">
-        <meta property="og:type" content="article">
-        <meta property="og:url" content="https://ttymayor.com/blogs/">
-        <meta property="og:site_name" content="市長 / tantuyu 的技術網誌">
-        
-        <meta property="article:author" content="市長 / tantuyu">
-        <meta property="article:published_time" content="2025-03-23T20:37:58&#43;08:00">
-        <meta property="article:modified_time" content="2025-03-23T20:37:58&#43;08:00">
-        
-        
-        
-        
-        
-        
-            
-        
-        <meta property="og:image" content="/images/og-default.png">
-        <meta property="og:image:width" content="1200">
-        <meta property="og:image:height" content="630">
-        <meta property="og:image:alt" content="Blogs">
-        
-        
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:site" content="@ttymayor">
-        <meta name="twitter:creator" content="@ttymayor">
-        <meta name="twitter:title" content="Blogs - 市長 / tantuyu 的技術網誌">
-        <meta name="twitter:description" content="">
-        <meta name="twitter:image" content="/images/og-default.png">
-        
-        
-        <link rel="canonical" href="https://ttymayor.com/blogs/">
+    
+    <meta
+      name="description"
+      content=""
+    />
+    <meta name="author" content="市長 / tantuyu" />
 
-        
-        <link rel="apple-touch-icon" sizes="180x180" href="https://ttymayor.com/favicon_io/apple-touch-icon.png">
-        <link rel="icon" type="image/x-icon" href="https://ttymayor.com/favicon_io/favicon.ico">
-        <link rel="manifest" href="https://ttymayor.com/favicon_io/site.webmanifest">        
-        <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
-        <link rel="preload" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" as="style">
-        
-        
-        <style>
-            ::selection {
-                background-color: #6366f1;
-                color: #f3f4f6;
-            }
-            html, body {
-                background-color: #121212;
-                color: #f3f4f6;
-            }            
-            .border {
-                border-color: #374151;
-            }            
-            .carousel-item {
-                display: inline-block;
-                margin: 0 1rem;
-            }            
-            .flex {
-                display: flex;
-            }
-            .flex-col {
-                flex-direction: column;
-            }
-            
-            @media (min-width: 768px) {
-                .md\:flex-row {
-                    flex-direction: row;
-                }
-            }
-            
-            .tech-carousel {
-                overflow: hidden;
-                width: 100%;
-                padding: 1rem 0;
-            }
-            
-            .carousel-track {
-                white-space: nowrap;
-            }
+    
+    <meta
+      property="og:title"
+      content="Blogs - 市長 / tantuyu 的技術網誌"
+    />
+    <meta
+      property="og:description"
+      content=""
+    />
+    <meta
+      property="og:type"
+      content="article"
+    />
+    <meta property="og:url" content="https://ttymayor.com/blogs/" />
+    <meta property="og:site_name" content="市長 / tantuyu 的技術網誌" />
+    
+    <meta property="article:author" content="市長 / tantuyu" />
+    <meta property="article:published_time" content="2025-03-23T20:37:58&#43;08:00"> <meta
+    property="article:modified_time" content="2025-03-23T20:37:58&#43;08:00">  
 
-            code:not(pre > code) {
-                background-color: #6666e181;
-                color: #f3f4f6;
-                padding: 0.1rem 0.3rem;
-                border-radius: 0.25rem;
-            }
-        </style>
-        
-        <script src="https://cdn.tailwindcss.com"></script>
-        <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-        <script>
-            
-            if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                document.documentElement.classList.add('dark');
-            } else {
-                document.documentElement.classList.remove('dark');
-            }
-        </script>
-        <style>
-            :root {
-                color-scheme: dark;
-            }
-            
-            body {
-                @apply bg-[#121212] text-gray-100;
-            }
+    
+      
+    
+    <meta property="og:image" content="/images/og-default.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Blogs"
+    />
 
-            .tech-icon {
-                filter: grayscale(100%) brightness(200%);
-                transition: all 0.3s ease;
-            }
-            .tech-icon:hover {
-                filter: none;
-            }
-            
-            @keyframes scroll {
-                0% {
-                    transform: translateX(0);
-                }
-                100% {
-                    transform: translateX(-100%);
-                }
-            }
-            
-            .tech-carousel {
-                width: 100%;
-                padding: 1rem 0;
-            }
-            
-            .tech-track {
-                width: fit-content;
-                animation: scroll 20s linear infinite;
-            }
-            
-            .tech-track:hover {
-                animation-play-state: paused;
-            }
-            
-            .tech-slide {
-                float: left;
-            }
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@ttymayor"> <meta name="twitter:creator" content="@ttymayor">
+    <meta
+      name="twitter:title"
+      content="Blogs - 市長 / tantuyu 的技術網誌"
+    />
+    <meta
+      name="twitter:description"
+      content=""
+    />
+    <meta name="twitter:image" content="/images/og-default.png" />
 
-            footer {
-                background: linear-gradient(to bottom, transparent, rgba(24, 25, 59, 0.5));
-            }
-        </style>
+    
+    <link rel="canonical" href="https://ttymayor.com/blogs/" />
 
-        
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6440102652783062"
+    
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="https://ttymayor.com/favicon_io/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://ttymayor.com/favicon_io/favicon.ico"
+    />
+    <link
+      rel="manifest"
+      href="https://ttymayor.com/favicon_io/site.webmanifest"
+    />
+    <link rel="preload" href="https://cdn.tailwindcss.com" as="script" />
+    <link
+      rel="preload"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+      as="style"
+    />
+
+    
+    <style>
+      ::selection {
+        background-color: #6366f1;
+        color: #f3f4f6;
+      }
+      body {
+        font-family: "LINESeedTW_OTF_Rg", "Space Grotesk", sans-serif;
+      }
+      .border {
+        border-color: #374151;
+      }
+      .carousel-item {
+        display: inline-block;
+        margin: 0 1rem;
+      }
+      .flex {
+        display: flex;
+      }
+      .flex-col {
+        flex-direction: column;
+      }
+
+      @media (min-width: 768px) {
+        .md\:flex-row {
+          flex-direction: row;
+        }
+      }
+
+      .tech-carousel {
+        overflow: hidden;
+        width: 100%;
+        padding: 1rem 0;
+      }
+
+      .carousel-track {
+        white-space: nowrap;
+      }
+
+      code:not(pre > code) {
+        background-color: #6666e181;
+        color: #f3f4f6;
+        padding: 0.1rem 0.3rem;
+        border-radius: 0.25rem;
+      }
+    </style>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
+    <script>
+      
+      if (
+        localStorage.getItem("color-theme") === "dark" ||
+        (!("color-theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+
+      body {
+        @apply bg-[#121212] text-gray-100;
+      }
+
+      .tech-icon {
+        filter: grayscale(100%) brightness(200%);
+        transition: all 0.3s ease;
+      }
+      .tech-icon:hover {
+        filter: none;
+      }
+
+      @keyframes scroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+
+      .tech-carousel {
+        width: 100%;
+        padding: 1rem 0;
+      }
+
+      .tech-track {
+        width: fit-content;
+        animation: scroll 20s linear infinite;
+      }
+
+      .tech-track:hover {
+        animation-play-state: paused;
+      }
+
+      .tech-slide {
+        float: left;
+      }
+
+      footer {
+        background: linear-gradient(
+          to bottom,
+          transparent,
+          rgba(24, 25, 59, 0.5)
+        );
+      }
+    </style>
+
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6440102652783062"
      crossorigin="anonymous"></script>
-    </head>
-    <body class="min-h-screen bg-[#121212] text-gray-100">
-        
+
+    
+    <link href="https://font.emtech.cc/css/LINESeedTW" rel="stylesheet" />
+  </head>
+  <body
+    class="min-h-screen bg-[#121212] text-gray-100"
+    style="font-family: LINESeedTW"
+  >
+    
 <head>
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSRV9XFS5Z"></script>
@@ -175,12 +225,6 @@
     </script>
     
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Space Grotesk', sans-serif;
-        }
-    </style>
 </head>
 <header class="py-6 relative">
     <div class="max-w-6xl mx-auto px-4">
@@ -336,8 +380,7 @@
         });
     }
 </script> 
-        <main class="min-h-[60vh]">
-            
+    <main class="min-h-[60vh]">
 <div class="w-full md:w-4/5 lg:w-3/5 mx-auto px-14 py-12">
     <h1 class="text-5xl font-bold mb-12">Blogs</h1>
     
@@ -638,9 +681,8 @@
         
     </div>
 </div>
-
-        </main>
-        
+</main>
+    
 <footer class="mt-32 text-center">
     <div class="max-w-3xl mx-auto">
         <div class="border-t border-gray-800 pt-5">
@@ -678,43 +720,69 @@
         width: 100%;
     }
 </style> 
+    
+    <button
+      onclick="topFunction()"
+      id="goTopBtn"
+      class="opacity-0 fixed bottom-8 right-8 z-50 bg-indigo-700 hover:bg-indigo-500 shadow-lg shadow-indigo-500/50 text-white p-3 rounded-full w-10 h-10 flex items-center justify-center text-lg transition-all duration-300 focus:outline-none pointer-events-none"
+      title="Go to top"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M5 15l7-7 7 7"
+        />
+      </svg>
+    </button>
+    
+    <button
+      onclick="topFunction()"
+      id="footerGoTopBtn"
+      class="w-full bg-indigo-700 hover:bg-indigo-500 text-white py-3 text-center transition-all duration-300"
+      title="Go to top"
+    >
+      回到頂部
+    </button>
+    <script>
+      let goTopBtn = document.getElementById("goTopBtn");
+      let footerGoTopBtn = document.getElementById("footerGoTopBtn");
+      let footer = document.querySelector("footer");
+
+      window.addEventListener("scroll", scrollFunction);
+
+      function scrollFunction() {
         
-        <button onclick="topFunction()" id="goTopBtn" class="opacity-0 fixed bottom-8 right-8 z-50 bg-indigo-700 hover:bg-indigo-500 shadow-lg shadow-indigo-500/50 text-white p-3 rounded-full w-10 h-10 flex items-center justify-center text-lg transition-all duration-300 focus:outline-none pointer-events-none" title="Go to top">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
-            </svg>
-        </button>
+        const footerRect = footer.getBoundingClientRect();
+        const viewportHeight =
+          window.innerHeight || document.documentElement.clientHeight;
+        const nearFooter = footerRect.top < viewportHeight - 50; 
+
+        if (
+          (document.body.scrollTop > 750 ||
+            document.documentElement.scrollTop > 750) &&
+          !nearFooter
+        ) {
+          goTopBtn.classList.remove("opacity-0", "pointer-events-none");
+          goTopBtn.classList.add("opacity-100");
+        } else {
+          goTopBtn.classList.add("opacity-0", "pointer-events-none");
+          goTopBtn.classList.remove("opacity-100");
+        }
+
         
-        <button onclick="topFunction()" id="footerGoTopBtn" class="w-full bg-indigo-700 hover:bg-indigo-500 text-white py-3 text-center transition-all duration-300" title="Go to top">
-            回到頂部
-        </button>
-        <script>
-            let goTopBtn = document.getElementById("goTopBtn");
-            let footerGoTopBtn = document.getElementById("footerGoTopBtn");
-            let footer = document.querySelector("footer");
+      }
 
-            window.addEventListener("scroll", scrollFunction);
-
-            function scrollFunction() {
-            
-            const footerRect = footer.getBoundingClientRect();
-            const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-            const nearFooter = footerRect.top < viewportHeight - 50; 
-
-            if ((document.body.scrollTop > 750 || document.documentElement.scrollTop > 750) && !nearFooter) {
-                goTopBtn.classList.remove("opacity-0", "pointer-events-none");
-                goTopBtn.classList.add("opacity-100");
-            } else {
-                goTopBtn.classList.add("opacity-0", "pointer-events-none");
-                goTopBtn.classList.remove("opacity-100");
-            }
-
-            
-            }
-
-            function topFunction() {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-            }
-        </script>
-    </body>
-</html> 
+      function topFunction() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    </script>
+  </body>
+</html>

@@ -1,7 +1,7 @@
 ---
-date: '2025-03-23T21:10:51+08:00'
+date: "2025-03-23T21:10:51+08:00"
 draft: false
-title: '從 Hexo 轉戰 Hugo'
+title: "從 Hexo 轉戰 Hugo"
 tags: ["test", "Hugo", "Hexo"]
 categories: ["test"]
 description: " "
@@ -12,10 +12,15 @@ description: " "
 這裡什麼都沒有，測試文章中。
 
 # h1
+
 ## h2
+
 ### h3
+
 #### h4
+
 ##### h5
+
 ###### h6
 
 ---
@@ -34,10 +39,10 @@ description: " "
 
 1. ordered list
 2. ordered list
-    1. ordered list
-    2. ordered list
-    - unordered list
-    - unordered list
+   1. ordered list
+   2. ordered list
+   - unordered list
+   - unordered list
 
 ## Quote
 
@@ -47,8 +52,8 @@ description: " "
 
 > 1. 使用 list
 > 2. 使用 list
->     - 使用 list
-> 
+>    - 使用 list
+>
 > - list
 
 > [!NOTE]
@@ -68,7 +73,7 @@ description: " "
 
 ## Text Effect
 
-**粗體** *斜體* ~~刪除線~~ ||我被隱藏了||
+**粗體** _斜體_ ~~刪除線~~ ||我被隱藏了||
 
 ## Code Block
 
@@ -102,7 +107,7 @@ int main() {
 ## Check Box
 
 - [ ] 123
-- [X] 123
+- [x] 123
 - [ ] [link](#)
 
 ## Image
