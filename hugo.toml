@@ -102,28 +102,21 @@ name = "Hugo"
 icon = "devicon-hugo-plain text-2xl"
 
 
-# # 工作經驗模板
-# [[params.experience]]
-# company = "Company One"
-# role = "Senior Role"
-# period = "Jan 2023 - Present"
-# logo = "/images/company/company1.png"
-# description = "Brief description of your role and responsibilities."
-# responsibilities = [
-#     "Key responsibility with specific achievement",
-#     "Key responsibility with specific achievement",
-#     "Key responsibility with specific achievement",
-#     "Key responsibility with specific achievement"
-# ]
+# 工作經驗模板
+[[params.experience]]
+company = "JTX 嘉泰興"
+role = "Intern"
+period = "20250623 - 20250822"
+description = "使用 Laravel 與 Vue.js 開發前後端，主要開發功能：出入庫功能"
+responsibilities = ["協助資料庫設計與建置", "能夠獨自發現專案有 BAC 資安漏洞問題，並嘗試解決"]
 
 # 作品集模板
 [[params.projects]]
-title = "留言板 API 開發（WIP）"
+title = "留言板 API 開發"
 description = "就只是發現我的網站沒有留言系統，所以想自己寫個留言板 API，並順便拿 Golang 練練手。"
 tech = "Golang, PostgreSQL"
 image = "https://opengraph.githubassets.com/bfe65f3d06157fe7f5d9bd1a65e8f1934a543ca6eebe585c90b8e80195e54b4b/ttymayor/messageboard"
 link = "https://github.com/ttymayor/messageboard"
-
 [[params.projects]]
 title = "交換選課系統"
 description = "每逢學期末，刺激的選課結果總讓人出乎意料，但有了它，你可以與其他人輕鬆配對選課 Vibe Coding - Using Copilot Agent."
@@ -152,7 +145,13 @@ location = "東海大學 - 駭客社"
 
 # 活動經驗模板
 [[params.voluntary]]
+organization = "COSCUP 開源人年會"
+url = "https://coscup.org/"
+role = "Attendee"
+period = "2025"
+[[params.voluntary]]
 organization = "SITCON 學生計算機年會"
+url = "https://sitcon.org/"
 role = "Attendee"
 period = "2022, 2024, 2025"
 [[params.voluntary]]
