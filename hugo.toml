@@ -112,16 +112,28 @@ responsibilities = ["協助資料庫設計與建置", "能夠獨自發現專案�
 
 # 作品集模板
 [[params.projects]]
+title = "東海選課資訊"
+description = "前端專案：使用 Next.js 開發，直接使用 MongoDB 抓取資料，實現模擬選課、分享課表等功能"
+tech = "Next.js, React"
+image = "https://opengraph.githubassets.com/1/ttymayor/thu-course-frontend"
+link = "https://github.com/ttymayor/thu-course-frontend"
+[[params.projects]]
+title = "東海選課爬蟲"
+description = "使用 Python Requests 以及 BeautifulSoup 爬取東海選課資訊，並存入 MongoDB"
+tech = "Python, Requests, BeautifulSoup"
+image = "https://opengraph.githubassets.com/1/ttymayor/thu-course-crawler"
+link = "https://github.com/ttymayor/thu-course-crawler"
+[[params.projects]]
 title = "留言板 API 開發"
 description = "就只是發現我的網站沒有留言系統，所以想自己寫個留言板 API，並順便拿 Golang 練練手。"
 tech = "Golang, PostgreSQL"
-image = "https://opengraph.githubassets.com/bfe65f3d06157fe7f5d9bd1a65e8f1934a543ca6eebe585c90b8e80195e54b4b/ttymayor/messageboard"
+image = "https://opengraph.githubassets.com/1/ttymayor/messageboard"
 link = "https://github.com/ttymayor/messageboard"
 [[params.projects]]
 title = "交換選課系統"
 description = "每逢學期末，刺激的選課結果總讓人出乎意料，但有了它，你可以與其他人輕鬆配對選課 Vibe Coding - Using Copilot Agent."
 tech = "Laravel, PHP, Vue.js"
-image = "https://opengraph.githubassets.com/bfe65f3d06157fe7f5d9bd1a65e8f1934a543ca6eebe585c90b8e80195e54b4b/ttymayor/exchange_course"
+image = "https://opengraph.githubassets.com/1/ttymayor/exchange_course"
 link = "https://github.com/ttymayor/exchange_course"
 
 # # 部落格文章模板
