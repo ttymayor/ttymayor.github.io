@@ -113,14 +113,14 @@ responsibilities = ["協助資料庫設計與建置", "能夠獨自發現專案�
 # 作品集模板
 [[params.projects]]
 title = "東海選課資訊"
-description = "前端專案：使用 Next.js 開發，直接使用 MongoDB 抓取資料，實現模擬選課、分享課表等功能"
-tech = "Anime.js, Next.js, React"
-image = "https://opengraph.githubassets.com/1/ttymayor/thu-course-frontend"
-link = "https://github.com/ttymayor/thu-course-frontend"
+description = "前端專案：使用 Next.js 開發，使用 MongoDB 抓取資料，實現模擬選課、分享課表等功能"
+tech = "Anime.js, Next.js, React, Mongoose"
+image = "https://thc.ttymayor.com/api/og"
+link = "https://thc.ttymayor.com"
 [[params.projects]]
 title = "東海選課爬蟲"
 description = "使用 Python Requests 以及 BeautifulSoup 爬取東海選課資訊，並存入 MongoDB"
-tech = "Python, Requests, BeautifulSoup"
+tech = "Python, Requests, BeautifulSoup, MongoDB"
 image = "https://opengraph.githubassets.com/1/ttymayor/thu-course-crawler"
 link = "https://github.com/ttymayor/thu-course-crawler"
 [[params.projects]]
