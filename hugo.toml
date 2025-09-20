@@ -60,6 +60,21 @@ icon = "devicon-flask-original text-2xl"
 name = "C++"
 icon = "devicon-cplusplus-plain text-2xl"
 [[params.techsRow1]]
+name = "TypeScript"
+icon = "devicon-typescript-plain text-2xl"
+[[params.techsRow1]]
+name = "React"
+icon = "devicon-react-plain text-2xl"
+[[params.techsRow1]]
+name = "Next.js"
+icon = "devicon-nextjs-plain text-2xl"
+[[params.techsRow1]]
+name = "Vue.js"
+icon = "devicon-vuejs-plain text-2xl"
+[[params.techsRow1]]
+name = "MongoDB"
+icon = "devicon-mongodb-plain text-2xl"
+[[params.techsRow1]]
 name = "MariaDB"
 icon = "devicon-mariadb-original text-2xl"
 [[params.techsRow1]]
@@ -82,6 +97,9 @@ icon = "devicon-ubuntu-plain text-2xl"
 [[params.techsRow2]]
 name = "Git"
 icon = "devicon-git-plain text-2xl"
+[[params.techsRow2]]
+name = "pnpm"
+icon = "devicon-pnpm-plain text-2xl"
 [[params.techsRow2]]
 name = "VS Code"
 icon = "devicon-visualstudio-plain text-2xl"
@@ -108,7 +126,7 @@ company = "JTX 嘉泰興"
 role = "Intern"
 period = "20250623 - 20250822"
 description = "使用 Laravel 與 Vue.js 開發前後端，主要開發功能：出入庫功能"
-responsibilities = ["協助資料庫設計與建置", "能夠獨自發現專案有 BAC 資安漏洞問題，並嘗試解決"]
+responsibilities = ["協助資料庫設計與建置", "能夠獨自發現專案有 BAC 資安漏洞問題，並嘗試解決", "繪製架構圖"]
 
 # 作品集模板
 [[params.projects]]
@@ -149,10 +167,16 @@ link = "https://github.com/ttymayor/exchange_course"
 
 # 講課經驗
 [[params.slides]]
-slides_url = "http://mc.ttymayor.com/dockerslide"
-pdf_url = "https://ttymayor.com/slides/docker-slide.pdf"
+slides_url = "https://surl.ttymayor.com/linux-slide"
+pdf_url = "https://surl.ttymayor.com/linux-slide-pdf"
+title = "Linux - 你應該要認識的企鵝"
+date = "2025/09/18"
+location = "東海大學 - 駭客社"
+[[params.slides]]
+slides_url = "https://surl.ttymayor.com/docker-slide"
+pdf_url = "https://surl.ttymayor.com/docker-slide-pdf"
 title = "入門 Docker 開發技能 +1"
-date = "2025-05-15"
+date = "2025/05/15"
 location = "東海大學 - 駭客社"
 
 # 活動經驗模板

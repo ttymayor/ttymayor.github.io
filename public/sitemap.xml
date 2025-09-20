@@ -2,19 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://ttymayor.com/posts/</loc>
+    <lastmod>2025-09-20T18:11:59+08:00</lastmod>
+  </url><url>
+    <loc>https://ttymayor.com/</loc>
+    <lastmod>2025-09-20T18:11:59+08:00</lastmod>
+  </url><url>
     <loc>https://ttymayor.com/categories/</loc>
     <lastmod>2025-07-30T15:11:59+08:00</lastmod>
   </url><url>
     <loc>https://ttymayor.com/tags/computer-science/</loc>
     <lastmod>2025-07-30T15:11:59+08:00</lastmod>
   </url><url>
-    <loc>https://ttymayor.com/posts/</loc>
-    <lastmod>2025-07-30T15:11:59+08:00</lastmod>
-  </url><url>
     <loc>https://ttymayor.com/tags/</loc>
-    <lastmod>2025-07-30T15:11:59+08:00</lastmod>
-  </url><url>
-    <loc>https://ttymayor.com/</loc>
     <lastmod>2025-07-30T15:11:59+08:00</lastmod>
   </url><url>
     <loc>https://ttymayor.com/posts/2025/7/why-some-projects-use-multiple-programming-languages/</loc>
